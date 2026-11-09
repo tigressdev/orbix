@@ -1,0 +1,17 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+# local working databases (personal scenarios live here): never commit
+data/quotes.sqlite
+data/demo.sqlite
+data/*.sqlite-journal
+site/
+ticket/
+extracted/
+*.pdf
+.claude/
+.vercel
+# secrets
+config/users.local.json
+data/.session_secret

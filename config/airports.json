@@ -1,0 +1,192 @@
+{
+  "_note": "utc_offset is the standard offset valid for the whole trip window (2027-02-11 .. 2027-03-26). Europe switches to summer time on 2027-03-28, after the window. Re-check if the window changes.",
+  "MAD": {
+    "city": "MADRID",
+    "utc_offset": 1,
+    "lat": 40.472,
+    "lon": -3.563,
+    "name": "Adolfo Suárez Madrid–Barajas"
+  },
+  "BUD": {
+    "city": "BUDAPEST",
+    "utc_offset": 1,
+    "lat": 47.439,
+    "lon": 19.262,
+    "name": "Budapest Ferenc Liszt"
+  },
+  "VIE": {
+    "city": "VIENNA",
+    "utc_offset": 1,
+    "lat": 48.11,
+    "lon": 16.57,
+    "name": "Vienna International"
+  },
+  "ZRH": {
+    "city": "ZURICH",
+    "utc_offset": 1,
+    "lat": 47.458,
+    "lon": 8.548,
+    "name": "Zurich Airport"
+  },
+  "GVA": {
+    "city": "GENEVA",
+    "utc_offset": 1,
+    "lat": 46.238,
+    "lon": 6.109,
+    "name": "Geneva Airport"
+  },
+  "WAW": {
+    "city": "WARSAW",
+    "utc_offset": 1,
+    "lat": 52.166,
+    "lon": 20.967,
+    "name": "Warsaw Chopin"
+  },
+  "BEG": {
+    "city": "BELGRADE",
+    "utc_offset": 1,
+    "lat": 44.818,
+    "lon": 20.309,
+    "name": "Belgrade Nikola Tesla"
+  },
+  "IST": {
+    "city": "ISTANBUL",
+    "utc_offset": 3,
+    "lat": 41.275,
+    "lon": 28.752,
+    "name": "Istanbul Airport"
+  },
+  "PEK": {
+    "city": "BEIJING",
+    "utc_offset": 8,
+    "lat": 40.08,
+    "lon": 116.585,
+    "name": "Beijing Capital"
+  },
+  "PKX": {
+    "city": "BEIJING",
+    "utc_offset": 8,
+    "lat": 39.509,
+    "lon": 116.411,
+    "name": "Beijing Daxing"
+  },
+  "SVO": {
+    "city": "MOSCOW",
+    "utc_offset": 3,
+    "lat": 55.973,
+    "lon": 37.415,
+    "name": "Moscow Sheremetyevo"
+  },
+  "VKO": {
+    "city": "MOSCOW",
+    "utc_offset": 3,
+    "lat": 55.592,
+    "lon": 37.262,
+    "name": "Moscow Vnukovo"
+  },
+  "DME": {
+    "city": "MOSCOW",
+    "utc_offset": 3,
+    "lat": 55.409,
+    "lon": 37.906,
+    "name": "Moscow Domodedovo"
+  },
+  "GRU": {
+    "city": "SAO_PAULO",
+    "utc_offset": -3,
+    "lat": -23.435,
+    "lon": -46.473,
+    "name": "São Paulo–Guarulhos"
+  },
+  "PVG": {
+    "city": "SHANGHAI",
+    "utc_offset": 8,
+    "lat": 31.144,
+    "lon": 121.808,
+    "name": "Shanghai Pudong"
+  },
+  "SZX": {
+    "city": "SHENZHEN",
+    "utc_offset": 8,
+    "lat": 22.639,
+    "lon": 113.811,
+    "name": "Shenzhen Bao'an"
+  },
+  "WUH": {
+    "city": "WUHAN",
+    "utc_offset": 8,
+    "lat": 30.784,
+    "lon": 114.208,
+    "name": "Wuhan Tianhe"
+  },
+  "CTU": {
+    "city": "CHENGDU",
+    "utc_offset": 8,
+    "lat": 30.578,
+    "lon": 103.947,
+    "name": "Chengdu Shuangliu"
+  },
+  "DLU": {
+    "city": "DALI",
+    "utc_offset": 8,
+    "lat": 25.649,
+    "lon": 100.319,
+    "name": "Dali"
+  },
+  "XIY": {
+    "city": "XIAN",
+    "utc_offset": 8,
+    "lat": 34.447,
+    "lon": 108.752,
+    "name": "Xi'an Xianyang"
+  },
+  "PRG": {
+    "city": "PRAGUE",
+    "utc_offset": 1,
+    "lat": 50.101,
+    "lon": 14.26,
+    "name": "Prague Václav Havel"
+  },
+  "ZAG": {
+    "city": "ZAGREB",
+    "utc_offset": 1,
+    "lat": 45.743,
+    "lon": 16.069,
+    "name": "Zagreb Franjo Tuđman"
+  },
+  "KRK": {
+    "city": "KRAKOW",
+    "utc_offset": 1,
+    "lat": 50.078,
+    "lon": 19.785,
+    "name": "Kraków John Paul II"
+  },
+  "SAW": {
+    "city": "ISTANBUL",
+    "utc_offset": 3,
+    "lat": 40.898,
+    "lon": 29.309,
+    "name": "Istanbul Sabiha Gökçen"
+  },
+  "SIN": {
+    "city": "SINGAPORE",
+    "utc_offset": 8,
+    "lat": 1.359,
+    "lon": 103.989,
+    "name": "Singapore Changi"
+  },
+  "SHA": {
+    "city": "SHANGHAI",
+    "utc_offset": 8,
+    "lat": 31.198,
+    "lon": 121.336,
+    "name": "Shanghai Hongqiao"
+  },
+  "TFU": {
+    "city": "CHENGDU",
+    "utc_offset": 8,
+    "lat": 30.319,
+    "lon": 104.441,
+    "name": "Chengdu Tianfu"
+  }
+}

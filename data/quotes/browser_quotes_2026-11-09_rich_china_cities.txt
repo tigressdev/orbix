@@ -1,0 +1,47 @@
+# Cotacoes OBSERVADAS no Google Flights (BR, BRL, 1 adulto, so ida) em 2026-11-09 - Madri -> cidades da China (formato rico: companhia, conexoes, mala de mao).
+# Veja browser_quotes_2026-11-09_rich_moscow.txt para o significado dos campos. Paradas = numero de conexoes listadas.
+
+@MAD SHANGHAI 2027-02-12
+MAD>PVG 13:20 16:35 +1 2897 2 20h15 Lufthansa, Air China ~ FRA:4h25,PKX:1h40 ~ bag:carry=yes
+MAD>PVG 07:00 10:50 +1 3966 2 20h50 Air Europa, China Airlines ~ AMS:1h,TPE:2h30 ~ bag:carry=yes
+MAD>PVG 22:25 22:00 +1 4175 1 16h35 Qatar Airways ~ DOH:2h10 ~ bag:carry=yes
+MAD>PVG 08:15 14:40 +1 4119 1 23h25 Qatar Airways ~ DOH:9h ~ bag:carry=yes
+MAD>SHA 00:40 22:55 +0 4481 1 15h15 Air China ~ PEK:1h45 ~ bag:carry=yes
+MAD>PVG 13:20 12:40 +1 4661 1 16h20 Lufthansa, Air China ~ FRA:2h50 ~ bag:carry=yes
+MAD>PVG 15:20 14:40 +1 4843 1 16h20 Qatar Airways ~ DOH:1h55 ~ bag:carry=yes
+MAD>PVG 11:05 10:30 +1 4941 1 16h25 Sichuan Airlines ~ TFU:2h ~ bag:carry=yes
+MAD>PVG 12:20 10:15 +1 5646 1 14h55 Air China ~ PEK:1h35 ~ bag:carry=yes
+MAD>PVG 10:30 06:20 +1 5776 0 12h50 China Eastern ~ bag:carry=yes
+
+@MAD SHENZHEN 2027-02-12
+MAD>SZX 17:15 06:15 +2 3975 1 30h Lufthansa, Air China ~ FRA:16h ~ bag:carry=yes
+MAD>SZX 11:05 10:10 +1 4298 1 16h05 Sichuan Airlines ~ TFU:1h50 ~ bag:carry=yes
+MAD>SZX 21:45 22:00 +1 4612 1 17h15 Emirates ~ DXB:3h05 ~ bag:carry=yes
+MAD>SZX 13:20 18:25 +1 4888 2 22h05 Lufthansa, Air China ~ FRA:3h25,PEK:3h15 ~ bag:carry=yes
+MAD>SZX 13:20 17:45 +1 5006 2 21h25 Lufthansa, Air China ~ FRA:3h25,PEK:2h30 ~ bag:carry=yes
+MAD>SZX 07:10 09:55 +1 5055 2 19h45 Air Europa, Hainan ~ MXP:1h35,CKG:2h55 ~ bag:carry=yes
+MAD>SZX 12:20 11:30 +1 5621 1 16h10 Air China ~ PEK:1h35 ~ bag:carry=yes
+MAD>SZX 16:10 04:30 +2 6395 1 29h20 Iberia, Hainan ~ MXP:15h20 ~ bag:carry=yes
+
+@MAD CHENGDU 2027-02-12
+MAD>TFU 13:20 18:50 +1 4289 2 22h30 Lufthansa, Air China, Juneyao Airlines ~ FRA:2h50,PVG:2h35 ~ bag:carry=yes
+MAD>TFU 11:05 06:00 +1 4782 0 11h55 Sichuan Airlines ~ bag:carry=yes
+MAD>TFU 11:20 16:30 +1 4852 1 22h10 Cathay Pacific, Air China ~ HKG:6h50 ~ bag:carry=yes
+MAD>TFU 13:20 18:20 +1 4325 2 22h Lufthansa, Air China ~ FRA:2h50,PVG:2h05 ~ bag:carry=yes
+MAD>TFU 13:20 15:05 +2 4665 2 42h45 Lufthansa, Air China ~ FRA:21h25,PEK:6h ~ bag:carry=yes
+MAD>TFU 21:45 05:10 +2 5821 2 24h25 Emirates, Sichuan Airlines ~ DXB:1h50,BKK:6h30 ~ bag:carry=yes
+MAD>TFU 08:35 06:30 +1 6005 1 14h55 Lufthansa, Air China ~ FRA:2h25 ~ bag:carry=yes
+MAD>TFU 12:20 15:30 +1 6047 1 20h10 Air China ~ PEK:6h10 ~ bag:carry=yes
+MAD>TFU 15:20 13:55 +1 6531 1 15h35 Qatar Airways ~ DOH:2h20 ~ bag:carry=yes
+
+@MAD WUHAN 2027-02-12
+MAD>WUH 15:05 19:45 +1 4296 2 21h40 Iberia, China Southern ~ LHR:4h55,PKX:2h15 ~ bag:carry=yes
+MAD>WUH 11:05 09:40 +1 4903 1 15h35 Sichuan Airlines ~ TFU:1h55 ~ bag:carry=yes
+MAD>WUH 11:20 10:35 +1 5897 1 16h15 Cathay Pacific ~ HKG:1h40 ~ bag:carry=yes
+MAD>WUH 17:20 21:35 +1 4296 2 21h15 Iberia, China Southern ~ LHR:2h40,PKX:4h ~ bag:carry=yes
+MAD>WUH 07:20 12:00 +1 4657 2 21h40 Air Europa, Hainan ~ BRU:2h30,PEK:4h45 ~ bag:carry=yes
+MAD>WUH 07:15 10:35 +1 4857 2 20h20 Iberia, Cathay Pacific ~ MXP:2h25,HKG:2h ~ bag:carry=yes
+MAD>WUH 17:55 19:45 +1 5097 2 18h50 British Airways, China Southern ~ LHR:2h20,PKX:2h15 ~ bag:carry=yes
+MAD>WUH 13:20 17:20 +1 5210 2 21h Lufthansa, Air China ~ FRA:3h25,PEK:3h20 ~ bag:carry=yes
+MAD>WUH 12:35 11:30 +2 6140 2 39h55 Air France, Korean Air ~ CDG:6h15,ICN:15h55 ~ bag:carry=yes
+MAD>WUH 12:20 09:55 +1 6390 1 14h35 Air China ~ PEK:1h35 ~ bag:carry=yes

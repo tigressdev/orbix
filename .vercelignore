@@ -1,0 +1,15 @@
+tests
+tools
+docs
+scripts
+site
+extracted
+ticket
+.github
+.claude
+data/quotes
+data/quotes.sqlite
+data/demo.sqlite
+data/*.txt
+**/__pycache__
+*.pdf

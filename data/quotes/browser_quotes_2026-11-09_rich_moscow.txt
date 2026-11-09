@@ -1,0 +1,49 @@
+# Cotacoes OBSERVADAS no Google Flights (BR, BRL, 1 adulto, so ida) em 2026-11-09, lidas do texto acessivel de cada resultado:
+# companhia, conexoes (aeroporto:tempo) e se o preco NAO inclui bagagem de mao ("bag:carry=no"). "carry=yes" = nenhuma restricao sinalizada pela fonte.
+# Bagagem despachada NAO consta nesses dados (fica "desconhecida" ate alguem registrar).
+# Formato: ver browser_quotes_2026-11-09.txt (sufixos " ~ AAA:4h25" = conexao, " ~ bag:carry=no,checked=fee").
+
+@MAD MOSCOW 2027-02-12
+MAD>VKO 12:40 02:05 +1 1469 1 11h25 Pegasus ~ SAW:3h10 ~ bag:carry=no
+MAD>SVO 13:00 00:25 +1 1585 1 9h25 Royal Air Maroc ~ CMN:1h25 ~ bag:carry=yes
+MAD>SVO 19:05 07:10 +1 1857 1 10h05 Royal Air Maroc ~ CMN:2h05 ~ bag:carry=yes
+MAD>VKO 14:20 01:40 +1 2811 1 9h20 Turkish Airlines ~ IST:1h ~ bag:carry=yes
+MAD>SVO 19:05 00:25 +2 1658 1 27h20 Royal Air Maroc ~ CMN:19h20 ~ bag:carry=yes
+MAD>SVO 22:25 14:55 +1 3046 1 14h30 Qatar Airways ~ DOH:1h35 ~ bag:carry=yes
+MAD>VKO 11:55 00:35 +1 3311 1 10h40 Turkish Airlines ~ IST:2h15 ~ bag:carry=yes
+MAD>DME 14:50 14:45 +1 3384 1 21h55 EgyptAir ~ CAI:11h20 ~ bag:carry=yes
+MAD>SVO 21:10 13:30 +1 6504 1 14h20 Etihad ~ AUH:1h30 ~ bag:carry=yes
+
+@MAD MOSCOW 2027-02-13
+MAD>VKO 12:40 02:05 +1 1469 1 11h25 Pegasus ~ SAW:3h10 ~ bag:carry=no
+MAD>SVO 13:00 00:25 +1 1715 1 9h25 Royal Air Maroc ~ CMN:1h25 ~ bag:carry=yes
+MAD>SVO 17:45 03:05 +1 1845 1 7h20 Air Serbia ~ BEG:50m ~ bag:carry=yes
+MAD>SVO 19:05 00:25 +2 1658 1 27h20 Royal Air Maroc ~ CMN:19h20 ~ bag:carry=yes
+MAD>SVO 19:05 07:10 +1 2024 1 10h05 Royal Air Maroc ~ CMN:2h05 ~ bag:carry=yes
+MAD>VKO 14:20 01:40 +1 2811 1 9h20 Turkish Airlines ~ IST:1h ~ bag:carry=yes
+MAD>SVO 22:25 14:45 +1 3046 1 14h20 Qatar Airways ~ DOH:1h25 ~ bag:carry=yes
+MAD>DME 14:50 14:45 +1 3459 1 21h55 EgyptAir ~ CAI:11h20 ~ bag:carry=yes
+MAD>SVO 21:10 13:30 +1 6504 1 14h20 Etihad ~ AUH:1h30 ~ bag:carry=yes
+
+@SVO BEIJING 2027-02-14
+SVO>PEK 20:05 09:00 +1 2504 0 7h55 Hainan ~ bag:carry=yes
+SVO>PKX 17:15 05:50 +1 2504 0 7h35 China Eastern ~ bag:carry=yes
+SVO>PKX 19:00 07:45 +1 2620 0 7h45 China Southern ~ bag:carry=yes
+SVO>PEK 20:15 08:35 +1 2866 0 7h20 Air China ~ bag:carry=yes
+DME>PEK 00:45 00:10 +1 2324 1 18h25 Azerbaijan Airlines ~ GYD:7h25 ~ bag:carry=yes
+SVO>PEK 21:55 19:00 +1 2562 1 16h05 Sichuan Airlines ~ bag:carry=yes
+SVO>PEK 21:55 23:15 +1 2562 1 20h20 Sichuan Airlines ~ TFU:9h30 ~ bag:carry=yes
+VKO>PEK 00:55 00:10 +1 2666 1 18h15 Azerbaijan Airlines ~ GYD:7h20 ~ bag:carry=yes
+SVO>PKX 23:15 16:35 +1 2779 1 12h20 China Southern ~ WUH:1h55 ~ bag:carry=yes
+SVO>PKX 20:20 12:50 +1 2822 1 11h30 China Southern ~ URC:2h10 ~ bag:carry=yes
+
+@SVO BEIJING 2027-02-15
+SVO>PEK 20:05 09:00 +1 2504 0 7h55 Hainan ~ bag:carry=yes
+SVO>PKX 17:15 05:50 +1 2504 0 7h35 China Eastern ~ bag:carry=yes
+SVO>PKX 19:00 07:45 +1 2620 0 7h45 China Southern ~ bag:carry=yes
+SVO>PEK 20:15 09:00 +1 2866 0 7h45 Air China ~ bag:carry=yes
+VKO>PEK 20:15 06:25 +2 2258 1 29h10 Turkish Airlines ~ IST:16h15 ~ bag:carry=yes
+SVO>PEK 21:55 19:00 +1 2562 1 16h05 Sichuan Airlines ~ bag:carry=yes
+SVO>PEK 21:55 23:15 +1 2562 1 20h20 Sichuan Airlines ~ TFU:9h30 ~ bag:carry=yes
+DME>PEK 13:05 00:10 +2 2652 1 30h05 Azerbaijan Airlines ~ GYD:19h05 ~ bag:carry=yes
+SVO>PKX 23:15 18:15 +1 2822 1 14h China Southern ~ CAN:1h30 ~ bag:carry=yes

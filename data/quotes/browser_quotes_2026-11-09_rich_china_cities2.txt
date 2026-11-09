@@ -1,0 +1,47 @@
+# Cotacoes OBSERVADAS no Google Flights (BR, BRL, 1 adulto, so ida) em 2026-11-09 - Madri -> Xi'an e Pequim -> Chengdu/Xi'an/Wuhan (formato rico).
+# Por rota foram mantidas as ~10 opcoes mais uteis (mais baratas, com companhias diferentes); a pagina tinha ate 46.
+
+@MAD XIAN 2027-02-12
+MAD>XIY 11:20 14:40 +1 3523 1 20h20 Cathay Pacific ~ HKG:4h15 ~ bag:carry=yes
+MAD>XIY 17:20 22:50 +1 4129 2 22h30 Iberia, China Southern ~ LHR:2h40,PKX:5h10 ~ bag:carry=yes
+MAD>XIY 10:30 13:25 +1 4799 1 19h55 China Eastern ~ PVG:4h15 ~ bag:carry=yes
+MAD>XIY 11:05 09:30 +1 4891 1 15h25 Sichuan Airlines ~ TFU:1h55 ~ bag:carry=yes
+MAD>XIY 00:40 22:35 +0 5315 1 14h55 Air China ~ PEK:1h30 ~ bag:carry=yes
+MAD>XIY 13:20 19:30 +1 4129 2 23h10 Iberia, China Southern ~ LHR:6h35,PKX:1h45 ~ bag:carry=yes
+MAD>XIY 07:20 14:15 +1 4348 2 23h55 Air Europa, Hainan ~ BRU:2h30,PEK:7h20 ~ bag:carry=yes
+MAD>XIY 12:20 11:00 +1 6414 1 15h40 Air China ~ PEK:2h05 ~ bag:carry=yes
+
+@PKX CHENGDU 2027-03-01
+PKX>TFU 09:00 11:55 +0 808 0 2h55 China United Airlines ~ bag:carry=yes
+PEK>TFU 12:30 15:30 +0 1573 0 3h Air China ~ bag:carry=yes
+PEK>TFU 11:45 17:00 +0 1001 1 5h15 Air China ~ YCU:1h15 ~ bag:carry=yes
+PKX>TFU 11:00 14:10 +0 1716 0 3h10 China Eastern ~ bag:carry=yes
+PEK>TFU 06:55 10:00 +0 1842 0 3h05 Shenzhen Airlines ~ bag:carry=yes
+PKX>TFU 07:55 11:00 +0 2002 0 3h05 XiamenAir ~ bag:carry=yes
+PKX>TFU 15:45 18:50 +0 2184 0 3h05 Hebei Airlines ~ bag:carry=yes
+PKX>TFU 11:00 14:10 +0 2379 0 3h10 China Southern ~ bag:carry=yes
+PEK>TFU 08:30 11:20 +0 2597 0 2h50 Sichuan Airlines ~ bag:carry=yes
+PEK>TFU 07:55 11:05 +0 2602 0 3h10 Hainan Airlines ~ bag:carry=yes
+
+@PKX XIAN 2027-03-01
+PKX>XIY 07:00 08:55 +0 606 0 1h55 Air China ~ bag:carry=yes
+PEK>XIY 06:45 09:20 +0 626 0 2h35 Air China ~ bag:carry=yes
+PKX>XIY 12:55 14:55 +0 676 0 2h China Eastern ~ bag:carry=yes
+PKX>XIY 21:30 00:05 +1 676 0 2h35 China Eastern ~ bag:carry=yes
+PKX>XIY 08:45 10:55 +0 742 0 2h10 China Eastern ~ bag:carry=yes
+PEK>XIY 20:15 22:35 +0 883 0 2h20 Air China ~ bag:carry=yes
+PEK>XIY 10:25 12:45 +0 916 0 2h20 Air China ~ bag:carry=yes
+PEK>XIY 08:30 11:00 +0 1171 0 2h30 Air China ~ bag:carry=yes
+PKX>XIY 08:30 10:40 +0 1999 0 2h10 China Southern ~ bag:carry=yes
+PEK>XIY 06:35 08:55 +0 2181 0 2h20 Hainan Airlines ~ bag:carry=yes
+
+@PEK WUHAN 2027-03-01
+PEK>WUH 08:00 10:15 +0 1303 0 2h15 Air China ~ bag:carry=yes
+PEK>WUH 10:55 13:10 +0 1303 0 2h15 Air China ~ bag:carry=yes
+PEK>WUH 19:30 22:00 +0 1303 0 2h30 Air China ~ bag:carry=yes
+PKX>WUH 21:00 23:00 +0 1303 0 2h Air China ~ bag:carry=yes
+PEK>WUH 12:55 16:20 +0 1303 1 3h25 Air China ~ LFQ:45m ~ bag:carry=yes
+PKX>WUH 11:55 14:00 +0 1645 0 2h05 China Eastern ~ bag:carry=yes
+PKX>WUH 08:50 10:55 +0 1752 0 2h05 China Eastern ~ bag:carry=yes
+PEK>WUH 09:25 12:00 +0 2222 0 2h35 Hainan Airlines ~ bag:carry=yes
+PKX>WUH 07:30 09:35 +0 2437 0 2h05 China Southern ~ bag:carry=yes

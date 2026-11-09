@@ -1,0 +1,58 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, cotadas NATIVAMENTE EM USD, 1 adulto, so ida) em 2026-11-09. Formato rico: companhia, conexoes (aeroporto:tempo), mala de mao.
+# Voos que incluem trecho de trem (AccesRail) foram omitidos. Substitui as leituras antigas (em BRL) das mesmas rotas/datas.
+
+@VIE BEIJING 2027-02-14
+VIE>PKX 15:15 14:45 +1 696 1 16h30 Qatar Airways ~ DOH:3h35 ~ bag:carry=yes
+VIE>PEK 10:30 05:45 +1 706 1 12h15 Austrian, Air China ~ FRA:1h15 ~ bag:carry=yes
+VIE>PEK 14:55 14:45 +1 741 1 16h50 Emirates ~ DXB:3h55 ~ bag:carry=yes
+VIE>PEK 19:20 16:15 +1 955 1 13h55 Turkish Airlines ~ IST:2h25 ~ bag:carry=yes
+VIE>PEK 11:35 22:40 +1 686 2 28h05 Austrian, Shenzhen Airlines ~ LHR:8h05,SZX:2h10 ~ bag:carry=yes
+VIE>PEK 13:55 11:45 +1 706 1 14h50 Austrian, Air China ~ FRA:3h50 ~ bag:carry=yes
+VIE>PEK 15:05 11:45 +1 819 1 13h40 Austrian, Air China ~ FRA:2h40 ~ bag:carry=yes
+VIE>PKX 10:35 08:45 +1 829 1 15h10 Etihad ~ AUH:2h ~ bag:carry=yes
+VIE>PEK 07:10 04:25 +1 906 1 14h15 Austrian, Air China ~ CDG:2h15 ~ bag:carry=yes
+VIE>PEK 07:15 05:10 +1 950 1 14h55 Turkish Airlines ~ IST:3h35 ~ bag:carry=yes
+VIE>PEK 18:20 16:55 +1 992 1 15h35 Air France ~ CDG:2h10 ~ bag:carry=yes
+VIE>PEK 13:00 05:20 +1 3356 0 9h20 Air China ~ bag:carry=yes
+
+@VIE BEIJING 2027-02-15
+VIE>PKX 12:25 10:00 +1 488 1 14h35 China Eastern ~ XIY:2h10 ~ bag:carry=yes
+VIE>PEK 10:30 05:45 +1 706 1 12h15 Austrian, Air China ~ FRA:1h15 ~ bag:carry=yes
+VIE>PEK 18:20 10:40 +1 1035 0 9h20 Air China ~ bag:carry=yes
+VIE>PKX 15:15 14:45 +1 660 1 16h30 Qatar Airways ~ DOH:3h35 ~ bag:carry=yes
+VIE>PEK 12:35 22:40 +1 686 2 27h05 Austrian, Shenzhen Airlines ~ LHR:7h05,SZX:2h10 ~ bag:carry=yes
+VIE>PEK 12:10 09:55 +1 695 1 14h45 KLM ~ AMS:1h50 ~ bag:carry=yes
+VIE>PEK 13:20 12:25 +1 699 1 16h05 Austrian, Lufthansa ~ MUC:4h55 ~ bag:carry=yes
+VIE>PEK 15:05 11:45 +1 706 1 13h40 Austrian, Air China ~ FRA:2h40 ~ bag:carry=yes
+VIE>PEK 18:20 16:55 +1 779 1 15h35 Air France ~ CDG:2h10 ~ bag:carry=yes
+VIE>PEK 17:30 11:25 +1 799 1 10h55 Austrian, Air China ~ WAW:45m ~ bag:carry=yes
+VIE>PEK 14:55 14:45 +1 800 1 16h50 Emirates ~ DXB:3h55 ~ bag:carry=yes
+VIE>PEK 09:25 05:00 +1 810 1 12h35 Austrian, Air China ~ MUC:2h05 ~ bag:carry=yes
+VIE>PEK 12:05 12:40 +1 922 1 17h35 EVA Air ~ TPE:2h25 ~ bag:carry=yes
+VIE>PEK 19:20 16:15 +1 945 1 13h55 Turkish Airlines ~ IST:2h25 ~ bag:carry=yes
+VIE>PEK 13:00 05:20 +1 1533 0 9h20 Air China ~ bag:carry=yes
+
+@PRG BEIJING 2027-02-14
+PRG>PEK 14:45 14:45 +1 669 1 17h Emirates ~ DXB:3h40 ~ bag:carry=yes
+PRG>PEK 19:20 16:15 +1 851 1 13h55 Turkish Airlines ~ IST:2h05 ~ bag:carry=yes
+PRG>PEK 17:55 16:55 +1 902 1 16h Air France ~ CDG:2h50 ~ bag:carry=yes
+PRG>PEK 18:30 16:25 +1 1076 1 14h55 Asiana Airlines ~ ICN:1h10 ~ bag:carry=yes
+PRG>PKX 14:25 14:45 +1 611 1 17h20 Qatar Airways ~ DOH:4h ~ bag:carry=yes
+PRG>PEK 19:20 05:10 +2 616 1 26h50 Turkish Airlines ~ IST:15h10 ~ bag:carry=yes
+PRG>PEK 07:05 05:45 +1 679 1 15h40 Lufthansa, Air China ~ FRA:5h ~ bag:carry=yes
+PRG>PEK 07:05 11:10 +1 849 2 21h05 Lufthansa, China Airlines ~ FRA:2h45,TPE:1h25 ~ bag:carry=yes
+PRG>PKX 10:20 08:45 +1 911 1 15h25 Etihad ~ AUH:2h05 ~ bag:carry=yes
+PRG>PEK 14:50 11:45 +1 1528 1 13h55 Lufthansa, Air China ~ FRA:3h15 ~ bag:carry=yes
+PRG>PEK 11:00 05:20 +1 3275 1 11h20 Austrian, Air China ~ VIE:1h10 ~ bag:carry=yes
+
+@PRG BEIJING 2027-02-15
+PRG>PEK 19:20 16:15 +1 616 1 13h55 Turkish Airlines ~ IST:2h05 ~ bag:carry=yes
+PRG>PEK 16:45 12:25 +1 671 1 12h40 Lufthansa ~ MUC:1h35 ~ bag:carry=yes
+PRG>PEK 13:00 05:15 +1 729 0 9h15 Hainan Airlines ~ bag:carry=yes
+PRG>PEK 12:15 00:10 +2 553 1 28h55 Azerbaijan Airlines ~ GYD:17h05 ~ bag:carry=yes
+PRG>PKX 09:00 14:45 +1 611 1 22h45 Qatar Airways ~ DOH:9h25 ~ bag:carry=yes
+PRG>PEK 14:45 14:45 +1 669 1 17h Emirates ~ DXB:3h40 ~ bag:carry=yes
+PRG>PEK 10:20 05:45 +1 679 1 12h25 Lufthansa, Air China ~ FRA:1h45 ~ bag:carry=yes
+PRG>PEK 14:50 11:45 +1 679 1 13h55 Lufthansa, Air China ~ FRA:3h15 ~ bag:carry=yes
+PRG>PEK 16:50 10:40 +1 3086 1 10h50 Austrian, Air China ~ VIE:35m ~ bag:carry=yes

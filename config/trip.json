@@ -1,0 +1,668 @@
+{
+  "trip": "Ferias 2027 - Europa, China e Moscou",
+  "fixed": {
+    "_source": "E-ticket receipt 999-4894680648 (Air China), issued 2026-10-10. Passenger/payment data deliberately NOT stored here.",
+    "inbound_to_europe": {
+      "flight": "CA898",
+      "route": "GRU-MAD",
+      "arrive_local": "2027-02-11T22:35",
+      "airport": "MAD",
+      "depart_local": "2027-02-11T08:25",
+      "origin": "GRU"
+    },
+    "outbound_home": {
+      "flight": "CA897",
+      "route": "MAD-GRU",
+      "depart_local": "2027-03-25T22:30",
+      "airport": "MAD",
+      "arrive_local": "2027-03-26T05:30",
+      "destination": "GRU"
+    },
+    "ticket_rules": "Non-endorsable, penalties apply. 2 checked pieces (2PC) on the GRU-MAD-GRU ticket only; separate tickets have their own baggage rules.",
+    "purchased_ticket": {
+      "total_brl": 3209.8,
+      "description": "Air China GRU-MAD-GRU round trip (issued 2026-10-10); kept separate from the remaining travel budget unless you include it.",
+      "fx_day": "2026-10-09",
+      "note_fx": "Issued 2026-10-10 (Saturday): converted with the last ECB rate before that date."
+    }
+  },
+  "constraints": {
+    "home_airport": "MAD",
+    "required_cities": [
+      "BEIJING",
+      "MOSCOW"
+    ],
+    "first_china_city": "BEIJING",
+    "min_madrid_buffer_hours": 8,
+    "must_be_at_madrid_before_hours_of_departure": 6,
+    "max_legs": 9,
+    "stay_rules_hours": {
+      "default": {
+        "min": 4,
+        "max": 96
+      },
+      "MADRID": {
+        "min": 8,
+        "max": 48
+      },
+      "BEIJING": {
+        "min": 120,
+        "max": 216
+      },
+      "MOSCOW": {
+        "min": 48,
+        "max": 168
+      },
+      "SHANGHAI": {
+        "min": 120,
+        "max": 216
+      },
+      "SHENZHEN": {
+        "min": 48,
+        "max": 240
+      },
+      "WUHAN": {
+        "min": 24,
+        "max": 168
+      },
+      "CHENGDU": {
+        "min": 24,
+        "max": 168
+      },
+      "DALI": {
+        "min": 24,
+        "max": 168
+      },
+      "XIAN": {
+        "min": 24,
+        "max": 120
+      },
+      "PRAGUE": {
+        "min": 20,
+        "max": 96
+      },
+      "ZAGREB": {
+        "min": 20,
+        "max": 96
+      },
+      "KRAKOW": {
+        "min": 20,
+        "max": 96
+      },
+      "SINGAPORE": {
+        "min": 36,
+        "max": 60
+      },
+      "_note_7pm2": "Pequim e Xangai: janela de 7 +-2 dias (5 a 9 noites)."
+    },
+    "self_transfer_short_layover_hours": 24,
+    "self_transfer_risk_penalty_brl": 400,
+    "no_travel_dates": [
+      "2027-03-14"
+    ],
+    "_no_travel_dates_note": "Aniversario (33 anos): sem voo saindo ou chegando nesse dia. Edite/esvazie se mudar de ideia.",
+    "_route_note": "Roteiro desejado: Madri -> [parada] -> Pequim -> Xangai -> Shenzhen -> Singapura -> Moscou -> hub -> Madri. Datas de cada trecho em stages[].",
+    "round_trip_spurs": {
+      "SINGAPORE": [
+        "SHANGHAI",
+        "SHENZHEN"
+      ]
+    },
+    "_round_trip_note": "Ida e volta: de uma cidade-base (Xangai/Shenzhen) a um desvio (Singapura) e de volta a mesma base, que passa a ser o pivo para Moscou.",
+    "arrival_windows": {
+      "MOSCOW": [
+        "2027-03-12",
+        "2027-03-16"
+      ]
+    },
+    "_arrival_windows_note": "Chegada em Moscou entre 12 e 16/mar (preferencia da Helen)."
+  },
+  "costs_brl": {
+    "hotel_night": {
+      "default": 300,
+      "BEIJING": 350,
+      "MOSCOW": 450,
+      "BUDAPEST": 300,
+      "VIENNA": 400,
+      "ZURICH": 700,
+      "GENEVA": 700,
+      "ISTANBUL": 300,
+      "BELGRADE": 250,
+      "MADRID": 400,
+      "WARSAW": 300,
+      "SHANGHAI": 450,
+      "SHENZHEN": 400,
+      "WUHAN": 250,
+      "CHENGDU": 250,
+      "DALI": 250,
+      "XIAN": 250,
+      "PRAGUE": 300,
+      "ZAGREB": 250,
+      "KRAKOW": 250,
+      "SINGAPORE": 450
+    },
+    "extra_checked_bag_per_separate_ticket": 250,
+    "airport_transfer_per_arrival": 60
+  },
+  "search": {
+    "currency": "BRL",
+    "passengers": 1,
+    "max_searches_per_run": 30,
+    "min_refresh_hours": 20,
+    "max_offer_age_days": 7,
+    "keep_cheapest_per_route_date": 2,
+    "alert_drop_percent": 12,
+    "gl": "br",
+    "max_leg_duration_hours": 30,
+    "max_stops": 2
+  },
+  "stages": [
+    {
+      "id": "baseline_out",
+      "priority": 2,
+      "from": [
+        "MAD"
+      ],
+      "to": [
+        "PEK",
+        "PKX"
+      ],
+      "dates": {
+        "start": "2027-02-12",
+        "end": "2027-02-14"
+      }
+    },
+    {
+      "id": "out_to_stopover",
+      "priority": 2,
+      "from": [
+        "MAD"
+      ],
+      "to": [
+        "BUD",
+        "VIE",
+        "ZRH",
+        "GVA",
+        "WAW",
+        "IST",
+        "BEG",
+        "PRG",
+        "ZAG",
+        "KRK",
+        "SAW"
+      ],
+      "dates": {
+        "start": "2027-02-12",
+        "end": "2027-02-13"
+      }
+    },
+    {
+      "id": "stopover_to_china",
+      "priority": 2,
+      "from": [
+        "BUD",
+        "VIE",
+        "ZRH",
+        "GVA",
+        "WAW",
+        "IST",
+        "BEG",
+        "PRG",
+        "ZAG",
+        "KRK",
+        "SAW"
+      ],
+      "to": [
+        "PEK",
+        "PKX"
+      ],
+      "dates": {
+        "start": "2027-02-13",
+        "end": "2027-02-17"
+      }
+    },
+    {
+      "id": "china_to_moscow",
+      "priority": 5,
+      "from": [
+        "PEK",
+        "PKX"
+      ],
+      "to": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "dates": {
+        "start": "2027-03-04",
+        "end": "2027-03-18"
+      }
+    },
+    {
+      "id": "moscow_to_hub",
+      "priority": 5,
+      "from": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "to": [
+        "IST",
+        "BEG"
+      ],
+      "dates": {
+        "start": "2027-03-08",
+        "end": "2027-03-24"
+      }
+    },
+    {
+      "id": "hub_to_madrid",
+      "priority": 5,
+      "from": [
+        "IST",
+        "BEG"
+      ],
+      "to": [
+        "MAD"
+      ],
+      "dates": {
+        "start": "2027-03-08",
+        "end": "2027-03-25"
+      }
+    },
+    {
+      "id": "cn_beijing_shanghai",
+      "priority": 4,
+      "from": [
+        "PEK",
+        "PKX"
+      ],
+      "to": [
+        "PVG",
+        "SHA"
+      ],
+      "dates": {
+        "start": "2027-02-17",
+        "end": "2027-03-05"
+      }
+    },
+    {
+      "id": "cn_shanghai_shenzhen",
+      "priority": 4,
+      "from": [
+        "PVG",
+        "SHA"
+      ],
+      "to": [
+        "SZX"
+      ],
+      "dates": {
+        "start": "2027-03-05",
+        "end": "2027-03-13"
+      }
+    },
+    {
+      "id": "shenzhen_singapore",
+      "priority": 4,
+      "from": [
+        "SZX"
+      ],
+      "to": [
+        "SIN"
+      ],
+      "dates": {
+        "start": "2027-03-12",
+        "end": "2027-03-18"
+      }
+    },
+    {
+      "id": "singapore_moscow",
+      "priority": 5,
+      "from": [
+        "SIN"
+      ],
+      "to": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "dates": {
+        "start": "2027-03-16",
+        "end": "2027-03-21"
+      }
+    },
+    {
+      "id": "shenzhen_moscow_direct",
+      "priority": 2,
+      "from": [
+        "SZX"
+      ],
+      "to": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "dates": {
+        "start": "2027-03-15",
+        "end": "2027-03-19"
+      },
+      "_note": "Alternativa sem Singapura."
+    },
+    {
+      "id": "mad_to_moscow",
+      "priority": 4,
+      "from": [
+        "MAD"
+      ],
+      "to": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "dates": {
+        "start": "2027-02-12",
+        "end": "2027-02-13"
+      }
+    },
+    {
+      "id": "moscow_to_beijing",
+      "priority": 4,
+      "from": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "to": [
+        "PEK",
+        "PKX"
+      ],
+      "dates": {
+        "start": "2027-02-14",
+        "end": "2027-02-17"
+      }
+    },
+    {
+      "id": "mad_to_china_cities",
+      "priority": 3,
+      "from": [
+        "MAD"
+      ],
+      "to": [
+        "PVG",
+        "SHA",
+        "SZX",
+        "CTU",
+        "TFU",
+        "WUH",
+        "XIY"
+      ],
+      "dates": {
+        "start": "2027-02-12",
+        "end": "2027-02-13"
+      }
+    },
+    {
+      "id": "beijing_to_china_cities",
+      "priority": 3,
+      "from": [
+        "PEK",
+        "PKX"
+      ],
+      "to": [
+        "CTU",
+        "TFU",
+        "WUH",
+        "XIY"
+      ],
+      "dates": {
+        "start": "2027-02-27",
+        "end": "2027-03-05"
+      }
+    },
+    {
+      "id": "shanghai_singapore",
+      "priority": 4,
+      "from": [
+        "PVG",
+        "SHA"
+      ],
+      "to": [
+        "SIN"
+      ],
+      "dates": {
+        "start": "2027-03-02",
+        "end": "2027-03-10"
+      },
+      "_note": "Ida a Singapura saindo de Xangai (ordem invertida: Singapura antes de Moscou)."
+    },
+    {
+      "id": "singapore_shanghai",
+      "priority": 4,
+      "from": [
+        "SIN"
+      ],
+      "to": [
+        "PVG",
+        "SHA"
+      ],
+      "dates": {
+        "start": "2027-03-04",
+        "end": "2027-03-13"
+      },
+      "_note": "Volta de Singapura a Xangai (ida e volta), depois Xangai/Pequim -> Moscou."
+    },
+    {
+      "id": "singapore_shenzhen",
+      "priority": 4,
+      "from": [
+        "SIN"
+      ],
+      "to": [
+        "SZX"
+      ],
+      "dates": {
+        "start": "2027-03-04",
+        "end": "2027-03-13"
+      },
+      "_note": "Volta de Singapura a Shenzhen (ida e volta), depois Shenzhen -> Moscou."
+    },
+    {
+      "id": "shanghai_moscow_direct",
+      "priority": 5,
+      "from": [
+        "PVG",
+        "SHA"
+      ],
+      "to": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "dates": {
+        "start": "2027-03-10",
+        "end": "2027-03-19"
+      },
+      "_note": "Pivo: China -> Moscou sem passar por Singapura."
+    },
+    {
+      "id": "china_cities_moscow",
+      "priority": 3,
+      "from": [
+        "CTU",
+        "TFU",
+        "XIY",
+        "WUH"
+      ],
+      "to": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "dates": {
+        "start": "2027-03-10",
+        "end": "2027-03-19"
+      },
+      "_note": "Cidades do interior -> Moscou."
+    }
+  ],
+  "calendar": {
+    "abroad": {
+      "start": "2027-02-11",
+      "end": "2027-03-26"
+    },
+    "vacation": {
+      "start": "2027-02-18",
+      "end": "2027-03-19"
+    },
+    "_note": "Fora das ferias (12-17/fev e 20-25/mar) pode ser preciso trabalhar remoto: preferir cidades com bom wifi/fuso razoavel. Nao modelado."
+  },
+  "manual_legs": [],
+  "_manual_legs_note": "Pernas que as APIs nao cobrem (trem de alta velocidade, voo ja encontrado a mao). Formato: {origin,destination,dep_local:'YYYY-MM-DD HH:MM',arr_local,price,label}. Use codigos de aeroporto da cidade.",
+  "birthday": {
+    "date": "2027-03-14",
+    "label": "Birthday (33)"
+  },
+  "wishlist": [
+    "XIAN",
+    "CHENGDU",
+    "DALI",
+    "WUHAN",
+    "SHANGHAI",
+    "SHENZHEN"
+  ],
+  "studio": {
+    "default_budget_brl": 15000
+  },
+  "costs_currency": "BRL",
+  "lodging_usd": {
+    "_note": "Estimated cost per night for ONE traveller, in USD. hostel = dorm bed; budget = private room in a 2-3 star hotel; mid = 4 star. These are NOT live prices: they come from public travel-cost guides and are rough. China figures are best supported; Moscow had no usable source (educated estimate); European sources conflict. Spring Festival / Lantern Festival weeks (Feb 2027) can push Chinese prices up. Override any city in the studio.",
+    "default_tier": "budget",
+    "tiers": [
+      "hostel",
+      "budget",
+      "mid"
+    ],
+    "cities": {
+      "MADRID": {
+        "hostel": 25,
+        "budget": 70,
+        "mid": 120
+      },
+      "BUDAPEST": {
+        "hostel": 15,
+        "budget": 55,
+        "mid": 95
+      },
+      "VIENNA": {
+        "hostel": 25,
+        "budget": 75,
+        "mid": 130
+      },
+      "ZURICH": {
+        "hostel": 45,
+        "budget": 130,
+        "mid": 210
+      },
+      "GENEVA": {
+        "hostel": 45,
+        "budget": 125,
+        "mid": 200
+      },
+      "WARSAW": {
+        "hostel": 14,
+        "budget": 50,
+        "mid": 85
+      },
+      "BELGRADE": {
+        "hostel": 12,
+        "budget": 40,
+        "mid": 70
+      },
+      "ISTANBUL": {
+        "hostel": 12,
+        "budget": 35,
+        "mid": 80
+      },
+      "PRAGUE": {
+        "hostel": 18,
+        "budget": 60,
+        "mid": 100
+      },
+      "ZAGREB": {
+        "hostel": 16,
+        "budget": 50,
+        "mid": 85
+      },
+      "KRAKOW": {
+        "hostel": 12,
+        "budget": 45,
+        "mid": 80
+      },
+      "BEIJING": {
+        "hostel": 15,
+        "budget": 38,
+        "mid": 80
+      },
+      "SHANGHAI": {
+        "hostel": 20,
+        "budget": 45,
+        "mid": 100
+      },
+      "SHENZHEN": {
+        "hostel": 15,
+        "budget": 35,
+        "mid": 75
+      },
+      "WUHAN": {
+        "hostel": 10,
+        "budget": 24,
+        "mid": 50
+      },
+      "CHENGDU": {
+        "hostel": 10,
+        "budget": 28,
+        "mid": 60
+      },
+      "DALI": {
+        "hostel": 10,
+        "budget": 28,
+        "mid": 60
+      },
+      "XIAN": {
+        "hostel": 10,
+        "budget": 26,
+        "mid": 55
+      },
+      "SINGAPORE": {
+        "hostel": 22,
+        "budget": 70,
+        "mid": 150
+      },
+      "MOSCOW": {
+        "hostel": 0,
+        "budget": 0,
+        "mid": 0
+      }
+    },
+    "sources": [
+      "https://www.budgetyourtrip.com/china/shanghai (Shanghai: 3-star ~$57, 2-star ~$34, hostel dorm ~$21; China single-room average ~$37)",
+      "China travel-cost guides 2026: 3-star $50-80 in Beijing/Shanghai, $35-55 in Chengdu/Xi'an, hostels $10-20",
+      "Travel-price guides for Europe (conflicting; treat as rough)"
+    ],
+    "hosted": {
+      "MOSCOW": "Staying with a host: no lodging cost (standing rule)"
+    },
+    "shared": {
+      "countries": [
+        "China"
+      ],
+      "split": 2,
+      "tiers": [
+        "budget",
+        "mid"
+      ],
+      "with": "Demetrio",
+      "note": "Stays in China are split between two people (Helen and Demetrio): each pays half of a private room. Dorm beds (hostel tier) are per person, so they are not split. Your own per-city override is taken as what YOU pay per night."
+    }
+  }
+}

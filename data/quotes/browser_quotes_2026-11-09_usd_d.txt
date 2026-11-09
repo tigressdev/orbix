@@ -1,0 +1,51 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-09. Formato rico. Volta: Pequim -> Moscou -> Istambul/Belgrado -> Madri.
+# Tarifas de baixo custo para Istambul (Pegasus/AJet/Turkish "Basic") NAO incluem mala de mao: bag:carry=no.
+
+@PEK MOSCOW 2027-03-12
+PKX>SVO 09:00 18:50 +0 325 1 14h50 China Southern ~ URC:4h05 ~ bag:carry=yes
+PEK>SVO 14:35 18:05 +0 456 0 8h30 Hainan Airlines ~ bag:carry=yes
+PKX>SVO 13:00 16:40 +0 473 0 8h40 China Southern ~ bag:carry=yes
+PKX>SVO 01:25 14:45 +0 355 1 18h20 Qatar Airways ~ DOH:2h20 ~ bag:carry=yes
+PEK>SVO 21:30 14:35 +1 370 1 22h05 China Eastern ~ bag:carry=yes
+PKX>SVO 11:55 15:30 +0 475 0 8h35 China Eastern ~ bag:carry=yes
+PEK>SVO 11:30 15:05 +0 479 0 8h35 Air China ~ bag:carry=yes
+PEK>SVO 14:15 17:40 +0 479 0 8h25 Air China ~ bag:carry=yes
+PEK>DME 17:35 15:50 +1 481 1 27h15 Royal Jordanian ~ AMM:11h20 ~ bag:carry=yes
+PEK>VKO 00:40 14:00 +0 580 1 18h20 Emirates, flydubai ~ DXB:2h30 ~ bag:carry=yes
+
+@MOSCOW ISTANBUL 2027-03-19
+VKO>SAW 03:10 07:25 +0 128 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 02:50 07:15 +0 141 0 4h25 AJet ~ bag:carry=no
+VKO>IST 14:00 18:00 +0 284 0 4h Turkish Airlines ~ bag:carry=no
+VKO>SAW 17:25 21:40 +0 177 0 4h15 Pegasus ~ bag:carry=no
+VKO>IST 00:35 04:50 +0 284 0 4h15 Turkish Airlines ~ bag:carry=no
+VKO>IST 02:05 06:15 +0 284 0 4h10 Turkish Airlines ~ bag:carry=no
+VKO>IST 02:40 06:55 +0 284 0 4h15 Turkish Airlines ~ bag:carry=no
+VKO>IST 06:20 10:30 +0 284 0 4h10 Turkish Airlines ~ bag:carry=no
+VKO>IST 07:55 12:00 +0 284 0 4h05 Turkish Airlines ~ bag:carry=no
+VKO>IST 20:15 00:15 +1 284 0 4h Turkish Airlines ~ bag:carry=no
+SVO>IST 04:00 15:55 +0 338 1 11h55 Air Serbia ~ BEG:6h50 ~ bag:carry=yes
+DME>IST 13:05 21:25 +0 493 1 8h20 Azerbaijan Airlines ~ GYD:1h20 ~ bag:carry=yes
+
+@ISTANBUL MADRID 2027-03-23
+SAW>MAD 09:15 11:40 +0 104 0 4h25 Pegasus ~ bag:carry=no
+SAW>MAD 11:30 14:00 +0 104 0 4h30 Pegasus ~ bag:carry=no
+IST>MAD 16:45 19:00 +0 223 0 4h15 Air Europa ~ bag:carry=yes
+IST>MAD 10:35 13:15 +0 225 0 4h40 Turkish Airlines ~ bag:carry=no
+IST>MAD 18:00 23:35 +0 124 1 7h35 KLM ~ AMS:1h30 ~ bag:carry=no
+SAW>MAD 22:00 15:50 +1 128 1 19h50 AJet ~ ESB:13h40 ~ bag:carry=no
+IST>MAD 19:20 08:05 +1 164 1 14h45 Vueling ~ BCN:9h40 ~ bag:carry=no
+IST>MAD 07:55 10:25 +0 225 0 4h30 Turkish Airlines ~ bag:carry=no
+IST>MAD 14:20 16:55 +0 225 0 4h35 Turkish Airlines ~ bag:carry=no
+
+@MOSCOW BELGRADE 2027-03-20
+VKO>BEG 14:00 19:30 +0 395 1 7h30 Turkish Airlines ~ IST:1h45 ~ bag:carry=yes
+SVO>BEG 04:00 05:15 +0 420 0 3h15 Air Serbia ~ bag:carry=yes
+SVO>BEG 14:00 15:15 +0 420 0 3h15 Air Serbia ~ bag:carry=yes
+SVO>BEG 20:55 22:10 +0 420 0 3h15 Air Serbia ~ bag:carry=yes
+VKO>BEG 02:05 08:00 +0 395 1 7h55 Turkish Airlines ~ IST:1h55 ~ bag:carry=yes
+VKO>BEG 07:55 14:40 +0 395 1 8h45 Turkish Airlines ~ IST:2h55 ~ bag:carry=yes
+VKO>BEG 20:15 08:00 +1 395 1 13h45 Turkish Airlines ~ IST:7h55 ~ bag:carry=yes
+SVO>BEG 16:25 10:55 +1 457 1 20h30 Qatar Airways ~ DOH:8h45 ~ bag:carry=yes
+VKO>BEG 02:40 08:00 +0 517 1 7h20 Turkish Airlines ~ IST:1h15 ~ bag:carry=yes

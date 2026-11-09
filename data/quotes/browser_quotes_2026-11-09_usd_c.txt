@@ -1,0 +1,60 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-09. Formato rico (companhia, conexoes, mala de mao).
+# China interna, Singapura e Singapura -> Moscou. Companhias de baixo custo chinesas (Spring, Juneyao, XiamenAir) costumam cobrar bagagem despachada a parte.
+
+@PKX SHANGHAI 2027-02-28
+PKX>PVG 11:55 14:10 +0 175 0 2h15 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 11:55 14:10 +0 177 0 2h15 XiamenAir ~ bag:carry=yes
+PKX>PVG 14:25 16:35 +0 178 0 2h10 Air China ~ bag:carry=yes
+PEK>SHA 11:00 12:55 +0 195 0 1h55 China Eastern ~ bag:carry=yes
+PKX>PVG 21:20 23:30 +0 146 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 21:20 23:30 +0 161 0 2h10 XiamenAir ~ bag:carry=yes
+PKX>PVG 17:15 19:25 +0 175 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>SHA 21:35 23:40 +0 175 0 2h05 Shanghai Airlines ~ bag:carry=yes
+PKX>PVG 10:40 13:00 +0 178 0 2h20 Air China ~ bag:carry=yes
+PEK>PVG 13:00 15:20 +0 178 0 2h20 Air China ~ bag:carry=yes
+PEK>SHA 08:00 10:15 +0 195 0 2h15 China Eastern ~ bag:carry=yes
+PEK>SHA 09:00 11:00 +0 195 0 2h China Eastern ~ bag:carry=yes
+
+@SHA SHENZHEN 2027-03-08
+SHA>SZX 17:15 19:50 +0 101 0 2h35 Spring Airlines ~ bag:carry=yes
+SHA>SZX 09:35 12:20 +0 105 0 2h45 Spring Airlines ~ bag:carry=yes
+SHA>SZX 10:50 13:35 +0 105 0 2h45 Spring Airlines ~ bag:carry=yes
+SHA>SZX 13:05 15:50 +0 105 0 2h45 Spring Airlines ~ bag:carry=yes
+SHA>SZX 21:30 00:20 +1 87 0 2h50 Spring Airlines ~ bag:carry=yes
+SHA>SZX 07:30 10:10 +0 105 0 2h40 Spring Airlines ~ bag:carry=yes
+SHA>SZX 08:15 10:35 +0 281 0 2h20 Juneyao Airlines ~ bag:carry=yes
+SHA>SZX 15:10 17:35 +0 281 0 2h25 Juneyao Airlines ~ bag:carry=yes
+SHA>SZX 07:30 10:05 +0 289 0 2h35 China Eastern ~ bag:carry=yes
+SHA>SZX 08:30 11:00 +0 289 0 2h30 Shanghai Airlines ~ bag:carry=yes
+PVG>SZX 09:00 11:40 +0 289 0 2h40 China Eastern ~ bag:carry=yes
+
+@SZX SINGAPORE 2027-03-13
+SZX>SIN 08:00 12:10 +0 174 0 4h10 China Southern ~ bag:carry=yes
+SZX>SIN 15:40 19:50 +0 174 0 4h10 China Southern ~ bag:carry=yes
+SZX>SIN 08:20 12:30 +0 177 0 4h10 Shenzhen Airlines ~ bag:carry=yes
+SZX>SIN 21:50 02:00 +1 177 0 4h10 Shenzhen Airlines ~ bag:carry=yes
+SZX>SIN 13:05 17:15 +0 228 0 4h10 Shenzhen Airlines ~ bag:carry=yes
+SZX>SIN 23:30 11:10 +1 210 1 11h40 Hainan Airlines ~ HAK:6h35 ~ bag:carry=yes
+SZX>SIN 02:45 09:05 +0 218 1 6h20 Malaysia Airlines ~ KUL:1h ~ bag:carry=yes
+SZX>SIN 00:05 04:20 +0 595 0 4h15 Singapore Airlines ~ bag:carry=yes
+
+@SIN MOSCOW 2027-03-17
+SIN>DME 02:30 14:35 +0 475 1 17h05 Emirates ~ DXB:2h35 ~ bag:carry=yes
+SIN>SVO 20:00 08:00 +1 497 1 17h Gulf Air ~ BAH:2h10 ~ bag:carry=yes
+SIN>SVO 03:15 14:45 +0 504 1 16h30 Qatar Airways ~ DOH:2h10 ~ bag:carry=yes
+SIN>VKO 21:20 14:00 +1 453 2 21h40 Batik Air, Emirates, flydubai ~ KUL:3h05,DXB:3h20 ~ bag:carry=yes
+SIN>DME 21:20 14:35 +1 456 2 22h15 Batik Air, Emirates ~ KUL:3h05,DXB:3h55 ~ bag:carry=yes
+SIN>SVO 19:25 07:45 +1 458 1 17h20 Etihad ~ AUH:3h55 ~ bag:carry=yes
+SIN>SVO 23:55 15:05 +1 463 1 20h10 Air China ~ PEK:5h15 ~ bag:carry=yes
+SIN>SVO 00:25 14:35 +0 470 1 19h10 China Eastern ~ PVG:3h40 ~ bag:carry=yes
+SIN>SVO 00:55 15:30 +0 470 1 19h35 China Eastern ~ PKX:4h45 ~ bag:carry=yes
+SIN>SVO 03:25 17:05 +0 470 1 18h40 Shanghai Airlines, China Eastern ~ PVG:2h55 ~ bag:carry=yes
+SIN>SVO 23:00 14:35 +1 470 1 20h35 China Eastern ~ PVG:4h55 ~ bag:carry=yes
+SIN>VKO 02:30 14:00 +0 471 1 16h30 Emirates, flydubai ~ DXB:2h ~ bag:carry=yes
+SIN>VKO 04:35 18:50 +0 472 1 19h15 Turkish Airlines ~ IST:3h45 ~ bag:carry=yes
+SIN>VKO 11:40 01:40 +1 472 1 19h Turkish Airlines ~ IST:3h05 ~ bag:carry=yes
+SIN>VKO 23:15 12:30 +1 472 1 18h15 Turkish Airlines ~ IST:2h40 ~ bag:carry=yes
+SIN>DME 21:00 08:10 +1 475 1 16h10 Emirates ~ DXB:1h10 ~ bag:carry=yes
+SIN>SVO 20:15 08:00 +1 504 1 16h45 Qatar Airways ~ DOH:2h25 ~ bag:carry=yes
+SIN>VKO 11:40 23:35 +0 585 1 16h55 Turkish Airlines ~ IST:1h ~ bag:carry=yes

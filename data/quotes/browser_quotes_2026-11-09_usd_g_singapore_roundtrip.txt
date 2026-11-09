@@ -1,0 +1,82 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-09. Formato rico. Rotas alternativas: ida e volta a Singapura saindo de Xangai (depois Moscou como pivo).
+# Omitidos: PVG>SIN 23:35 US$1.811 (Juneyao, preco fora de escala, provavelmente classe superior) e SHA>SIN Shandong com 19h55 de escala em Jinan.
+
+@PVG SINGAPORE 2027-03-05
+PVG>SIN 10:30 16:40 +0 128 0 6h10 Spring ~ bag:carry=yes
+PVG>SIN 08:20 14:10 +0 138 0 5h50 Singapore Airlines ~ bag:carry=yes
+PVG>SIN 09:30 15:10 +0 146 0 5h40 Juneyao Airlines ~ bag:carry=yes
+PVG>SIN 01:35 10:20 +0 117 1 8h45 AirAsia X, AirAsia ~ KUL:1h35 ~ bag:carry=yes
+PVG>SIN 23:30 05:30 +1 128 0 6h Spring ~ bag:carry=yes
+PVG>SIN 02:15 15:15 +0 131 1 13h Vietjet ~ SGN:6h30 ~ bag:carry=yes
+PVG>SIN 00:10 06:00 +0 138 0 5h50 Singapore Airlines ~ bag:carry=yes
+PVG>SIN 16:15 22:10 +0 146 0 5h55 Juneyao Airlines ~ bag:carry=yes
+PVG>SIN 13:50 19:40 +0 171 0 5h50 Singapore Airlines ~ bag:carry=yes
+PVG>SIN 10:15 16:15 +0 174 0 6h Air China ~ bag:carry=yes
+PVG>SIN 17:20 23:20 +0 174 0 6h Air China ~ bag:carry=yes
+PVG>SIN 09:20 15:00 +0 192 0 5h40 China Eastern ~ bag:carry=yes
+PVG>SIN 10:55 17:00 +0 192 0 6h05 China Eastern ~ bag:carry=yes
+PVG>SIN 14:40 20:25 +0 192 0 5h45 China Eastern ~ bag:carry=yes
+PVG>SIN 16:25 22:00 +0 192 0 5h35 China Eastern ~ bag:carry=yes
+PVG>SIN 23:35 05:25 +1 192 0 5h50 China Eastern ~ bag:carry=yes
+PVG>SIN 20:35 02:25 +1 197 0 5h50 Shanghai Airlines ~ bag:carry=yes
+PVG>SIN 16:25 22:15 +0 206 0 5h50 Singapore Airlines ~ bag:carry=yes
+
+@SIN SHANGHAI 2027-03-08
+SIN>PVG 06:30 11:45 +0 183 0 5h15 Spring ~ bag:carry=yes
+SIN>PVG 16:25 21:25 +0 264 0 5h Juneyao Airlines ~ bag:carry=yes
+SIN>PVG 09:20 14:35 +0 310 0 5h15 Singapore Airlines ~ bag:carry=yes
+SIN>PVG 17:40 22:55 +0 183 0 5h15 Spring ~ bag:carry=yes
+SIN>PVG 18:25 14:15 +1 198 1 19h50 Vietnam Airlines ~ SGN:13h40 ~ bag:carry=yes
+SIN>SHA 13:40 22:10 +0 198 1 8h30 China Southern ~ CAN:2h20 ~ bag:carry=yes
+SIN>SHA 03:00 11:15 +0 204 1 8h15 Shenzhen ~ SZX:1h50 ~ bag:carry=yes
+SIN>SHA 13:40 22:10 +0 207 1 8h30 Shenzhen ~ SZX:1h55 ~ bag:carry=yes
+SIN>PVG 23:25 04:35 +1 240 0 5h10 Juneyao Airlines ~ bag:carry=yes
+SIN>PVG 00:50 06:20 +0 253 0 5h30 Air China ~ bag:carry=yes
+SIN>PVG 17:50 23:20 +0 253 0 5h30 Air China ~ bag:carry=yes
+SIN>PVG 08:15 15:50 +0 299 1 7h35 THAI ~ BKK:1h ~ bag:carry=yes
+SIN>SHA 08:55 16:45 +0 303 1 7h50 XiamenAir ~ XMN:1h55 ~ bag:carry=yes
+SIN>PVG 07:20 12:45 +0 327 0 5h25 Singapore Airlines ~ bag:carry=yes
+SIN>PVG 10:10 15:15 +0 359 0 5h05 China Eastern ~ bag:carry=yes
+SIN>PVG 16:15 21:35 +0 359 0 5h20 China Eastern ~ bag:carry=yes
+SIN>PVG 18:00 23:20 +0 359 0 5h20 China Eastern ~ bag:carry=yes
+SIN>PVG 23:00 04:30 +1 359 0 5h30 China Eastern ~ bag:carry=yes
+SIN>PVG 00:25 05:45 +0 361 0 5h20 China Eastern ~ bag:carry=yes
+SIN>PVG 03:25 08:55 +0 363 0 5h30 Shanghai Airlines ~ bag:carry=yes
+SIN>PVG 17:00 22:20 +0 427 0 5h20 Singapore Airlines ~ bag:carry=yes
+SIN>PVG 01:15 06:30 +0 525 0 5h15 Singapore Airlines ~ bag:carry=yes
+
+# Pivo: China -> Moscou direto (omitida 1 linha PVG>SVO Air China com escala em aeroporto sem codigo conhecido, 32h55)
+@SHA MOSCOW 2027-03-15
+SHA>SVO 08:55 17:40 +0 387 1 13h45 Air China ~ PEK:3h ~ bag:carry=yes
+PVG>SVO 09:30 17:40 +0 387 1 13h10 Air China ~ PEK:2h20 ~ bag:carry=yes
+SHA>SVO 08:30 18:05 +0 484 1 14h35 Hainan ~ PEK:3h35 ~ bag:carry=yes
+PVG>SVO 18:55 18:50 +1 359 1 28h55 China Southern ~ URC:16h55 ~ bag:carry=yes
+SHA>SVO 21:30 15:05 +1 387 1 22h35 Air China ~ PEK:11h35 ~ bag:carry=yes
+PVG>SVO 23:35 12:35 +1 475 1 18h Qatar Airways ~ DOH:1h15 ~ bag:carry=yes
+PVG>SVO 08:10 16:40 +0 551 1 13h30 China Southern ~ PKX:2h25 ~ bag:carry=yes
+PVG>VKO 23:00 14:00 +1 580 1 20h Emirates, flydubai ~ DXB:2h50 ~ bag:carry=yes
+PVG>DME 06:15 20:00 +0 584 1 18h45 Emirates ~ DXB:1h55 ~ bag:carry=yes
+PVG>SVO 09:25 14:35 +0 642 0 10h10 China Eastern ~ bag:carry=yes
+PVG>SVO 11:50 17:05 +0 642 0 10h15 China Eastern ~ bag:carry=yes
+
+# Ida e volta a Singapura saindo de Shenzhen
+@SZX SINGAPORE 2027-03-06
+SZX>SIN 00:05 04:20 +0 137 0 4h15 Singapore Airlines ~ bag:carry=yes
+SZX>SIN 15:40 19:50 +0 174 0 4h10 China Southern ~ bag:carry=yes
+SZX>SIN 13:05 17:15 +0 177 0 4h10 Shenzhen ~ bag:carry=yes
+SZX>SIN 08:00 12:10 +0 174 0 4h10 China Southern ~ bag:carry=yes
+SZX>SIN 08:20 12:30 +0 177 0 4h10 Shenzhen ~ bag:carry=yes
+SZX>SIN 21:50 02:00 +1 177 0 4h10 Shenzhen ~ bag:carry=yes
+SZX>SIN 03:15 10:20 +0 186 1 7h05 AirAsia ~ KUL:1h40 ~ bag:carry=yes
+
+@SIN SHENZHEN 2027-03-08
+SIN>SZX 13:15 17:35 +0 207 0 4h20 China Southern ~ bag:carry=yes
+SIN>SZX 21:00 01:25 +1 207 0 4h25 China Southern ~ bag:carry=yes
+SIN>SZX 03:00 07:20 +0 237 0 4h20 Shenzhen ~ bag:carry=yes
+SIN>SZX 13:40 18:00 +0 237 0 4h20 Shenzhen ~ bag:carry=yes
+SIN>SZX 18:45 23:00 +0 304 0 4h15 Singapore Airlines ~ bag:carry=yes
+SIN>SZX 06:30 15:05 +0 188 1 8h35 China Eastern ~ KMG:2h35 ~ bag:carry=yes
+SIN>SZX 04:40 17:20 +0 228 1 12h40 Hainan ~ HAK:7h40 ~ bag:carry=yes
+SIN>SZX 12:15 00:15 +1 228 1 12h Hainan ~ HAK:7h10 ~ bag:carry=yes
+SIN>SZX 18:45 23:00 +0 237 0 4h15 Shenzhen ~ bag:carry=yes

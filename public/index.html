@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flight Intelligence — The Journey Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="/assets/css/studio.css">
+</head>
+<body>
+<a class="skip" href="#studio">Skip to the studio</a>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">FLIGHT INTELLIGENCE</span><span class="brand-sub">The Journey Studio · 2027</span></div>
+  <div class="top-actions">
+    <span id="demo-flag" class="chip chip-amber" hidden>Synthetic demo data</span>
+    <div class="seg users" id="user-switch" role="group" aria-label="Whose plans" hidden></div>
+    <div class="seg cur" id="cur-toggle" role="group" aria-label="Currency"></div>
+    <button class="btn btn-ghost" id="btn-prefs" aria-haspopup="dialog">Preferences</button>
+    <button class="btn btn-ghost btn-sm" id="btn-logout" hidden>Sign out</button>
+    <button class="btn btn-ghost icon-only" id="btn-theme" aria-label="Toggle light and dark theme"></button>
+  </div>
+</header>
+
+<div class="viewonly-banner" id="viewonly-banner" role="status" hidden></div>
+
+<section class="hero" id="hero" aria-label="Your journey on the map">
+  <div class="hero-map" id="map" role="application" aria-label="Interactive route map"></div>
+  <div class="hero-fade" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">Find the extraordinary way there.</p>
+    <h1>A journey across continents.</h1>
+    <p class="hero-sub">Madrid <span aria-hidden="true">→</span> China <span aria-hidden="true">→</span> Russia <span aria-hidden="true">→</span> Madrid</p>
+    <button class="btn btn-primary btn-lg" id="btn-start">Explore the journey</button>
+  </div>
+  <div class="map-legend" aria-label="Route legend">
+    <span><i class="lg lg-confirmed"></i>Confirmed</span>
+    <span><i class="lg lg-selected"></i>Selected</span>
+    <span><i class="lg lg-suggested"></i>Suggested</span>
+    <span><i class="lg lg-priority"></i>Priority cities</span>
+    <span><i class="lg lg-exploring"></i>Exploring</span>
+  </div>
+  <div class="map-legend corr" aria-label="Route network colours">
+    <span><i class="dotc" style="border-color:var(--c-eu)"></i>Europe</span>
+    <span><i class="dotc" style="border-color:var(--c-eu-ru)"></i>Europe–Russia</span>
+    <span><i class="dotc" style="border-color:var(--c-eu-as)"></i>Europe–Asia</span>
+    <span><i class="dotc" style="border-color:var(--c-ru-as)"></i>Russia–Asia</span>
+    <span><i class="dotc" style="border-color:var(--c-as)"></i>Asia</span>
+  </div>
+  <div class="map-status" id="map-status" role="status" aria-live="polite"></div>
+</section>
+
+<section class="summary-cards" aria-label="Journey summary">
+  <article class="scard"><p class="eyebrow">Next departure</p><h2>11 February 2027</h2><p>São Paulo → Madrid</p><span class="chip chip-teal">Confirmed</span></article>
+  <article class="scard"><p class="eyebrow">Your journey</p><h2>China · Russia</h2><p>Destinations to discover.</p><span class="chip" id="card-journey-chip">0 chapters selected</span></article>
+  <article class="scard"><p class="eyebrow">Travel budget</p><h2 id="card-budget">R$ 15,000</h2><p>Available for remaining travel planning.</p><span class="chip" id="card-budget-chip">—</span></article>
+</section>
+
+<main id="studio" class="studio" tabindex="-1">
+  <div class="studio-bar">
+    <div class="scen" id="scenario-bar" role="group" aria-label="Scenarios"></div>
+    <nav class="views" id="view-tabs" role="tablist" aria-label="Views"></nav>
+  </div>
+  <div class="studio-grid">
+    <div class="studio-main" id="view-root" role="tabpanel"></div>
+    <aside class="studio-side" aria-label="Budget and history">
+      <section class="card budget" id="budget"></section>
+      <section class="card history" id="history"></section>
+    </aside>
+  </div>
+</main>
+
+<footer class="foot">
+  <p>Prices are <b>observed offers</b> from the sources shown on each flight (not bookings). Hotels, baggage and transfers are <b>estimates</b> you can edit. Always verify fares, baggage, visas and entry rules on the airline's own site before booking.</p>
+</footer>
+
+<div class="drawer-wrap" id="drawer-wrap" hidden>
+  <div class="scrim" id="drawer-scrim"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" tabindex="-1"></aside>
+</div>
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<dialog id="dialog" class="dialog"></dialog>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

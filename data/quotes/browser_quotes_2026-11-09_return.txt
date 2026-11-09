@@ -1,0 +1,92 @@
+# Cotacoes OBSERVADAS no Google Flights (BR, BRL, 1 adulto, so ida) em 2026-11-09 - parte da VOLTA (China -> Moscou -> Europa -> Madri).
+# Mesmo formato de browser_quotes_2026-11-09.txt. Moscou: precos "indisponivel" omitidos. Precos mudam.
+
+@PEK MOSCOW 2027-03-12
+PKX>SVO 09:00 18:50 +0 1788 1 14h50 China Southern (via Urumqi)
+PKX>SVO 01:25 14:45 +0 1953 1 18h20 Qatar Airways
+PKX>SVO 13:00 16:40 +0 2604 0 8h40 China Southern
+PEK>SVO 21:30 14:35 +1 2035 1 22h05 China Eastern
+PEK>SVO 14:35 18:05 +0 2509 0 8h30 Hainan
+PKX>SVO 11:55 15:30 +0 2616 0 8h35 China Eastern
+PEK>SVO 11:30 15:05 +0 2634 0 8h35 Air China
+PEK>SVO 14:15 17:40 +0 2634 0 8h25 Air China
+PEK>DME 17:35 15:50 +1 2650 1 27h15 Royal Jordanian
+PEK>VKO 00:40 14:00 +0 3196 1 18h20 Emirates, flydubai
+
+@PEK MOSCOW 2027-03-16
+PKX>SVO 09:00 18:50 +0 1788 1 14h50 China Southern (via Urumqi)
+PKX>SVO 07:30 17:05 +0 2035 1 14h35 China Eastern
+PKX>SVO 13:00 17:00 +0 2604 0 9h00 China Southern
+PKX>SVO 01:25 08:00 +1 1976 1 35h35 Qatar Airways
+PEK>SVO 07:00 17:05 +0 2035 1 15h05 China Eastern
+PKX>SVO 19:30 14:35 +1 2035 1 24h05 China Eastern
+PEK>SVO 14:35 18:05 +0 2509 0 8h30 Hainan
+PKX>SVO 11:55 15:30 +0 2616 0 8h35 China Eastern
+PEK>SVO 11:30 15:05 +0 2634 0 8h35 Air China
+PEK>SVO 14:15 17:55 +0 2634 0 8h40 Air China
+PEK>VKO 00:50 12:30 +0 2853 1 16h40 Turkish Airlines
+
+@MOSCOW ISTANBUL 2027-03-19
+VKO>SAW 03:10 07:25 +0 700 0 4h15 Pegasus
+VKO>SAW 02:50 07:15 +0 775 0 4h25 AJet
+VKO>IST 14:00 18:00 +0 1560 0 4h00 Turkish Airlines
+VKO>SAW 17:25 21:40 +0 970 0 4h15 Pegasus
+VKO>IST 00:35 04:50 +0 1560 0 4h15 Turkish Airlines
+VKO>IST 02:05 06:15 +0 1560 0 4h10 Turkish Airlines
+VKO>IST 02:40 06:55 +0 1560 0 4h15 Turkish Airlines
+VKO>IST 06:20 10:30 +0 1560 0 4h10 Turkish Airlines
+VKO>IST 07:55 12:00 +0 1560 0 4h05 Turkish Airlines
+VKO>IST 20:15 00:15 +1 1560 0 4h00 Turkish Airlines
+
+@MOSCOW ISTANBUL 2027-03-22
+VKO>SAW 02:50 07:15 +0 856 0 4h25 AJet
+VKO>SAW 17:25 21:40 +0 970 0 4h15 Pegasus
+VKO>IST 14:00 18:00 +0 1560 0 4h00 Turkish Airlines
+VKO>SAW 04:10 10:35 +0 865 1 6h25 Pegasus
+VKO>SAW 03:10 07:25 +0 970 0 4h15 Pegasus
+VKO>IST 00:35 04:50 +0 1560 0 4h15 Turkish Airlines
+VKO>IST 02:05 06:15 +0 1560 0 4h10 Turkish Airlines
+VKO>IST 02:40 06:55 +0 1560 0 4h15 Turkish Airlines
+VKO>IST 06:20 10:30 +0 1560 0 4h10 Turkish Airlines
+VKO>IST 07:55 12:00 +0 1560 0 4h05 Turkish Airlines
+VKO>IST 20:15 00:15 +1 1560 0 4h00 Turkish Airlines
+
+@MOSCOW BELGRADE 2027-03-20
+VKO>BEG 14:00 19:30 +0 2171 1 7h30 Turkish Airlines
+SVO>BEG 04:00 05:15 +0 2313 0 3h15 Air Serbia
+SVO>BEG 14:00 15:15 +0 2313 0 3h15 Air Serbia
+SVO>BEG 20:55 22:10 +0 2313 0 3h15 Air Serbia
+VKO>BEG 02:05 08:00 +0 2171 1 7h55 Turkish Airlines
+VKO>BEG 07:55 14:40 +0 2171 1 8h45 Turkish Airlines
+VKO>BEG 20:15 08:00 +1 2171 1 13h45 Turkish Airlines
+SVO>BEG 16:25 10:55 +1 2513 1 20h30 Qatar Airways
+VKO>BEG 02:40 08:00 +0 2845 1 7h20 Turkish Airlines
+
+@ISTANBUL MADRID 2027-03-20
+SAW>MAD 09:15 11:40 +0 638 0 4h25 Pegasus, Iberia
+IST>MAD 16:45 19:00 +0 940 0 4h15 Air Europa, Turkish Airlines
+IST>MAD 13:55 16:25 +0 1242 0 4h30 Turkish Airlines
+IST>MAD 23:35 11:25 +1 619 1 13h50 TAROM
+SAW>MAD 21:25 15:30 +1 706 1 20h05 AJet
+IST>MAD 19:05 23:55 +0 1115 1 6h50 Lufthansa
+IST>MAD 07:55 10:25 +0 1242 0 4h30 Turkish Airlines
+IST>MAD 10:35 13:15 +0 1242 0 4h40 Turkish Airlines
+
+@ISTANBUL MADRID 2027-03-23
+SAW>MAD 09:15 11:40 +0 571 0 4h25 Pegasus, Iberia
+SAW>MAD 11:30 14:00 +0 571 0 4h30 Pegasus, Iberia
+IST>MAD 18:00 23:35 +0 681 1 7h35 KLM
+IST>MAD 16:45 19:00 +0 1227 0 4h15 Air Europa, Turkish Airlines
+IST>MAD 10:35 13:15 +0 1242 0 4h40 Turkish Airlines
+SAW>MAD 22:00 15:50 +1 706 1 19h50 AJet
+IST>MAD 07:55 10:25 +0 1242 0 4h30 Turkish Airlines
+IST>MAD 14:20 16:55 +0 1242 0 4h35 Turkish Airlines
+
+@BELGRADE MADRID 2027-03-22
+BEG>MAD 13:25 16:55 +0 584 0 3h30 Air Serbia
+BEG>MAD 18:00 23:35 +0 1062 1 5h35 Lufthansa
+BEG>MAD 09:40 18:45 +0 1148 1 9h05 SWISS, Air Baltic
+BEG>MAD 06:15 16:20 +0 1184 1 10h05 Lufthansa
+BEG>MAD 13:40 23:55 +0 1184 1 10h15 Lufthansa
+BEG>MAD 06:15 12:35 +0 1351 1 6h20 Lufthansa
+BEG>MAD 08:50 16:55 +0 1408 1 8h05 Turkish Airlines

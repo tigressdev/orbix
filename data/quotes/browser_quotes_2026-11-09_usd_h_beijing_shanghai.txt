@@ -1,0 +1,35 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-09. Formato rico. Pequim -> Xangai (1/mar), base para o desvio a Singapura.
+# Pagina trouxe 102 voos; guardados os mais baratos de cada aeroporto de saida/chegada (todos diretos).
+@PKX SHANGHAI 2027-03-01
+PKX>PVG 21:20 23:30 +0 146 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 21:20 23:30 +0 161 0 2h10 XiamenAir ~ bag:carry=yes
+PKX>PVG 11:55 14:10 +0 175 0 2h15 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 14:30 16:35 +0 178 0 2h05 Air China ~ bag:carry=yes
+PKX>PVG 10:40 13:00 +0 178 0 2h20 Air China ~ bag:carry=yes
+PKX>SHA 14:00 16:05 +0 175 0 2h05 Juneyao Airlines ~ bag:carry=yes
+PKX>SHA 14:00 16:05 +0 177 0 2h05 XiamenAir ~ bag:carry=yes
+PKX>SHA 21:35 23:40 +0 226 0 2h05 Shanghai Airlines ~ bag:carry=yes
+PKX>SHA 21:35 23:25 +0 259 0 1h50 CUA ~ bag:carry=yes
+PEK>SHA 20:25 22:55 +0 214 0 2h30 Air China ~ bag:carry=yes
+PEK>SHA 07:00 09:15 +0 237 0 2h15 Air China ~ bag:carry=yes
+PEK>SHA 12:30 15:00 +0 237 0 2h30 Air China ~ bag:carry=yes
+PEK>SHA 17:30 20:00 +0 237 0 2h30 Air China ~ bag:carry=yes
+PEK>SHA 09:00 11:00 +0 309 0 2h China Eastern ~ bag:carry=yes
+PEK>PVG 07:30 09:55 +0 346 0 2h25 Air China ~ bag:carry=yes
+PEK>PVG 07:00 08:55 +0 351 0 1h55 China Eastern ~ bag:carry=yes
+PEK>SHA 07:25 09:35 +0 384 0 2h10 Hainan ~ bag:carry=yes
+
+# Pequim -> Xangai em 21/fev (14 voos diretos mais baratos de 101)
+@PKX SHANGHAI 2027-02-21
+PKX>PVG 21:20 23:30 +0 132 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 21:20 23:30 +0 161 0 2h10 XiamenAir ~ bag:carry=yes
+PKX>PVG 11:55 14:10 +0 175 0 2h15 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 17:15 19:25 +0 175 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>SHA 21:35 23:40 +0 175 0 2h05 Shanghai Airlines ~ bag:carry=yes
+PKX>PVG 14:25 16:35 +0 178 0 2h10 Air China ~ bag:carry=yes
+PKX>PVG 10:40 13:00 +0 178 0 2h20 Air China ~ bag:carry=yes
+PEK>PVG 13:00 15:20 +0 178 0 2h20 Air China ~ bag:carry=yes
+PEK>SHA 13:30 15:35 +0 195 0 2h05 China Eastern ~ bag:carry=yes
+PEK>SHA 08:00 10:15 +0 195 0 2h15 China Eastern ~ bag:carry=yes
+PEK>SHA 09:00 11:00 +0 195 0 2h China Eastern ~ bag:carry=yes

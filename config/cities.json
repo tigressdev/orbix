@@ -1,0 +1,179 @@
+{
+  "_note": "Editorial metadata for the studio UI (not prices). 'interest' is a subjective 1-10 score you can edit; 'birthday' notes come from your own research and are NOT guarantees (bloom timing varies each year). 'priority': true marks the cities you have decided on most firmly; the map draws routes to them in lilac. 'region' (Europe / Russia / Asia / Americas) colours the route network on the map; Istanbul counts as Europe.",
+  "SAO_PAULO": {
+    "name": "Sao Paulo",
+    "country": "Brazil",
+    "tag": "Home",
+    "interest": 0,
+    "region": "Americas",
+    "code": "GRU"
+  },
+  "MADRID": {
+    "name": "Madrid",
+    "country": "Spain",
+    "tag": "Your gateway to Eurasia",
+    "interest": 5,
+    "region": "Europe",
+    "code": "MAD"
+  },
+  "BUDAPEST": {
+    "name": "Budapest",
+    "country": "Hungary",
+    "tag": "Historic city on the Danube",
+    "interest": 8,
+    "region": "Europe",
+    "code": "BUD"
+  },
+  "VIENNA": {
+    "name": "Vienna",
+    "country": "Austria",
+    "tag": "Imperial and musical capital",
+    "interest": 8,
+    "region": "Europe",
+    "code": "VIE"
+  },
+  "ZURICH": {
+    "name": "Zurich",
+    "country": "Switzerland",
+    "tag": "Alpine connection",
+    "interest": 6,
+    "region": "Europe",
+    "code": "ZRH"
+  },
+  "GENEVA": {
+    "name": "Geneva",
+    "country": "Switzerland",
+    "tag": "Lake and Alps",
+    "interest": 6,
+    "region": "Europe",
+    "code": "GVA"
+  },
+  "WARSAW": {
+    "name": "Warsaw",
+    "country": "Poland",
+    "tag": "Rebuilt capital",
+    "interest": 5,
+    "region": "Europe",
+    "code": "WAW"
+  },
+  "BELGRADE": {
+    "name": "Belgrade",
+    "country": "Serbia",
+    "tag": "Balkan crossroads",
+    "interest": 5,
+    "region": "Europe",
+    "code": "BEG"
+  },
+  "ISTANBUL": {
+    "name": "Istanbul",
+    "country": "Turkey",
+    "tag": "Between two continents",
+    "interest": 9,
+    "region": "Europe",
+    "code": "IST"
+  },
+  "PRAGUE": {
+    "name": "Prague",
+    "country": "Czechia",
+    "tag": "Historic old town",
+    "interest": 9,
+    "region": "Europe",
+    "code": "PRG"
+  },
+  "ZAGREB": {
+    "name": "Zagreb",
+    "country": "Croatia",
+    "tag": "Quiet central European capital",
+    "interest": 5,
+    "region": "Europe",
+    "code": "ZAG"
+  },
+  "KRAKOW": {
+    "name": "Krakow",
+    "country": "Poland",
+    "tag": "Medieval city",
+    "interest": 7,
+    "region": "Europe",
+    "code": "KRK"
+  },
+  "BEIJING": {
+    "name": "Beijing",
+    "country": "China",
+    "tag": "Imperial China begins here",
+    "interest": 10,
+    "priority": true,
+    "region": "Asia",
+    "code": "PEK"
+  },
+  "SHANGHAI": {
+    "name": "Shanghai",
+    "country": "China",
+    "tag": "Skyline, gardens and spring parks",
+    "interest": 9,
+    "birthday": "Parks and gardens in spring (flowers vary by year)",
+    "priority": true,
+    "region": "Asia",
+    "code": "PVG"
+  },
+  "SHENZHEN": {
+    "name": "Shenzhen",
+    "country": "China",
+    "tag": "Hardware and innovation hub",
+    "interest": 8,
+    "priority": true,
+    "region": "Asia",
+    "code": "SZX"
+  },
+  "WUHAN": {
+    "name": "Wuhan",
+    "country": "China",
+    "tag": "East Lake cherry blossoms (seasonal)",
+    "interest": 7,
+    "birthday": "Cherry blossoms at East Lake are a candidate; timing is not guaranteed",
+    "region": "Asia",
+    "code": "WUH"
+  },
+  "CHENGDU": {
+    "name": "Chengdu",
+    "country": "China",
+    "tag": "Gardens and nature excursions",
+    "interest": 7,
+    "region": "Asia",
+    "code": "CTU"
+  },
+  "DALI": {
+    "name": "Dali",
+    "country": "China",
+    "tag": "Lake and mountain scenery",
+    "interest": 8,
+    "birthday": "Lake and mountain landscapes with spring flowers are a candidate",
+    "region": "Asia",
+    "code": "DLU"
+  },
+  "XIAN": {
+    "name": "Xi'an",
+    "country": "China",
+    "tag": "Ancient capital",
+    "interest": 8,
+    "region": "Asia",
+    "code": "XIY"
+  },
+  "SINGAPORE": {
+    "name": "Singapore",
+    "country": "Singapore",
+    "tag": "Gardens and a city-state",
+    "interest": 7,
+    "priority": true,
+    "region": "Asia",
+    "code": "SIN"
+  },
+  "MOSCOW": {
+    "name": "Moscow",
+    "country": "Russia",
+    "tag": "A personal destination",
+    "interest": 10,
+    "priority": true,
+    "region": "Russia",
+    "code": "SVO"
+  }
+}

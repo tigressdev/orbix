@@ -1,0 +1,53 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-09. Formato rico. Voos com trecho de trem (AccesRail) omitidos.
+
+@IST BEIJING 2027-02-14
+IST>PEK 16:20 10:30 +1 422 1 13h10 MIAT ~ ULN:2h45 ~ bag:carry=yes
+IST>PKX 20:10 14:45 +1 476 1 13h35 Qatar Airways ~ DOH:1h40 ~ bag:carry=yes
+IST>PEK 22:25 22:15 +1 484 1 18h50 Air Astana ~ NQZ:8h10 ~ bag:carry=yes
+IST>PEK 16:30 15:50 +1 508 1 18h20 THAI ~ BKK:4h50 ~ bag:carry=yes
+IST>PEK 22:25 00:10 +3 535 1 44h45 Azerbaijan Airlines ~ GYD:34h30 ~ bag:carry=yes
+SAW>PKX 17:20 01:15 +2 607 1 26h55 AirAsia X ~ KUL:10h ~ bag:carry=yes
+IST>PKX 16:15 17:05 +1 632 1 19h50 Saudia ~ RUH:6h40 ~ bag:carry=yes
+IST>PEK 15:15 05:10 +1 916 0 8h55 Turkish Airlines ~ bag:carry=yes
+IST>PEK 14:55 05:30 +1 1170 0 9h35 Air China ~ bag:carry=yes
+IST>PEK 02:10 16:15 +0 1474 0 9h05 Turkish Airlines ~ bag:carry=yes
+IST>PKX 20:10 14:10 +1 3462 1 13h Qatar Airways, XiamenAir ~ DOH:1h20 ~ bag:carry=yes
+
+@IST BEIJING 2027-02-15
+IST>PEK 22:25 00:10 +2 473 1 20h45 Azerbaijan Airlines ~ GYD:10h30 ~ bag:carry=yes
+IST>PKX 20:10 14:45 +1 476 1 13h35 Qatar Airways ~ DOH:1h40 ~ bag:carry=yes
+IST>PEK 16:30 15:50 +1 508 1 18h20 THAI ~ BKK:4h50 ~ bag:carry=yes
+IST>PEK 18:15 19:30 +1 530 1 20h15 Turkish Airlines, MIAT ~ ULN:9h50 ~ bag:carry=yes
+SAW>PKX 17:20 01:15 +2 607 1 26h55 AirAsia X ~ KUL:10h ~ bag:carry=yes
+IST>PEK 15:40 10:25 +1 633 1 13h45 Sichuan Airlines ~ TFU:2h40 ~ bag:carry=yes
+IST>PEK 14:10 10:25 +1 676 1 15h15 China Eastern ~ PVG:2h30 ~ bag:carry=yes
+IST>PEK 15:15 05:10 +1 831 0 8h55 Turkish Airlines ~ bag:carry=yes
+IST>PEK 02:10 16:15 +0 1042 0 9h05 Turkish Airlines ~ bag:carry=yes
+IST>PEK 14:45 05:30 +1 1170 0 9h45 Air China ~ bag:carry=yes
+
+@ZRH BEIJING 2027-02-14
+ZRH>PKX 10:30 08:45 +1 800 1 15h15 Etihad ~ AUH:1h40 ~ bag:carry=yes
+ZRH>PEK 11:55 10:45 +1 824 1 15h50 Cathay Pacific ~ HKG:1h05 ~ bag:carry=yes
+ZRH>PEK 13:50 13:00 +1 872 1 16h10 China Eastern ~ PVG:2h35 ~ bag:carry=yes
+ZRH>PEK 18:30 16:15 +1 930 1 14h45 Turkish Airlines ~ IST:2h45 ~ bag:carry=yes
+ZRH>PEK 20:00 15:50 +2 824 1 36h50 THAI ~ BKK:21h35 ~ bag:carry=yes
+ZRH>PKX 15:10 14:45 +1 876 1 16h35 Qatar Airways ~ DOH:3h15 ~ bag:carry=yes
+ZRH>PEK 06:40 05:10 +1 930 1 15h30 Turkish Airlines ~ IST:3h30 ~ bag:carry=yes
+ZRH>PEK 14:35 14:45 +1 934 1 17h10 Emirates ~ DXB:3h35 ~ bag:carry=yes
+ZRH>PEK 13:15 15:50 +1 998 1 19h35 THAI ~ BKK:4h20 ~ bag:carry=yes
+ZRH>PEK 16:45 11:45 +1 1864 1 12h Lufthansa, Air China ~ FRA:1h30 ~ bag:carry=yes
+ZRH>PEK 09:10 05:20 +1 3367 1 13h10 Austrian, Air China ~ VIE:2h30 ~ bag:carry=yes
+
+@BUD BEIJING 2027-02-15
+BUD>PKX 19:55 22:05 +1 451 1 19h10 Shanghai Airlines, China Eastern ~ NGB:5h45 ~ bag:carry=yes
+BUD>PEK 17:10 12:25 +1 608 1 12h15 Lufthansa ~ MUC:50m ~ bag:carry=yes
+BUD>PEK 15:10 14:45 +1 659 1 16h35 Emirates ~ DXB:3h55 ~ bag:carry=yes
+BUD>PEK 09:10 05:10 +1 660 1 13h Turkish Airlines ~ IST:1h50 ~ bag:carry=yes
+BUD>PEK 20:05 06:25 +2 469 1 27h20 Turkish Airlines ~ IST:16h15 ~ bag:carry=yes
+BUD>PEK 10:00 05:45 +1 615 1 12h45 Lufthansa, Air China ~ FRA:1h30 ~ bag:carry=yes
+BUD>PEK 14:25 11:45 +1 615 1 14h20 Lufthansa, Air China ~ FRA:3h05 ~ bag:carry=yes
+BUD>PEK 11:30 18:00 +1 675 1 23h30 Shanghai Airlines, China Eastern ~ PVG:10h05 ~ bag:carry=yes
+BUD>PKX 11:30 11:25 +1 684 1 16h55 Shanghai Airlines, China Eastern ~ PVG:3h35 ~ bag:carry=yes
+BUD>PEK 12:25 09:55 +1 749 1 14h30 KLM ~ AMS:1h20 ~ bag:carry=yes
+BUD>PEK 09:55 05:00 +1 1225 1 12h05 Lufthansa, Air China ~ MUC:1h20 ~ bag:carry=yes

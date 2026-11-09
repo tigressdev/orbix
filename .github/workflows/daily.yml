@@ -1,0 +1,55 @@
+name: Flight watch
+# Inactive until you push this to a (private) GitHub repo and add the SERPAPI_KEY secret.
+# History lives on a dedicated `data` branch (GitHub artifacts expire; runners are ephemeral).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 10 * * *'
+permissions:
+  contents: write
+concurrency: flight-watch
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tests
+        run: python -m unittest discover -s tests
+      - name: Attach history (data branch)
+        run: |
+          git fetch origin data || true
+          if git rev-parse --verify origin/data >/dev/null 2>&1; then
+            git worktree add data_store origin/data
+          else
+            git worktree add --orphan -b data data_store
+          fi
+          echo "FI_DB=$PWD/data_store/quotes.sqlite" >> "$GITHUB_ENV"
+      - name: Collect quotes (fails the job if nothing succeeded)
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: python trip.py run
+      - name: Build ranking, report, alerts
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python trip.py build --top 10 | tee "$GITHUB_STEP_SUMMARY"
+          python trip.py report
+          python trip.py alert
+      - name: Persist history
+        if: always()
+        run: |
+          cd data_store
+          git config user.name  "flight-watch-bot"
+          git config user.email "flight-watch-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "data: $(date -u +%F)"
+          git push origin HEAD:data
+      - uses: actions/upload-artifact@v4
+        with:
+          name: report
+          path: site/index.html
+          retention-days: 14

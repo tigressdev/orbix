@@ -1,0 +1,100 @@
+# Cotacoes OBSERVADAS no Google Flights (BR, BRL, 1 adulto, so ida) em 2026-11-09 - China interna, Singapura e Singapura -> Moscou.
+# Mesmo formato dos outros arquivos. Voos domesticos chineses: Spring/Juneyao/XiamenAir costumam ter bagagem despachada a parte.
+
+@PEK SHANGHAI 2027-02-28
+PKX>PVG 21:20 23:30 +0 798 0 2h10 Juneyao Airlines
+PKX>PVG 11:55 14:10 +0 970 0 2h15 XiamenAir
+PKX>PVG 14:25 16:35 +0 974 0 2h10 Air China
+PEK>SHA 11:00 12:55 +0 1072 0 1h55 China Eastern
+PKX>PVG 21:20 23:30 +0 885 0 2h10 XiamenAir
+PKX>PVG 11:55 14:10 +0 957 0 2h15 Juneyao Airlines
+PKX>PVG 17:15 19:25 +0 957 0 2h10 Juneyao Airlines
+PKX>SHA 21:35 23:40 +0 957 0 2h05 Shanghai Airlines
+PKX>PVG 17:15 19:25 +0 970 0 2h10 XiamenAir
+PKX>PVG 10:40 13:00 +0 974 0 2h20 Air China
+PEK>PVG 13:00 15:20 +0 974 0 2h20 Air China
+PEK>SHA 08:00 10:15 +0 1072 0 2h15 China Eastern
+PEK>SHA 09:00 11:00 +0 1072 0 2h00 China Eastern
+PEK>SHA 10:00 12:20 +0 1072 0 2h20 China Eastern
+PEK>SHA 12:00 13:55 +0 1072 0 1h55 China Eastern
+
+@PEK SHANGHAI 2027-03-03
+PKX>PVG 21:20 23:30 +0 798 0 2h10 Juneyao Airlines
+PKX>PVG 11:55 14:10 +0 970 0 2h15 XiamenAir
+PKX>PVG 14:30 16:35 +0 974 0 2h05 Air China
+PKX>PVG 21:20 23:30 +0 885 0 2h10 XiamenAir
+PKX>PVG 11:55 14:10 +0 957 0 2h15 Juneyao Airlines
+PKX>SHA 14:00 16:05 +0 957 0 2h05 Juneyao Airlines
+PKX>PVG 17:15 19:25 +0 957 0 2h10 Juneyao Airlines
+PKX>SHA 14:00 16:05 +0 970 0 2h05 XiamenAir
+PKX>PVG 17:15 19:25 +0 970 0 2h10 XiamenAir
+PKX>PVG 10:40 13:00 +0 974 0 2h20 Air China
+PEK>PVG 13:00 15:20 +0 974 0 2h20 Air China
+PEK>PVG 08:00 10:15 +0 1133 0 2h15 Air China
+
+@SHA SHENZHEN 2027-03-08
+SHA>SZX 17:15 19:50 +0 554 0 2h35 Spring Airlines
+SHA>SZX 09:35 12:20 +0 578 0 2h45 Spring Airlines
+SHA>SZX 10:50 13:35 +0 578 0 2h45 Spring Airlines
+SHA>SZX 13:05 15:50 +0 578 0 2h45 Spring Airlines
+SHA>SZX 21:30 00:20 +1 479 0 2h50 Spring Airlines
+SHA>SZX 07:30 10:10 +0 578 0 2h40 Spring Airlines
+SHA>SZX 08:15 10:35 +0 1544 0 2h20 Juneyao Airlines
+SHA>SZX 15:10 17:35 +0 1544 0 2h25 Juneyao Airlines
+SHA>SZX 07:30 10:05 +0 1588 0 2h35 China Eastern
+
+@SHA SHENZHEN 2027-03-11
+SHA>SZX 10:50 13:35 +0 578 0 2h45 Spring Airlines
+SHA>SZX 13:05 15:50 +0 578 0 2h45 Spring Airlines
+SHA>SZX 17:15 19:50 +0 578 0 2h35 Spring Airlines
+SHA>SZX 07:30 10:10 +0 578 0 2h40 Spring Airlines
+SHA>SZX 21:30 00:20 +1 578 0 2h50 Spring Airlines
+SHA>SZX 19:10 22:00 +0 678 0 2h50 Spring Airlines
+SHA>SZX 08:15 10:35 +0 1544 0 2h20 Juneyao Airlines
+
+@SZX SINGAPORE 2027-03-13
+SIN 08:00 12:10 +0 956 0 4h10 China Southern
+SIN 15:40 19:50 +0 956 0 4h10 China Southern
+SIN 08:20 12:30 +0 972 0 4h10 Shenzhen Airlines
+SIN 21:50 02:00 +1 972 0 4h10 Shenzhen Airlines
+SIN 23:30 11:10 +1 1154 1 11h40 Hainan Airlines
+SIN 02:45 09:05 +0 1200 1 6h20 Malaysia Airlines
+SIN 13:05 17:15 +0 1253 0 4h10 Shenzhen Airlines
+SIN 03:15 10:20 +0 1888 1 7h05 AirAsia
+SIN 00:05 04:20 +0 3278 0 4h15 Singapore Airlines
+
+@SZX SINGAPORE 2027-03-16
+SIN 08:00 12:10 +0 956 0 4h10 China Southern
+SIN 13:05 17:15 +0 972 0 4h10 Shenzhen Airlines
+SIN 00:05 04:20 +0 1264 0 4h15 Singapore Airlines
+SIN 08:20 12:30 +0 972 0 4h10 Shenzhen Airlines
+SIN 21:50 02:00 +1 972 0 4h10 Shenzhen Airlines
+SIN 15:40 19:50 +0 1162 0 4h10 China Southern
+SIN 02:45 09:05 +0 1200 1 6h20 Malaysia Airlines
+SIN 03:15 10:20 +0 1583 1 7h05 AirAsia
+
+@SIN MOSCOW 2027-03-17
+SVO 19:25 07:45 +1 2523 1 17h20 Etihad
+DME 02:30 14:35 +0 2613 1 17h05 Emirates
+DME 21:00 08:10 +1 2613 1 16h10 Emirates
+SVO 20:00 08:00 +1 2734 1 17h00 Gulf Air
+VKO 21:20 14:00 +1 2491 2 21h40 Batik Air, Emirates, flydubai
+DME 21:20 14:35 +1 2509 2 22h15 Batik Air, Emirates
+SVO 23:55 15:05 +1 2544 1 20h10 Air China
+SVO 00:25 14:35 +0 2580 1 19h10 China Eastern
+SVO 00:55 15:30 +0 2580 1 19h35 China Eastern
+SVO 03:25 17:05 +0 2580 1 18h40 Shanghai Airlines, China Eastern
+SVO 23:00 14:35 +1 2580 1 20h35 China Eastern
+VKO 02:30 14:00 +0 2594 1 16h30 Emirates, flydubai
+
+@SIN MOSCOW 2027-03-20
+SVO 19:25 07:45 +1 2523 1 17h20 Etihad
+DME 02:30 14:35 +0 2613 1 17h05 Emirates
+SVO 20:00 08:00 +1 2734 1 17h00 Gulf Air
+SVO 23:55 17:40 +1 2544 1 22h45 Air China
+SVO 23:00 14:35 +1 2592 1 20h35 China Eastern
+DME 21:00 08:10 +1 2613 1 16h10 Emirates
+SVO 17:45 09:25 +2 2779 1 44h40 Hainan Airlines
+SVO 23:55 15:05 +1 2809 1 20h10 Air China
+VKO 04:35 18:50 +0 2814 1 19h15 Turkish Airlines
+VKO 10:25 01:40 +1 2814 1 20h15 Turkish Airlines

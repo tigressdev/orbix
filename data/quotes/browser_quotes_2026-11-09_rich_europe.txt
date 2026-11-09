@@ -1,0 +1,104 @@
+# Cotacoes OBSERVADAS no Google Flights (BR, BRL, 1 adulto, so ida) em 2026-11-09 - primeiros trechos da Europa em formato rico
+# (companhia, conexoes, mala de mao). Substitui as leituras antigas das mesmas rotas/datas. Veja browser_quotes_2026-11-09_rich_moscow.txt.
+
+@MAD BUDAPEST 2027-02-12
+MAD>BUD 20:00 23:15 +0 198 0 3h15 Wizz Air ~ bag:carry=no
+MAD>BUD 18:15 21:25 +0 367 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 07:20 10:30 +0 1000 0 3h10 Iberia ~ bag:carry=yes
+MAD>BUD 12:35 23:05 +0 748 1 10h30 Brussels Airlines ~ BRU:6h20 ~ bag:carry=yes
+MAD>BUD 06:00 09:10 +0 835 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 06:25 17:00 +0 847 1 10h35 Brussels Airlines ~ BRU:6h10 ~ bag:carry=no
+MAD>BUD 07:25 12:40 +0 945 1 5h15 Lufthansa City Airlines, Lufthansa ~ MUC:1h30 ~ bag:carry=yes
+MAD>BUD 08:35 13:40 +0 1155 1 5h05 Lufthansa ~ FRA:1h ~ bag:carry=no
+MAD>BUD 12:00 16:25 +0 1180 1 4h25 Lufthansa City Airlines, Lufthansa ~ MUC:40m ~ bag:carry=no
+
+@MAD BUDAPEST 2027-02-13
+MAD>BUD 20:10 23:20 +0 204 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 20:00 23:15 +0 285 0 3h15 Wizz Air ~ bag:carry=no
+MAD>BUD 10:05 13:15 +0 409 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 07:20 10:30 +0 573 0 3h10 Iberia ~ bag:carry=yes
+MAD>BUD 17:45 14:40 +1 458 1 20h55 Air Serbia ~ BEG:16h30 ~ bag:carry=yes
+MAD>BUD 07:25 12:40 +0 797 1 5h15 Lufthansa City Airlines, Lufthansa ~ MUC:1h30 ~ bag:carry=yes
+MAD>BUD 10:50 17:05 +0 836 1 6h15 KLM ~ AMS:1h45 ~ bag:carry=yes
+MAD>BUD 12:00 16:25 +0 945 1 4h25 Lufthansa City Airlines, Lufthansa ~ MUC:40m ~ bag:carry=no
+MAD>BUD 13:20 21:20 +0 1373 2 8h Lufthansa ~ FRA:2h25,MUC:55m ~ bag:carry=no
+
+@MAD PRAGUE 2027-02-12
+MAD>PRG 18:20 21:20 +0 367 0 3h Ryanair ~ bag:carry=no
+MAD>PRG 13:55 16:50 +0 795 0 2h55 Smartwings ~ bag:carry=yes
+MAD>PRG 16:00 18:55 +0 1006 0 2h55 Iberia ~ bag:carry=yes
+MAD>PRG 19:30 10:00 +1 690 1 14h30 Vueling ~ BCN:10h40 ~ bag:carry=no
+MAD>PRG 15:30 12:10 +1 734 1 20h40 LOT ~ WAW:15h45 ~ bag:carry=yes
+MAD>PRG 19:30 08:45 +1 1026 1 13h15 SWISS ~ ZRH:9h35 ~ bag:carry=no
+MAD>PRG 06:25 10:50 +0 1163 1 4h25 Brussels Airlines ~ BRU:35m ~ bag:carry=no
+MAD>PRG 07:25 13:05 +0 1292 1 5h40 Lufthansa City Airlines, Lufthansa ~ MUC:2h20 ~ bag:carry=no
+MAD>PRG 12:00 16:00 +0 1366 1 4h Lufthansa City Airlines, Lufthansa ~ MUC:40m ~ bag:carry=no
+
+@MAD VIENNA 2027-02-12
+MAD>VIE 19:55 22:55 +0 493 0 3h Iberia ~ bag:carry=yes
+MAD>VIE 10:50 16:15 +0 1145 1 5h25 KLM ~ AMS:1h10 ~ bag:carry=yes
+MAD>VIE 12:35 17:30 +0 1169 1 4h55 Brussels Airlines ~ BRU:1h ~ bag:carry=no
+MAD>VIE 16:00 19:05 +0 1259 0 3h05 Iberia ~ bag:carry=yes
+MAD>VIE 15:30 08:35 +1 668 1 17h05 LOT ~ WAW:12h10 ~ bag:carry=yes
+MAD>VIE 12:30 19:45 +0 873 1 7h15 KM Malta Airlines ~ MLA:2h10 ~ bag:carry=yes
+MAD>VIE 17:00 22:50 +0 1083 1 5h50 KLM ~ AMS:1h30 ~ bag:carry=no
+MAD>VIE 06:05 11:20 +0 1269 1 5h15 KLM ~ AMS:1h ~ bag:carry=no
+MAD>VIE 12:00 16:35 +0 1471 1 4h35 Lufthansa City Airlines, Austrian ~ MUC:1h ~ bag:carry=yes
+MAD>VIE 08:40 11:40 +0 1507 0 3h Iberia ~ bag:carry=yes
+
+@MAD ISTANBUL 2027-02-12
+MAD>SAW 14:55 21:10 +0 707 0 4h15 Pegasus ~ bag:carry=no
+MAD>SAW 12:40 18:50 +0 737 0 4h10 Pegasus ~ bag:carry=no
+MAD>IST 14:20 20:35 +0 980 0 4h15 Turkish Airlines ~ bag:carry=no
+MAD>SAW 16:40 09:10 +1 727 1 14h30 AJet ~ ESB:8h45 ~ bag:carry=no
+MAD>IST 14:20 09:30 +1 789 1 17h10 SKY express ~ ATH:12h15 ~ bag:carry=yes
+MAD>IST 11:55 18:15 +0 1407 0 4h20 Turkish Airlines ~ bag:carry=no
+MAD>IST 08:35 18:10 +0 1526 1 7h35 Lufthansa ~ FRA:1h55 ~ bag:carry=no
+MAD>IST 18:00 00:15 +1 1598 0 4h15 Turkish Airlines ~ bag:carry=no
+MAD>IST 09:10 14:55 +0 2303 0 3h45 Air Europa ~ bag:carry=yes
+
+@MAD ZURICH 2027-02-12
+MAD>ZRH 15:10 17:30 +0 424 0 2h20 Air Europa ~ bag:carry=yes
+MAD>ZRH 16:35 18:55 +0 424 0 2h20 Iberia ~ bag:carry=yes
+MAD>ZRH 20:10 22:30 +0 424 0 2h20 Iberia ~ bag:carry=yes
+MAD>ZRH 07:40 10:00 +0 424 0 2h20 Air Europa ~ bag:carry=yes
+MAD>ZRH 08:45 11:10 +0 493 0 2h25 Iberia ~ bag:carry=yes
+MAD>ZRH 11:50 14:10 +0 561 0 2h20 Iberia ~ bag:carry=yes
+MAD>ZRH 10:05 12:20 +0 591 0 2h15 SWISS ~ bag:carry=no
+MAD>ZRH 19:30 21:50 +0 610 0 2h20 SWISS ~ bag:carry=yes
+
+@MAD BEIJING 2027-02-12
+MAD>PKX 13:20 12:45 +1 2892 1 16h25 Lufthansa, Air China ~ FRA:4h25 ~ bag:carry=yes
+MAD>PKX 15:50 15:30 +1 3365 1 16h40 Iberia, China Southern ~ LHR:4h15 ~ bag:carry=yes
+MAD>PKX 15:20 14:45 +1 4132 1 16h25 Qatar Airways ~ DOH:2h20 ~ bag:carry=yes
+MAD>PEK 13:20 05:45 +2 3109 1 33h25 Lufthansa, Air China ~ FRA:21h25 ~ bag:carry=yes
+MAD>PKX 15:00 15:30 +1 3544 1 17h30 Air Europa, China Southern ~ bag:carry=yes
+MAD>PEK 13:20 11:45 +1 3831 1 15h25 Lufthansa, Air China ~ FRA:3h25 ~ bag:carry=yes
+MAD>PKX 17:20 15:30 +1 3910 1 15h10 Iberia, China Southern ~ LHR:2h40 ~ bag:carry=yes
+MAD>PEK 11:05 10:25 +1 4941 1 16h20 Sichuan Airlines ~ TFU:2h ~ bag:carry=yes
+MAD>PEK 00:40 18:45 +0 5783 0 11h05 Air China ~ bag:carry=yes
+MAD>PEK 08:35 05:45 +1 6294 1 14h10 Lufthansa, Air China ~ FRA:2h10 ~ bag:carry=yes
+MAD>PEK 12:20 06:20 +1 6482 0 11h Air China ~ bag:carry=yes
+
+@MAD BEIJING 2027-02-13
+MAD>PKX 17:20 15:30 +1 3365 1 15h10 Iberia, China Southern ~ LHR:2h40 ~ bag:carry=yes
+MAD>PKX 15:20 14:45 +1 4132 1 16h25 Qatar Airways ~ DOH:2h20 ~ bag:carry=yes
+MAD>PEK 10:50 09:55 +1 4219 1 16h05 KLM ~ AMS:2h30 ~ bag:carry=yes
+MAD>PKX 08:40 13:20 +1 3502 1 21h40 Iberia, China Southern ~ AMS:9h10 ~ bag:carry=yes
+MAD>PEK 06:05 05:45 +1 4346 1 16h40 Lufthansa, Air China ~ FRA:4h40 ~ bag:carry=yes
+MAD>PKX 07:00 13:20 +1 4602 1 23h20 Air Europa, China Southern ~ AMS:10h55 ~ bag:carry=yes
+MAD>PEK 16:25 16:55 +1 4831 1 17h30 Air France ~ CDG:4h05 ~ bag:carry=yes
+MAD>PEK 07:25 05:00 +1 6251 1 14h35 Lufthansa City Airlines, Air China ~ MUC:2h35 ~ bag:carry=yes
+MAD>PEK 00:40 18:45 +0 6514 0 11h05 Air China ~ bag:carry=yes
+MAD>PEK 12:20 06:20 +1 8479 0 11h Air China ~ bag:carry=yes
+
+@BUD BEIJING 2027-02-14
+BUD>PEK 07:50 05:00 +1 3035 1 14h10 Lufthansa, Air China ~ MUC:3h25 ~ bag:carry=yes
+BUD>PEK 10:00 05:45 +1 3073 1 12h45 Lufthansa, Air China ~ FRA:1h30 ~ bag:carry=yes
+BUD>PEK 09:10 05:10 +1 3632 1 13h Turkish Airlines ~ IST:1h50 ~ bag:carry=yes
+BUD>PEK 11:40 11:45 +1 3072 1 17h05 Lufthansa, Air China ~ FRA:5h50 ~ bag:carry=yes
+BUD>PEK 17:10 05:00 +2 3110 1 28h50 Lufthansa, Air China ~ MUC:18h05 ~ bag:carry=yes
+BUD>PKX 11:30 11:25 +1 3526 1 16h55 Shanghai Airlines, China Eastern ~ PVG:3h35 ~ bag:carry=yes
+BUD>PEK 11:30 10:25 +1 3562 1 15h55 Shanghai Airlines, China Eastern ~ PVG:2h35 ~ bag:carry=yes
+BUD>PEK 15:10 14:45 +1 3783 1 16h35 Emirates ~ DXB:3h55 ~ bag:carry=yes
+BUD>PEK 19:35 11:40 +1 7501 0 9h05 Air China ~ bag:carry=yes
