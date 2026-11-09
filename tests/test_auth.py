@@ -82,3 +82,19 @@ class AuthFlow(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class FailClosed(unittest.TestCase):
+    def test_hosted_without_users_refuses_api_calls(self):
+        import os
+        from flightintel import webapp
+        old = {k: os.environ.get(k) for k in ("VERCEL", "FI_USERS")}
+        try:
+            os.environ["VERCEL"] = "1"; os.environ["FI_USERS"] = ""
+            from unittest import mock
+            with mock.patch.object(webapp.auth, "load_users", return_value={}):
+                status = webapp.dispatch(None, "GET", "/api/meta", {"host": "x"})[0]
+            self.assertEqual(status, 503)
+        finally:
+            for k, v in old.items():
+                os.environ.pop(k, None) if v is None else os.environ.__setitem__(k, v)

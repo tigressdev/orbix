@@ -236,6 +236,8 @@ def dispatch(app, method, path, headers, body=b"", allowed_hosts=None, static=Tr
         if origin and urlparse(origin).netloc != h.get("host"):
             return _json(403, {"error": "bad origin"})
     users = auth.load_users()
+    if hosted() and not users and urlparse(path).path.startswith("/api/"):       # fail closed: never serve personal data without a login
+        return _json(503, {"error": "Login is not configured on this deployment (set FI_USERS and FI_SESSION_SECRET, then redeploy)."})
     user = auth.user_from_cookie(h.get("cookie", "")) if users else "local"
     secure = h.get("x-forwarded-proto") == "https"
     url = urlparse(path)
