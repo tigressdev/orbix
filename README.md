@@ -23,7 +23,8 @@ python trip.py report                       # site/index.html
 python trip.py alert --dry-run              # queda >= alert_drop_percent vs. menor valor já visto
 ```
 
-## Flight Intelligence — The Journey Studio (localhost)
+## ORBIX — The Journey Intelligence Studio (localhost)
+*The Economics of Exploration. Explore the world. Optimize the journey.*
 ```bash
 python trip.py serve          # http://localhost:8765  (somente 127.0.0.1)
 ```

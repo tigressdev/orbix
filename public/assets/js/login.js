@@ -24,8 +24,8 @@ export function showLogin(message = '') {
     err, btn);
   const box = h('div', { id: 'login', class: 'login', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'login-title' },
     h('div', { class: 'login-card' },
-      h('div', { class: 'brand' }, h('span', { class: 'brand-mark', 'aria-hidden': 'true' }), h('span', { class: 'brand-name' }, 'FLIGHT INTELLIGENCE')),
-      h('p', { class: 'eyebrow', style: { marginTop: '18px' } }, 'The Journey Studio · 2027'),
+      h('div', { class: 'brand' }, h('span', { class: 'brand-mark', 'aria-hidden': 'true' }), h('span', { class: 'brand-name' }, 'ORBIX')),
+      h('p', { class: 'eyebrow', style: { marginTop: '18px' } }, 'The Economics of Exploration'),
       h('h1', { id: 'login-title', class: 'serif' }, 'Welcome back.'),
       h('p', { class: 'muted' }, 'Each person keeps their own plans. You can look at the other one’s, but only the owner can change them.'),
       form));
