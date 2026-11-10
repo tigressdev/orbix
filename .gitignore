@@ -15,3 +15,4 @@ extracted/
 # secrets
 config/users.local.json
 data/.session_secret
+.env*
