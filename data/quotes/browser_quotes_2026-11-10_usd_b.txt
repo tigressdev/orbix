@@ -1,0 +1,25 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-10. Formato rico. Segunda leva do dia (rotas que so tinham a linha de base de 09/nov).
+@PKX SHANGHAI 2027-02-21
+PKX>PVG 21:20 23:30 +0 132 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 21:20 23:30 +0 161 0 2h10 XiamenAir ~ bag:carry=yes
+PKX>PVG 11:55 14:10 +0 174 0 2h15 Juneyao Airlines ~ bag:carry=yes
+PKX>PVG 17:15 19:25 +0 174 0 2h10 Juneyao Airlines ~ bag:carry=yes
+PKX>SHA 21:35 23:40 +0 174 0 2h05 Shanghai Airlines ~ bag:carry=yes
+PKX>PVG 11:55 14:10 +0 176 0 2h15 XiamenAir ~ bag:carry=yes
+PKX>PVG 17:15 19:25 +0 176 0 2h10 XiamenAir ~ bag:carry=yes
+PKX>PVG 14:25 16:35 +0 177 0 2h10 Air China ~ bag:carry=yes
+PKX>PVG 10:40 13:00 +0 177 0 2h20 Air China ~ bag:carry=yes
+PKX>SHA 14:00 16:05 +0 203 0 2h05 Juneyao Airlines ~ bag:carry=yes
+PKX>SHA 14:00 16:05 +0 205 0 2h05 XiamenAir ~ bag:carry=yes
+PKX>SHA 07:20 09:15 +0 208 0 1h55 China Eastern ~ bag:carry=yes
+
+@SHA SHENZHEN 2027-03-02
+SHA>SZX 07:30 10:10 +0 104 0 2h40 Spring ~ bag:carry=yes
+SHA>SZX 10:50 13:35 +0 119 0 2h45 Spring ~ bag:carry=yes
+SHA>SZX 19:10 22:00 +0 122 0 2h50 Spring ~ bag:carry=yes
+SHA>SZX 13:05 15:50 +0 137 0 2h45 Spring ~ bag:carry=yes
+SHA>SZX 17:15 19:50 +0 156 0 2h35 Spring ~ bag:carry=yes
+SHA>SZX 21:30 00:20 +1 174 0 2h50 Spring ~ bag:carry=yes
+SHA>SZX 08:15 10:35 +0 281 0 2h20 Juneyao Airlines ~ bag:carry=yes
+SHA>SZX 09:45 12:05 +0 281 0 2h20 Juneyao Airlines ~ bag:carry=yes
