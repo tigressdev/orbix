@@ -16,3 +16,10 @@ extracted/
 config/users.local.json
 data/.session_secret
 .env*
+
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/e2e/shots/
+.vercel

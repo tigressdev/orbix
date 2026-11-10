@@ -137,10 +137,24 @@ class App:
             out.append({"stale": False, "summary": ex.summary(path), "metrics": ex.metrics(path)})
         return {"results": out}
 
+    def _stamp(self):
+        """Identifies the quote set an analysis was computed from: number of searches and the latest one."""
+        row = self.conn().execute("SELECT COUNT(*), MAX(searched_at) FROM searches WHERE ok=1").fetchone()
+        return f"{row[0]}|{row[1]}"
+
+    def _precomputed_fresh(self, pre):
+        """The build-time analysis is still valid if it was computed from the same quotes and the trip/city config is not newer than it."""
+        try:
+            data = json.loads(pre.read_text(encoding="utf-8"))
+            cfg_newer = max((ROOT / "config/trip.json").stat().st_mtime, (ROOT / "config/cities.json").stat().st_mtime) > pre.stat().st_mtime
+            return data.get("status") == "ready" and data.get("stamp") == self._stamp() and not cfg_newer
+        except Exception:  # noqa: BLE001
+            return False
+
     def analysis(self):
         pre = ROOT / "data/precomputed/insights.json"
-        if hosted() and pre.exists():                       # computed at build time: the analysis is too slow for a serverless request
-            return json.loads(pre.read_text(encoding="utf-8"))
+        if pre.exists() and (hosted() or self._precomputed_fresh(pre)):
+            return json.loads(pre.read_text(encoding="utf-8"))   # computed by scripts/build_data.py (about a minute): never recomputed per request when it is up to date
         stamp = (db_path(self.demo).stat().st_mtime_ns, (ROOT / "config/trip.json").stat().st_mtime_ns,
                  (ROOT / "config/cities.json").stat().st_mtime_ns)
         with self._lock:

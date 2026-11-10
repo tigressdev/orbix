@@ -1,6 +1,6 @@
 /* Flight Intelligence — design tokens */
 :root{
-  --ivory:#f6f1e7; --paper:#fffdf9; --paper-2:#fbf7ee; --ink:#1b2430; --ink-2:#4b5563; --ink-3:#7b8490;
+  --ivory:#ffffff; --paper:#ffffff; --paper-2:#f6f8f8; --ink:#1b2430; --ink-2:#4b5563; --ink-3:#7b8490;
   --line:#e6dfd0; --line-2:#d6cdb9;
   --teal:#0e7c72; --teal-ink:#0a5c54; --teal-soft:#dcefea; --blue:#5f7f99; --blue-soft:#e4ebf1;
   --c-eu:#4f93d0; --c-eu-ru:#ec7f22; --c-eu-as:#12a9b8; --c-ru-as:#d04a82; --c-as:#7fae2e; --lilac:#7a5bbd; --lilac-soft:#ece6f8; --amber:#a66a12; --amber-soft:#faefd7; --green:#2f7d5b; --red:#b4443a; --red-soft:#f7e3df;

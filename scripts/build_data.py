@@ -60,6 +60,7 @@ def main():
         if r.get("status") != "computing":
             break
         time.sleep(1)
+    r["stamp"] = app._stamp()                     # lets a local server reuse this file while the quotes have not changed
     pre = ROOT / "data/precomputed"
     pre.mkdir(parents=True, exist_ok=True)
     (pre / "insights.json").write_text(json.dumps(r, ensure_ascii=False), encoding="utf-8")

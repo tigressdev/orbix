@@ -13,3 +13,9 @@ data/demo.sqlite
 data/*.txt
 **/__pycache__
 *.pdf
+
+frontend/node_modules
+frontend/test-results
+frontend/playwright-report
+frontend/e2e/shots
+frontend/dist

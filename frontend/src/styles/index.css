@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+/* ORBIX design tokens: warm ivory canvas, graphite type, mineral teal, antique gold. Dark theme swaps the same names. */
+:root {
+  --canvas: #ffffff; --surface: #ffffff; --surface-2: #f6f8f8; --ink: #20282b; --ink-2: #677479; --line: #e4e8e8;
+  --teal: #176b68; --teal-soft: #e0eeec; --sage: #90a9a0; --gold: #bc9b67; --gold-soft: #f3ecdf;
+  --good: #1f7a54; --risk: #b07a1d; --risk-soft: #f6ecd6; --bad: #a14a35; --bad-soft: #f4e2dc; --blue: #4d7ea8; --lilac: #7b6aa8;
+  --font-ui: 'Barlow', system-ui, sans-serif; --font-display: 'Barlow Semi Condensed', 'Barlow', system-ui, sans-serif;
+  --safe-b: env(safe-area-inset-bottom, 0px); --safe-t: env(safe-area-inset-top, 0px);
+  --logo-ring: #0e3b3c;
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  --canvas: #12181a; --surface: #1a2225; --surface-2: #162023; --ink: #eceee9; --ink-2: #9aa7ab; --line: #2b3639;
+  --teal: #4fb0a8; --teal-soft: #19302f; --sage: #6f8b82; --gold: #cfb07a; --gold-soft: #2b2619;
+  --good: #58bf8e; --risk: #d9a64a; --risk-soft: #302714; --bad: #d9826b; --bad-soft: #33201a; --blue: #7fa7ca; --lilac: #a897d6;
+  --logo-ring: #7fc1bc;
+  color-scheme: dark;
+}
+@theme inline {
+  --color-canvas: var(--canvas); --color-surface: var(--surface); --color-surface-2: var(--surface-2); --color-ink: var(--ink); --color-ink-2: var(--ink-2);
+  --color-line: var(--line); --color-teal: var(--teal); --color-teal-soft: var(--teal-soft); --color-sage: var(--sage); --color-gold: var(--gold); --color-gold-soft: var(--gold-soft);
+  --color-good: var(--good); --color-risk: var(--risk); --color-risk-soft: var(--risk-soft); --color-bad: var(--bad); --color-bad-soft: var(--bad-soft);
+  --color-blue: var(--blue); --color-lilac: var(--lilac);
+  --font-sans: var(--font-ui); --font-display: var(--font-display);
+}
+
+html { background: var(--canvas); }
+body { margin: 0; font-family: var(--font-ui); color: var(--ink); background: var(--canvas); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; min-width: 320px; }
+#root { min-height: 100dvh; }
+.num { font-variant-numeric: tabular-nums lining-nums; font-feature-settings: 'tnum' 1, 'lnum' 1; }
+.display { font-family: var(--font-display); letter-spacing: -0.01em; }
+.eyebrow { font-family: var(--font-display); font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2); }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 6px; }
+@layer base {
+  button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+  input, select, textarea { font-size: 16px; }   /* no zoom on focus in iOS */
+}
+
+/* the page itself never scrolls sideways: wide things scroll inside their own container */
+.hscroll { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; scroll-snap-type: x proximity; }
+.hscroll::-webkit-scrollbar { display: none; }
+
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.skeleton { background: linear-gradient(90deg, var(--line) 25%, color-mix(in srgb, var(--line) 50%, var(--surface)) 50%, var(--line) 75%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; border-radius: 10px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
+
+.maplibregl-ctrl-attrib { font-size: 10px; }
+.pin { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 999px; border: 2px solid var(--surface); box-shadow: 0 1px 4px rgba(0,0,0,.28); font: 600 11px var(--font-display); color: #fff; cursor: pointer; padding: 0; }
