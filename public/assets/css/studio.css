@@ -371,3 +371,38 @@ body.viewonly .journey-head .btn-sm:last-child{display:inline-flex!important}
 @media (max-width:700px){.seg.users button{padding:4px 8px}}
 
 .split-note{margin-top:8px;padding:9px 11px;border-radius:10px;background:var(--blue-soft);color:var(--ink-2);font-size:12.5px;line-height:1.45}.split-note b{color:var(--ink)}
+
+/* ---- phone ------------------------------------------------------------------------------------------------------------------------------------- */
+html,body{overflow-x:clip}
+@media (max-width:700px){
+  .views{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x proximity;max-width:100%}
+  .views::-webkit-scrollbar{display:none}
+  .vtab{flex:0 0 auto;scroll-snap-align:start;min-height:40px;padding:8px 13px;white-space:nowrap}
+  .topbar{flex-wrap:wrap;row-gap:6px;padding:8px 12px}
+  .top-actions{flex-wrap:wrap;justify-content:flex-end;gap:4px}
+  .btn,.seg button{min-height:38px}
+  .btn-sm{min-height:34px}
+  .hero{min-height:460px;height:min(74vh,640px)}
+  .hero h1{font-size:36px}
+  .studio-grid{gap:14px}
+  .studio-side{order:-1}                                   /* budget first: it is what you check on the phone */
+  .drawer{width:100vw;top:6vh;border-left:0;border-radius:18px 18px 0 0;animation:sheet .3s var(--ease) both}
+  .drawer-head{padding:16px 16px 10px}
+  .drawer-head h2{font-size:30px}
+  .drawer-body{padding:14px 14px 34px}
+  .dest-facts{grid-template-columns:1fr}
+  .dest-top{flex-direction:column;gap:6px}
+  .dest-from{text-align:left}
+  .f-route{gap:8px}
+  .viewonly-banner{font-size:13px;padding:8px 12px}
+  table{display:block;overflow-x:auto;max-width:100%}
+  input,select,textarea{font-size:16px}                    /* iOS does not zoom the page when focusing */
+}
+@keyframes sheet{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:700px){
+  .pin.cand{transform-origin:center;scale:.72}
+  .pin.cand .lbl{display:none}
+  .pin.cand.key .lbl,.pin.cand.hot .lbl{display:inline}
+  .hero-copy{max-width:calc(100% - 28px)}
+  .hero-copy .btn-primary{min-height:46px}
+}

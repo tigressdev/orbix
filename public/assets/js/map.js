@@ -22,7 +22,7 @@ export function initMap(cb) {
     style: { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': css('--ocean') || '#e5ece9' } }] },
     bounds: [[-52, -24], [128, 60]],
     fitBoundsOptions: { padding: { top: 70, bottom: 90, left: 40, right: 40 } },
-    attributionControl: false, dragRotate: false, pitchWithRotate: false, touchPitch: false, minZoom: 0.8, maxZoom: 8,
+    attributionControl: false, dragRotate: false, pitchWithRotate: false, touchPitch: false, minZoom: window.innerWidth < 700 ? 0 : 0.8, maxZoom: 8,
   });
   map.addControl(new window.maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: Natural Earth via world-atlas' }));
   map.addControl(new window.maplibregl.NavigationControl({ showCompass: false }), 'top-right');
@@ -237,6 +237,6 @@ export function updateMap(model) {
     const narrow = window.innerWidth < 820, mapMode = document.body.classList.contains('map-mode');
     const left = narrow || mapMode ? 50 : Math.round(window.innerWidth * 0.36);
     map.fitBounds([[Math.min(...lons) - 6, Math.min(...lats) - 8], [Math.max(...lons) + 6, Math.max(...lats) + 8]], {
-      padding: { top: narrow && !mapMode ? 270 : 80, bottom: 90, left, right: narrow ? 30 : 60 }, maxZoom: 5.2, duration: reducedMotion() ? 0 : 900 });
+      padding: { top: narrow && !mapMode ? 300 : 80, bottom: 60, left, right: narrow ? 30 : 60 }, maxZoom: 5.2, duration: reducedMotion() ? 0 : 900 });
   }
 }

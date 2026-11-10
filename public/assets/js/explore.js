@@ -99,8 +99,9 @@ function destinations(body, res, sc) {
       h('input', { type: 'checkbox', checked: S.prefs.strict, onchange: (e) => setPref('strict', e.target.checked) })));
   let groups = res.groups;
   const over = (g) => projected(g.min_cumulative).over;
-  if (S.prefs.strict) groups = groups.filter((g) => g.any_ok && !over(g));
-  groups = rank(groups, S.prefs.ranking);
+  const must = (g) => (S.meta.required || []).includes(g.city);          // Moscow and Beijing never disappear: if they are locked, the card says why
+  if (S.prefs.strict) groups = groups.filter((g) => must(g) || (g.any_ok && !over(g)));
+  groups = rank(groups, S.prefs.ranking).sort((a, b) => (must(b) && !b.any_ok) - (must(a) && !a.any_ok) || 0);
   if (!groups.length) { body.append(h('div', { class: 'empty' }, 'Nothing matches the strict filter. Turn it off to see every observed option, or add a fare you know about.', h('div', { style: { marginTop: '10px' } }, h('button', { class: 'btn btn-sm', onclick: () => setPref('strict', false) }, 'Show everything')))); return; }
   groups.forEach((g, i) => {
     const pr = projected(g.min_cumulative);
