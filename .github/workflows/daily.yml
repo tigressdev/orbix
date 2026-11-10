@@ -1,10 +1,11 @@
 name: Flight watch
-# Inactive until you push this to a (private) GitHub repo and add the SERPAPI_KEY secret.
+# Manual only for now: the daily schedule is commented out because collection needs the SERPAPI_KEY secret (without it every run fails and emails you).
+# To turn the daily run on: add the SERPAPI_KEY repository secret, then uncomment the schedule below.
 # History lives on a dedicated `data` branch (GitHub artifacts expire; runners are ephemeral).
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '15 10 * * *'
+  # schedule:
+  #   - cron: '15 10 * * *'
 permissions:
   contents: write
 concurrency: flight-watch
@@ -47,7 +48,7 @@ jobs:
           git config user.email "flight-watch-bot@users.noreply.github.com"
           git add -A
           git diff --cached --quiet || git commit -m "data: $(date -u +%F)"
-          git push origin HEAD:data
+          git rev-parse --verify HEAD >/dev/null 2>&1 && git push origin HEAD:data || echo "nothing to persist"
       - uses: actions/upload-artifact@v4
         with:
           name: report
