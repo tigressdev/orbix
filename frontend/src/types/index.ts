@@ -46,7 +46,7 @@ export type EvalResult = { stale: true } | { stale?: false; summary: Summary; me
 export interface TreeNode { id: string; parent: string | null; children: string[]; leg: Leg | null; collapsed: boolean; note: string; warn?: string[] }
 export interface Scenario { id: string; name: string; saved: boolean; createdAt: number; rootId: string; focusId: string; nodes: Record<string, TreeNode> }
 export interface Prefs {
-  budget: number; budgetCurrency: Currency; currency: Currency; lodging: LodgingTier; includePurchased: boolean; protectBirthday: boolean;
+  budget: number; budgetCurrency: Currency; currency: Currency; lodging: LodgingTier; includePurchased: boolean; protectBirthday: boolean; russiaFirst?: boolean;
   ranking: 'cheapest' | 'fastest' | 'best' | 'interesting' | 'lowest_total'; strict: boolean; theme: 'light' | 'dark';
 }
 export interface PersistedState { v: 1; prefs: Prefs; scenarios: Scenario[]; activeId: string; compare: { sid: string; nid: string }[]; history: { t: number; text: string }[]; hotel: Record<string, number> }

@@ -113,3 +113,24 @@ for (const width of [320, 360, 375, 390, 430, 768, 1024, 1440]) {
     }
   });
 }
+
+test('Russia first is opt-in: Moscow is pinned on top, locked, then becomes available from Madrid', async ({ page }, info) => {
+  await page.getByRole('button', { name: 'Explore next' }).click();
+  const sheet = page.getByRole('dialog', { name: 'Where next?' });
+  const cards = sheet.getByRole('button', { name: /, from / });
+  await expect(cards.first()).toHaveAccessibleName(/^(Moscow|Beijing), from/);               // mandatory destinations lead the list
+  await expect(sheet.getByText(/Order: first Beijing/).first()).toBeVisible();
+  await sheet.getByText('Consider Russia first (Madrid → Moscow → Beijing)').click();
+  await sheet.getByRole('button', { name: /^Moscow, from/ }).click();
+  await expect(sheet.getByRole('button', { name: 'Add to journey' }).first()).toBeVisible();   // flights from Madrid to Moscow can now be added
+  await page.screenshot({ path: `e2e/shots/moscow-first-flights-${info.project.name}.png` });
+});
+
+test('flight cards show the airline badge and a baggage answer for the checked bag', async ({ page }, info) => {
+  await page.getByRole('button', { name: 'Explore next' }).click();
+  const sheet = page.getByRole('dialog', { name: 'Where next?' });
+  await sheet.getByRole('button', { name: /^Beijing, from/ }).click();
+  await expect(sheet.getByText(/Checked bag/).first()).toBeVisible();
+  await expect(sheet.getByText(/Carry-on/).first()).toBeVisible();
+  await page.screenshot({ path: `e2e/shots/flight-cards-${info.project.name}.png` });
+});

@@ -7,7 +7,7 @@ import { scenarioFromLegs, addChild as addChildTo, branchToScenario, duplicateSc
 import type { Leg, Meta, PersistedState, Prefs, Scenario } from '@/types';
 
 export const DEFAULT_PREFS: Prefs = {
-  budget: 2700, budgetCurrency: 'USD', currency: 'USD', lodging: 'budget', includePurchased: false, protectBirthday: true, ranking: 'cheapest', strict: false, theme: 'light',
+  budget: 2700, budgetCurrency: 'USD', currency: 'USD', lodging: 'budget', includePurchased: false, protectBirthday: true, russiaFirst: false, ranking: 'cheapest', strict: false, theme: 'light',
 };
 
 interface Studio {

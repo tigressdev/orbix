@@ -226,12 +226,13 @@ class Explorer:
             if cand.arr_utc > self.latest_arr:
                 why.append("Arrives too late to make the confirmed Madrid return flight")
             seq = self.c.get("required_sequence") or []
-            if dest_city in seq:
+            ru_first = bool(self.params.get("russia_first")) and dest_city == "MOSCOW"     # the traveller chose to consider Russia on the way out
+            if dest_city in seq and not ru_first:
                 missing = [x for x in seq[:seq.index(dest_city)] if x not in s["visited"]]
                 if missing:
                     why.append("Order: first " + ", ".join(self.meta(x)["name"] for x in missing))
             win = (self.c.get("arrival_windows") or {}).get(dest_city)
-            if win and not (win[0] <= cand.arr_local[:10] <= win[1]):
+            if win and not ru_first and not (win[0] <= cand.arr_local[:10] <= win[1]):
                 why.append(f"{self.meta(dest_city)['name']}: you want to arrive between {win[0][5:]} and {win[1][5:]}")
             if cand.dep_local[:10] in self.blocked or cand.arr_local[:10] in self.blocked:
                 why.append("Flies on your protected birthday")

@@ -24,7 +24,8 @@ export function useParams(): Params {
   const hotel = useStudio((s) => s.hotel);
   const protect = useStudio((s) => s.prefs.protectBirthday);
   const lodging = useStudio((s) => s.prefs.lodging);
-  return useMemo(() => ({ hotel_night: hotel, protect_birthday: protect, lodging_tier: lodging }), [hotel, protect, lodging]);
+  const russiaFirst = useStudio((s) => !!s.prefs.russiaFirst);
+  return useMemo(() => ({ hotel_night: hotel, protect_birthday: protect, lodging_tier: lodging, russia_first: russiaFirst }), [hotel, protect, lodging, russiaFirst]);
 }
 
 /** Server-side evaluation of every node of the active scenario (plus pinned nodes of others). Costs are never summed on the client. */

@@ -46,6 +46,7 @@ export default function PreferencesPage() {
       </form>
       <Card className="flex flex-col gap-3">
         <label className="flex min-h-11 items-center justify-between gap-3 text-[15px]"><span>Protect my birthday (14 March)</span><input type="checkbox" className="size-6 accent-[var(--teal)]" checked={prefs.protectBirthday} disabled={viewOnly} onChange={(e) => setPref('protectBirthday', e.target.checked)} /></label>
+        <label className="flex min-h-11 items-center justify-between gap-3 text-[15px]"><span>Consider Russia first<span className="block text-xs text-ink-2">Lets Madrid → Moscow → Beijing appear. Off keeps Russia on the way back (12–16 March).</span></span><input type="checkbox" className="size-6 accent-[var(--teal)]" checked={!!prefs.russiaFirst} disabled={viewOnly} onChange={(e) => setPref('russiaFirst', e.target.checked)} /></label>
         {meta.is_owner && <label className="flex min-h-11 items-center justify-between gap-3 text-[15px]"><span>Include the purchased ticket in the budget</span><input type="checkbox" className="size-6 accent-[var(--teal)]" checked={prefs.includePurchased} disabled={viewOnly} onChange={(e) => setPref('includePurchased', e.target.checked)} /></label>}
       </Card>
       <Card className="text-sm text-ink-2"><p><b className="text-ink">Data</b>: {meta.data.map((d) => `${d.p}: ${d.offers} offers`).join(' · ') || 'no data'} · state saved in {meta.state_backend}.</p></Card>

@@ -17,6 +17,6 @@ export const useInsights = () => useQuery({
   refetchInterval: (q) => (q.state.data?.status === 'computing' ? 1500 : false), staleTime: 5 * 60_000,
 });
 
-export interface Params { hotel_night: Record<string, number>; protect_birthday: boolean; lodging_tier: string }
+export interface Params { hotel_night: Record<string, number>; protect_birthday: boolean; lodging_tier: string; russia_first: boolean }
 export const evaluatePaths = (paths: string[][], params: Params) => api.post<{ results: EvalResult[] }>('/api/evaluate', { paths, params });
 export const fetchOptions = (path: string[], params: Params) => api.post<OptionsResult>('/api/options', { path, params, show_all: true });

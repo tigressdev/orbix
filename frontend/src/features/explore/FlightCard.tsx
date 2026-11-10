@@ -1,11 +1,13 @@
 import { AlertTriangle, ArrowRight, Briefcase, Plus } from 'lucide-react';
 import { Button, Card, Chip } from '@/components/ui/primitives';
+import { AirlineBadge } from '@/components/shared/AirlineLogo';
+import { checkedBag } from '@/lib/baggage';
 import { useMetaOrThrow, useMoney } from '@/hooks/useStudioData';
 import { useStudio } from '@/stores/studio';
 import { day, dur, observed, sourceLabel, stops, time } from '@/lib/format';
 import type { FlightOption } from '@/types';
 
-const bagLabel = (v: string) => (v === 'yes' ? 'included' : v === 'no' ? 'not included' : 'unknown');
+const bagLabel = (v: string) => (v === 'yes' || v === 'included' ? 'included' : v === 'no' || v === 'not_included' ? 'not included' : 'unknown');
 
 export function FlightCard({ o, remaining, onAdd }: { o: FlightOption; remaining: number; onAdd: (o: FlightOption) => void }) {
   const m = useMoney();
@@ -16,13 +18,11 @@ export function FlightCard({ o, remaining, onAdd }: { o: FlightOption; remaining
   const nextDay = o.dep_local.slice(0, 10) !== o.arr_local.slice(0, 10);
   const overBudget = remaining - o.increment < 0;
   const blocked = !o.ok;
+  const bag = checkedBag(o.airlines, o.baggage.checked);
   return (
     <Card className={`flex flex-col gap-3 ${blocked ? 'opacity-70' : ''}`} aria-label={`${o.origin} to ${o.destination}, ${time(o.dep_local)}, ${m(o.price)}`}>
       <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="truncate text-sm font-semibold">{o.airlines || 'Airline unknown'}</p>
-          <p className="text-xs text-ink-2">{o.flights || ''}</p>
-        </div>
+        <AirlineBadge airlines={o.airlines} flights={o.flights} />
         <div className="text-right">
           <p className="num display text-2xl font-bold leading-none">{m(o.price, o.fx_day)}</p>
           {o.native_currency && o.native_currency !== 'USD' && <p className="num mt-0.5 text-[11px] text-ink-2">{o.native_currency} {Math.round(o.native_price)} native</p>}
@@ -44,7 +44,7 @@ export function FlightCard({ o, remaining, onAdd }: { o: FlightOption; remaining
 
       <div className="flex flex-wrap items-center gap-1.5">
         <Chip><Briefcase size={12} aria-hidden />Carry-on {bagLabel(o.baggage.carry_on)}</Chip>
-        <Chip>Checked bag {bagLabel(o.baggage.checked)}</Chip>
+        <span title={bag.hint}><Chip tone={bag.status === 'included' || bag.status === 'typical-included' ? 'good' : bag.status === 'typical-extra' || bag.status === 'varies' ? 'risk' : 'neutral'}>{bag.label}{bag.status.startsWith('typical') || bag.status === 'varies' ? ' *' : ''}</Chip></span>
         <Chip>seen {observed(o.observed_at)} · {sourceLabel(o.source)}</Chip>
         {o.stops > 0 && o.via.some((v) => v.minutes < 360) && <Chip tone="risk"><AlertTriangle size={12} aria-hidden />Short connection</Chip>}
       </div>
@@ -60,6 +60,7 @@ export function FlightCard({ o, remaining, onAdd }: { o: FlightOption; remaining
         </div>
       )}
 
+      {(bag.status.startsWith('typical') || bag.status === 'varies') && <p className="text-[11px] text-ink-2">* {bag.hint}</p>}
       {!blocked && !viewOnly && <Button variant="primary" size="lg" className="w-full" onClick={() => onAdd(o)}><Plus size={18} aria-hidden />Add to journey</Button>}
     </Card>
   );

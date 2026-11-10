@@ -15,8 +15,8 @@ function rank(groups: DestinationGroup[], mode: Rank, required: string[]) {
     cheapest: (a, b) => a.min_price - b.min_price, fastest: (a, b) => a.min_duration_min - b.min_duration_min,
     lowest_total: (a, b) => a.min_cumulative - b.min_cumulative, interesting: (a, b) => b.interest - a.interest || a.min_cumulative - b.min_cumulative,
   };
-  // open destinations first; locked mandatory ones (Moscow, Beijing) right after them so they never disappear
-  const tier = (g: DestinationGroup) => (g.any_ok ? 0 : required.includes(g.city) ? 1 : 2);
+  // mandatory destinations (Moscow, Beijing) are always pinned on top, open or locked, so they never disappear; then open ones; then the rest
+  const tier = (g: DestinationGroup) => (required.includes(g.city) ? 0 : g.any_ok ? 1 : 2);
   return [...groups].sort((a, b) => tier(a) - tier(b) || by[mode](a, b));
 }
 
@@ -29,6 +29,7 @@ export function ExplorePanel({ parentNodeId, initialCity, onAdded }: { parentNod
   const addLeg = useStudio((s) => s.addLeg);
   const viewOnly = useStudio((s) => s.viewOnly);
   const strict = useStudio((s) => s.prefs.strict);
+  const russiaFirst = useStudio((s) => !!s.prefs.russiaFirst);
   const setPref = useStudio((s) => s.setPref);
   const [mode, setMode] = useState<Rank>('cheapest');
   const [city, setCity] = useState<string | null>(initialCity ?? null);
@@ -94,7 +95,8 @@ export function ExplorePanel({ parentNodeId, initialCity, onAdded }: { parentNod
               </div>
               <p className="mt-2 text-sm text-ink-2">{range(g.date_from, g.date_to)} · {dur(g.min_duration_min)} · {stops(g.min_stops).toLowerCase()} · stay {g.stay_days[0] >= 1 ? `${g.stay_days[0]}–${g.stay_days[1]} d` : `≤ ${g.stay_days[1]} d`}</p>
               {locked ? (
-                <p className="mt-2 flex items-start gap-1.5 text-sm text-risk"><Lock size={14} className="mt-0.5 shrink-0" aria-hidden /><span>{reason ?? 'Outside your rules from here.'}</span></p>
+                <div className="mt-2 text-sm text-risk"><p className="flex items-start gap-1.5"><Lock size={14} className="mt-0.5 shrink-0" aria-hidden /><span>{reason ?? 'Outside your rules from here.'}</span></p>
+                  {g.city === 'MOSCOW' && !russiaFirst && !viewOnly && <span role="button" tabIndex={0} className="mt-2 inline-flex min-h-11 items-center rounded-lg border border-risk/40 px-3 font-semibold" onClick={(e) => { e.stopPropagation(); setPref('russiaFirst', true); }} onKeyDown={(e) => { if (e.key === 'Enter') { e.stopPropagation(); setPref('russiaFirst', true); } }}>Consider Russia first (Madrid → Moscow → Beijing)</span>}</div>
               ) : (
                 <p className="num mt-2 flex items-center justify-between gap-2 text-sm"><span>Projected total <b>{m(g.min_cumulative)}</b> <span className={over ? 'text-bad' : 'text-teal'}>· {over ? 'over budget' : `${m(budget.remaining - (g.min_cumulative - (q.data?.summary.total ?? 0)))} left`}</span></span><ChevronRight size={18} className="text-ink-2" aria-hidden /></p>
               )}

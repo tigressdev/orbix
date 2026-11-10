@@ -201,3 +201,14 @@ class RequiredSequence(unittest.TestCase):
         g = [x for x in ex.options([], show_all=True)["groups"] if x["city"] == "MOSCOW"][0]
         self.assertFalse(g["any_ok"])
         self.assertTrue(any("Order: first Beijing" in w for o in g["options"] for w in o["why"]))
+
+
+class RussiaFirst(unittest.TestCase):
+    def test_russia_first_is_opt_in(self):
+        cfg = {**CFG, "constraints": {**CFG["constraints"], "required_sequence": ["BEIJING", "MOSCOW"], "arrival_windows": {"MOSCOW": ["2027-03-12", "2027-03-16"]}}}
+        mow = leg("MAD", "SVO", "2027-02-12 12:00", "2027-02-12 18:00", 266)
+        def moscow(params):
+            ex = Explorer(cfg, {"MAD": [mow]}, params)
+            return [g for g in ex.options([], show_all=True)["groups"] if g["city"] == "MOSCOW"][0]
+        self.assertFalse(moscow({})["any_ok"])
+        self.assertTrue(moscow({"russia_first": True})["any_ok"])

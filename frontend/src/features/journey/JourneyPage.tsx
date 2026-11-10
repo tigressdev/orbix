@@ -8,6 +8,7 @@ import { useBudget, useChapters, useEvaluation, useMetaOrThrow, useMoney } from 
 import { useStudio } from '@/stores/studio';
 import { daysBetween, day, dur, plural, range, stops, time } from '@/lib/format';
 import { hotelFullRate, hotelRate, hotelSplit } from '@/lib/lodging';
+import { AirlineBadge } from '@/components/shared/AirlineLogo';
 import { ScenarioSwitcher } from '@/features/compare/ScenarioSwitcher';
 import type { TreeNode } from '@/types';
 
@@ -111,6 +112,7 @@ function Chapter({ node, next, first, onBranch }: { node: TreeNode; next?: TreeN
                 {hosted && <Chip tone="good"><Users size={12} aria-hidden />Hosted</Chip>}
                 {!hosted && split > 1 && <Chip tone="teal"><Users size={12} aria-hidden />Shared ÷{split}</Chip>}
               </div>
+              {leg && <AirlineBadge className="mt-2" airlines={leg.airlines} flights={leg.flights} />}
               {leg && <p className="num mt-2 text-sm text-ink-2">{leg.origin} {time(leg.dep_local)} → {leg.destination} {time(leg.arr_local)} · {dur(leg.duration_min)} · {stops(leg.stops).toLowerCase()}</p>}
             </Card>
           </button>
