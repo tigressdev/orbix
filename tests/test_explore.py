@@ -13,6 +13,7 @@ from flightintel.itineraries import Leg  # noqa: E402
 
 CFG = load_config()
 CFG["constraints"].pop("arrival_windows", None)      # the fixtures arrive in Moscow in February; the real window is tested separately
+CFG["constraints"].pop("required_sequence", None)
 AP = CFG["airports"]
 
 
@@ -190,3 +191,13 @@ class ArrivalWindow(unittest.TestCase):
         groups = ex.options([leg("MAD", "SZX", "2027-03-04 08:00", "2027-03-05 07:00", 800)], show_all=True)["groups"]
         opts = [o for g in groups if g["city"] == "MOSCOW" for o in g["options"]]
         self.assertEqual({o["dep_local"][:10]: o["ok"] for o in opts}, {"2027-03-09": False, "2027-03-15": True})
+
+
+class RequiredSequence(unittest.TestCase):
+    def test_moscow_is_locked_until_beijing_is_done(self):
+        cfg = {**CFG, "constraints": {**CFG["constraints"], "required_sequence": ["BEIJING", "MOSCOW"]}}
+        mow = leg("MAD", "SVO", "2027-02-12 12:00", "2027-02-12 18:00", 266)
+        ex = Explorer(cfg, {"MAD": [mow]})
+        g = [x for x in ex.options([], show_all=True)["groups"] if x["city"] == "MOSCOW"][0]
+        self.assertFalse(g["any_ok"])
+        self.assertTrue(any("Order: first Beijing" in w for o in g["options"] for w in o["why"]))

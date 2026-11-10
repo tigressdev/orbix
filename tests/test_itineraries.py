@@ -11,6 +11,7 @@ from flightintel.itineraries import Leg, build_trips, manual_legs, merge_legs  #
 
 CFG = load_config()
 CFG["constraints"].pop("arrival_windows", None)      # the fixtures arrive in Moscow in February; the real window is tested separately
+CFG["constraints"].pop("required_sequence", None)
 AP = CFG["airports"]
 
 

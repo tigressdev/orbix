@@ -179,6 +179,9 @@ def build_trips(legs_by_origin, cfg, limit_per_signature=1):
                     and dest_city in (c.get("round_trip_spurs") or {}).get(city, []))      # round trip: Shanghai -> Singapore -> Shanghai
             if dest_city in visited and leg.destination != home and not back:
                 continue
+            seq = c.get("required_sequence") or []
+            if dest_city in seq and any(x not in visited for x in seq[:seq.index(dest_city)]):
+                continue                                         # e.g. Moscow before Beijing
             win = (c.get("arrival_windows") or {}).get(dest_city)
             if win and not (win[0] <= leg.arr_local[:10] <= win[1]):
                 continue

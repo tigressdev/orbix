@@ -115,7 +115,12 @@
         "2027-03-16"
       ]
     },
-    "_arrival_windows_note": "Chegada em Moscou entre 12 e 16/mar (preferencia da Helen)."
+    "_arrival_windows_note": "Chegada em Moscou entre 12 e 16/mar (preferencia da Helen).",
+    "required_sequence": [
+      "BEIJING",
+      "MOSCOW"
+    ],
+    "_required_sequence_note": "Ordem obrigatoria: Pequim antes de Moscou (depois, volta a Madri). A Russia e a volta, nao a ida."
   },
   "costs_brl": {
     "hotel_night": {
