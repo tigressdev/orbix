@@ -161,6 +161,26 @@ def cmd_urls(a, cfg):
         print(f"{o}|{d}|{j.date}|p{j.priority}|https://www.google.com/travel/flights?q={q}&curr=USD&hl=en&gl=br")
 
 
+def cmd_flex(a, cfg):
+    """Coverage of a corridor over a flexible window, and the Google Flights URLs for the dates that still need a quote."""
+    from . import flexible
+    from .explore import Explorer
+    conn = connect(db_path(a.demo))
+    legs = merge_legs(load_legs(conn, cfg, ("fixture",) if a.demo else ("serpapi", "browser", "manual"), keep=40, currency="USD"), manual_legs(cfg))
+    ex = Explorer(cfg, legs)
+    chains = [{"chain": [x.upper() for x in a.chain]}] if a.chain else flexible.default_return_corridors(cfg)
+    res = flexible.compare(conn, ex, cfg, chains, a.date, a.flex)
+    for c in res["corridors"]:
+        best = c["best"]
+        label = " -> ".join(c["chain"])                       # plain ASCII: Windows consoles cannot print arrows
+        print(f"\n{label}  [{c['status']}]  " +(f"best observed ${best['total']:,.0f} ({best['depart_local'][:10]} -> {best['arrive_local'][:10]})" if best else "no complete observed combination"))
+        for leg in c["legs"]:
+            print(f"  {leg['from_name']} -> {leg['to_name']}  {leg['earliest']}..{leg['latest']}")
+            for d in leg["days"]:
+                tail = f"${d['min_price']:,.0f} ({d['offers']} offers)" if d["status"] == "observed" else d["url"] if d["status"] in ("missing", "stale") else ""
+                print(f"    {d['date']}  {d['status']:<9} {tail}")
+
+
 def _explorer(a, cfg):
     from .explore import Explorer
     conn = connect(db_path(a.demo))
@@ -223,6 +243,12 @@ def main():
     up = sub.add_parser("urls", help="Google Flights URLs for today's collection routine")
     up.add_argument("--limit", type=int, default=400)
     up.set_defaults(fn=cmd_urls)
+    fl = sub.add_parser("flex", help="flexible-date coverage of a corridor (default: the return corridors from Moscow) and URLs to quote")
+    fl.add_argument("--date", required=True, help="preferred departure date of the first leg, e.g. 2027-03-20")
+    fl.add_argument("--flex", type=int, default=2)
+    fl.add_argument("--chain", nargs="*", help="city ids, e.g. MOSCOW TEL_AVIV MADRID")
+    fl.add_argument("--demo", action="store_true")
+    fl.set_defaults(fn=cmd_flex)
     fxp = sub.add_parser("fx", help="fetch/show daily exchange rates (USD is the central currency)")
     fxp.add_argument("--date", default=now_utc().strftime("%Y-%m-%d"))
     fxp.add_argument("--set", nargs="*", metavar="CUR=RATE")

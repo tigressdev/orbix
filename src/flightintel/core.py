@@ -68,13 +68,29 @@ def parse_local(text):
     return datetime.fromisoformat(text.strip().replace(" ", "T"))
 
 
+def _offset(airport_meta, naive_local=None, utc=None):
+    """UTC offset of an airport at a given moment. Uses the IANA zone in airports.json ("tz") when the system has time-zone
+    data, so daylight-saving changes are respected; otherwise the fixed "utc_offset" (valid for the whole trip window)."""
+    tz = airport_meta.get("tz")
+    if tz:
+        try:
+            from zoneinfo import ZoneInfo
+            z = ZoneInfo(tz)
+            off = (utc.astimezone(z) if utc is not None else naive_local.replace(tzinfo=z)).utcoffset()
+            if off is not None:
+                return off
+        except Exception:  # noqa: BLE001  (no tzdata on this machine)
+            pass
+    return timedelta(hours=airport_meta["utc_offset"])
+
+
 def to_utc(local_text, airport, airports):
-    off = airports[airport]["utc_offset"]
-    return (parse_local(local_text) - timedelta(hours=off)).replace(tzinfo=UTC)
+    naive = parse_local(local_text)
+    return (naive - _offset(airports[airport], naive_local=naive)).replace(tzinfo=UTC)
 
 
 def to_local(dt_utc, airport, airports):
-    return dt_utc + timedelta(hours=airports[airport]["utc_offset"])
+    return dt_utc + _offset(airports[airport], utc=dt_utc)
 
 
 def city_of(airport, airports):

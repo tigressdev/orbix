@@ -81,9 +81,12 @@ test('calendar distinguishes the end of the holiday from the Lantern Festival', 
   await page.goto('/more/sacred?mode=calendar');
   const whatIf = page.getByTestId('whatif');
   await whatIf.fill('2027-02-14');
+  await page.getByTestId('bar-spring-holiday-2027').click();
   await expect(page.getByTestId('event-spring-holiday-2027')).toHaveAttribute('data-access', 'passed');
+  await page.getByTestId('bar-lantern-2027').click();
   await expect(page.getByTestId('event-lantern-2027')).toHaveAttribute('data-access', 'within-stay');
   await whatIf.fill('2027-02-13');
+  await page.getByTestId('bar-spring-holiday-2027').click();
   await expect(page.getByTestId('event-spring-holiday-2027')).toHaveAttribute('data-access', 'final-days');
   await whatIf.fill('2027-02-21');
   await expect(page.getByText('the principal Lunar New Year festival period has passed')).toBeVisible();

@@ -46,7 +46,7 @@ export interface OptionsResult { summary: Summary; groups: DestinationGroup[] }
 export type EvalResult = { stale: true } | { stale?: false; summary: Summary; metrics: Metrics };
 
 export interface TreeNode { id: string; parent: string | null; children: string[]; leg: Leg | null; collapsed: boolean; note: string; warn?: string[] }
-export interface Scenario { id: string; name: string; saved: boolean; createdAt: number; rootId: string; focusId: string; nodes: Record<string, TreeNode>; sacred?: SacredJourneyAlternative }
+export interface Scenario { id: string; name: string; saved: boolean; createdAt: number; rootId: string; focusId: string; nodes: Record<string, TreeNode>; sacred?: SacredJourneyAlternative; research?: { arrivalDate?: string; templateId?: string; note: string } }
 export interface Prefs {
   budget: number; budgetCurrency: Currency; currency: Currency; lodging: LodgingTier; includePurchased: boolean; protectBirthday: boolean; russiaFirst?: boolean;
   ranking: 'cheapest' | 'fastest' | 'best' | 'interesting' | 'lowest_total'; strict: boolean; theme: 'light' | 'dark';

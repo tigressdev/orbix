@@ -1,5 +1,14 @@
 # Arquitetura
 
+## ORBIX 2.1
+
+A interface atual é React/TypeScript em `frontend/`, com Vite, TanStack Query e o store central de cenários.
+As notas abaixo sobre interface sem build descrevem a primeira versão. Datas flexíveis continuam calculadas em Python:
+`/api/flex/coverage` fornece cobertura diária; `/api/flex/corridors` combina voos observados e retorna custos, restrições e lacunas.
+`FlexibleDateSelector` é compartilhado pelas cinco áreas da aplicação. O cliente não otimiza rotas nem recalcula custos.
+`Scenario.research?` é um campo opcional e aditivo para alternativas editoriais/incompletas, preservado ao duplicar cenários.
+As alternativas são adicionadas sem trocar o cenário ativo. Detalhes de validação: [HANDOFF.md](HANDOFF.md).
+
 ```text
 config/trip.json  ──►  planner.expand()  ──►  grid de buscas (rota × data)      348 hoje
  (stages, regras)            │

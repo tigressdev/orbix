@@ -9,7 +9,7 @@ export function Button({ variant = 'secondary', size = 'md', className, ...p }: 
       className={clsx(
         'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-colors disabled:opacity-50 disabled:pointer-events-none select-none',
         size === 'sm' && 'min-h-9 px-3 text-sm', size === 'md' && 'min-h-11 px-4 text-[15px]', size === 'lg' && 'min-h-12 px-5 text-base',
-        variant === 'primary' && 'bg-teal text-white hover:brightness-110',
+        variant === 'primary' && 'bg-teal text-[var(--on-teal)] hover:brightness-110',
         variant === 'secondary' && 'bg-surface text-ink border border-line hover:bg-surface-2',
         variant === 'ghost' && 'text-ink-2 hover:bg-line/50', variant === 'danger' && 'bg-bad-soft text-bad border border-bad/30',
         className,

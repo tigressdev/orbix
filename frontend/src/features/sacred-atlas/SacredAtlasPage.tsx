@@ -1,3 +1,10 @@
+import { Photo } from './Photo';
+import { STORIES } from './data/experiences';
+import { RouteDateSearch } from '@/components/shared/RouteDateSearch';
+import { useChapters, useMetaOrThrow } from '@/hooks/useStudioData';
+import { pathLegs } from '@/lib/tree';
+import { getCulturalOpportunities, staysOf, OPP_LABEL } from './engine/opportunities';
+import { useSacredPrefs } from './useSacred';
 import { lazy, Suspense, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Expand, Minimize2 } from 'lucide-react';
@@ -40,12 +47,18 @@ export default function SacredAtlasPage() {
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6" data-testid="sacred-atlas">
-      <header className="flex flex-col gap-3 border-b border-line pb-6 pt-2">
-        <p className="eyebrow">Sacred Atlas</p>
-        <h1 className="display text-[clamp(2.25rem,8vw,3.75rem)] font-semibold leading-[1.02] tracking-tight">Where civilizations seek meaning.</h1>
-        <p className="max-w-2xl text-lg text-ink-2">From Jerusalem to Lhasa, explore the spiritual geographies that shaped human history — and see whether they can become part of your journey.</p>
-        <p className="text-xs text-ink-2">A cultural atlas, not a guide to belief: nothing here assumes or infers a traveller’s religion. Catalog {CATALOG_VERSION}.</p>
+      <header className="overflow-hidden rounded-3xl border border-line">
+        <Photo id="hero" eager width={1280} className="min-h-[30rem] md:min-h-[32rem]" label="Mount Emei · Sichuan">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 to-black/65" />
+          <div className="relative flex min-h-[30rem] max-w-2xl flex-col justify-end gap-4 p-6 pb-12 text-white md:min-h-[32rem] md:p-10 md:pb-14">
+            <p className="text-xs font-semibold uppercase tracking-[.2em]">Sacred Atlas · Mount Emei, China</p>
+            <h1 className="display text-[clamp(2.4rem,6vw,3.75rem)] font-semibold leading-[1.04] tracking-tight">Where civilizations seek meaning.</h1>
+            <p className="max-w-lg text-lg leading-relaxed">Discover the sacred geography, living traditions and cultural moments that could shape your journey.</p>
+          </div>
+        </Photo>
       </header>
+      <p className="text-xs text-ink-2">An atlas of culture and history. Nothing here assumes a traveller’s religion. Catalog {CATALOG_VERSION}.</p>
+      <RouteDateSearch />
 
       <nav aria-label="Exploration modes" className="grid grid-cols-2 gap-2 md:grid-cols-4">
         {MODES.map((m, i) => (
@@ -60,7 +73,7 @@ export default function SacredAtlasPage() {
 
       {mode === 'geography' && <Geography selected={site} onSelect={(id) => openSite(id)} />}
       {mode === 'traditions' && <TraditionsMode onSite={openSite} />}
-      {mode === 'calendar' && <CalendarMode />}
+      {mode === 'calendar' && <CalendarMode onSite={openSite} />}
       {mode === 'journeys' && <JourneysMode onSite={openSite} />}
 
       <SiteSheet siteId={site} initialTab={tab} onClose={() => set('site', null, { tab: null })} />
@@ -69,6 +82,10 @@ export default function SacredAtlasPage() {
 }
 
 function Geography({ selected, onSelect }: { selected: string | null; onSelect: (id: string) => void }) {
+  const meta = useMetaOrThrow();
+  const { sc } = useChapters();
+  const [prefs] = useSacredPrefs();
+  const opportunities = staysOf(pathLegs(sc, sc.focusId), meta).flatMap((stay) => getCulturalOpportunities(stay.city, stay.arrive, stay.depart, prefs));
   const [layers, setLayers] = useState<Record<LayerKey, boolean>>({ journey: true, sites: true, traditions: true, festivals: true, routes: false });
   const [full, setFull] = useState(false);
   return (
@@ -91,16 +108,20 @@ function Geography({ selected, onSelect }: { selected: string | null; onSelect: 
       <ul className="grid gap-2 sm:grid-cols-2">
         {SITES.map((s) => {
           const f = siteFeasibility(s);
+          const opportunity = opportunities.find((o) => o.siteId === s.id);
           return (
-            <li key={s.id}>
+            <li key={s.id} className="overflow-hidden rounded-2xl border border-line bg-surface">
+              <Photo id={s.id} width={640} className="h-48" label={s.name} />
               <button onClick={() => onSelect(s.id)} className="block w-full text-left" data-testid={`site-${s.id}`}>
                 <Card className={clsx('flex h-full flex-col gap-1.5 hover:border-teal/50', selected === s.id && 'border-teal')}>
                   <p className="eyebrow !text-[10px]">{s.country} · {s.region}</p>
                   <p className="display text-xl font-semibold leading-tight">{s.name} {s.originalName && <span className="text-base font-normal text-ink-2">{s.originalName.split(' · ')[0]}</span>}</p>
                   <p className="text-sm text-ink-2">{s.traditions.map((t) => TRADITION_LABEL[t]).join(' · ')}</p>
-                  <p className="text-sm">{s.significance}</p>
+                  <p className="line-clamp-3 text-sm">{STORIES[s.id]?.summary ?? s.significance}</p>
+                  <p className="text-xs text-teal">{opportunity ? `Cultural opportunity: ${OPP_LABEL[opportunity.cls]}` : 'Living traditions · explore cultural opportunities'}</p>
                   <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-1"><FeasBadge s={f.status} />{s.suggestedDuration && <Chip>{s.suggestedDuration.minDays}–{s.suggestedDuration.maxDays} days</Chip>}
                     {s.nearbyTransportHubs[0] && <Chip>via {s.nearbyTransportHubs[0].name}</Chip>}</div>
+                  <span className="mt-2 text-sm font-semibold text-teal">Explore place →</span>
                 </Card>
               </button>
             </li>
@@ -114,7 +135,7 @@ function Geography({ selected, onSelect }: { selected: string | null; onSelect: 
 function PlaceStrip({ selected, onSelect }: { selected: string | null; onSelect: (id: string) => void }) {
   return (
     <div className="hscroll rounded-2xl bg-surface/95 p-1.5 shadow-lg backdrop-blur">
-      {SITES.map((s) => <button key={s.id} onClick={() => onSelect(s.id)} className={clsx('min-h-10 shrink-0 rounded-xl px-3 text-sm font-semibold', selected === s.id ? 'bg-teal text-white' : 'text-ink')}>{s.name}</button>)}
+      {SITES.map((s) => <button key={s.id} onClick={() => onSelect(s.id)} className={clsx('min-h-10 shrink-0 rounded-xl px-3 text-sm font-semibold', selected === s.id ? 'bg-teal text-[var(--on-teal)]' : 'text-ink')}>{s.name}</button>)}
     </div>
   );
 }

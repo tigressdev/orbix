@@ -1,4 +1,6 @@
 import { useMemo } from 'react';
+import { Photo } from './Photo';
+import { TemplateTools } from './TemplateTools';
 import { ArrowRight, Info } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useQueryClient } from '@tanstack/react-query';
@@ -52,6 +54,7 @@ function Templates({ onSite }: { onSite: (id: string, tab?: string) => void }) {
         const hops = t.stops.slice(1).map((s, i) => { const prev = t.stops[i]!; const a = cityOfStop(prev.id, prev.kind), b = cityOfStop(s.id, s.kind); return { from: prev, to: s, same: !!a && a === b, obs: observed(a, b) }; });
         return (
           <Card key={t.id} className="flex flex-col gap-3" data-testid={`template-${t.id}`} data-feasibility={f}>
+            <Photo id={t.id === 'abrahamic-buddhist' ? 'jerusalem' : t.id === 'himalayan' ? 'kathmandu' : 'emei'} className="h-52 rounded-xl" width={960} />
             <div className="flex flex-wrap items-start justify-between gap-2"><p className="display text-2xl font-semibold leading-tight">{t.title}</p><FeasBadge s={f} /></div>
             <p className="text-sm text-ink-2">{t.focus}</p>
             <ol className="flex flex-wrap items-center gap-1 text-sm">
@@ -75,6 +78,7 @@ function Templates({ onSite }: { onSite: (id: string, tab?: string) => void }) {
               <div><p className="eyebrow !text-[10px]">Status</p><p className="font-semibold">{f === 'explorable' ? 'Can be planned' : `Not feasible yet: ${FEAS_LABEL[f].toLowerCase()}`}</p></div>
             </div>
             <p className="text-xs text-ink-2">{t.note} Minimum days are an editorial estimate (site durations + required-city minimum stays + one travel day per hop), not a schedule.</p>
+            <TemplateTools template={t} onSite={onSite} />
           </Card>
         );
       })}

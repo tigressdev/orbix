@@ -23,15 +23,15 @@ export const SITES: SacredSite[] = [
       { name: 'Via Dolorosa', lat: 31.7795, lon: 35.2325, note: 'Processional route of the Stations of the Cross; its present form is largely late medieval and early modern.' },
       { name: 'Old City', lat: 31.7767, lon: 35.2313, note: 'Walls largely from the Ottoman rebuilding under Suleiman (16th c.).' },
     ],
-    nearbyTransportHubs: [{ city: null, name: 'Tel Aviv Ben Gurion (TLV)', relation: 'gateway', mode: 'air', note: 'Not priced by ORBIX. Operating routes and entry conditions must be checked at the time of planning.', certainty: 'unverified' }],
+    nearbyTransportHubs: [{ city: 'TEL_AVIV', name: 'Tel Aviv Ben Gurion (TLV)', relation: 'gateway', mode: 'mixed', note: 'Jerusalem requires a local transfer from TLV. Price, timetable, operating routes and entry conditions remain unverified.', certainty: 'unverified' }],
     suggestedDuration: { minDays: 3, maxDays: 4 },
     visitRequirements: [
       { text: 'Current government travel advice must be read and dated before this can become a bookable plan.', certainty: 'fact' },
       { text: 'Access to the Haram al-Sharif for non-Muslim visitors has historically been limited to set hours and gates; mosque interiors are generally closed to non-Muslims. Re-verify.', certainty: 'unverified' },
       { text: 'Holy sites can close at short notice for security or religious reasons.', certainty: 'fact' },
     ],
-    accessibilityStatus: 'requires_verification',
-    statusReasons: ['Security-sensitive destination: exploratory only until current travel advice is verified and dated.', 'Not part of ORBIX price data: no observed flights to or from Tel Aviv.'],
+    accessibilityStatus: 'safety_restricted',
+    statusReasons: ['Safety restricted — research only. An economically attractive fare is not advice to travel.', 'Official advice includes regional restrictions and risk of escalation, airspace closures and flight disruptions. Entry eligibility and local transfers still require verification.'],
     descriptors: { history: 3, landscape: 1, practice: 2, festival: 1 },
     why: {
       origins: 'A Bronze Age hill town that became the Judahite royal capital and the site of the First Temple. After the Babylonian destruction (586 BCE) the Second Temple was rebuilt and later expanded by Herod; Rome destroyed it in 70 CE.',
@@ -52,7 +52,7 @@ export const SITES: SacredSite[] = [
       'What changes when a holy place is remembered after its destruction rather than visited intact?',
       'How do shared-site arrangements such as the Status Quo regulate rival devotions?',
     ],
-    advisory: { required: true, links: [ADVICE.uk, ADVICE.us, ADVICE.br], lastVerified: null, summary: null },
+    advisory: { required: true, links: [ADVICE.uk, ADVICE.us, ADVICE.br], lastVerified: '2026-11-11', summary: 'FCDO Israel advice retrieved 11 November 2026 (updated 27 October): regional all-travel and essential-travel restrictions, unpredictable escalation and disruption risk including Ben Gurion airport. This is not a blanket prohibition covering Jerusalem and Tel Aviv. ORBIX retains its conservative research-only restriction; traveller-specific entry and other governments’ guidance remain unverified.' },
     sources: [UNESCO(148, 'Old City of Jerusalem and its Walls (site proposed by Jordan)')],
   },
   {

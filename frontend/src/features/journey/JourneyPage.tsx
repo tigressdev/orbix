@@ -1,3 +1,4 @@
+import { RouteDateSearch } from '@/components/shared/RouteDateSearch';
 import { lazy, Suspense, useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Check, ChevronDown, Gift, Plane, Plus, Trash2, Undo2, Users } from 'lucide-react';
@@ -47,7 +48,9 @@ export default function JourneyPage() {
         <Card className="col-span-2 flex items-center gap-3"><Gift size={20} className="shrink-0 text-gold" aria-hidden /><div className="min-w-0"><p className="eyebrow">14 March</p><p className="text-[15px] font-medium">{bday && bday.city ? `You would be in ${nm(bday.city)}` : 'Protected: no flights that day'}</p></div></Card>
       </section>
 
+      <RouteDateSearch />
       <ScenarioSwitcher />
+      {sc.research && <Card className="text-sm"><p className="font-semibold text-risk">Research scenario — incomplete</p><p>{sc.research.note}</p>{sc.research.arrivalDate && <p>Hypothetical China arrival: {sc.research.arrivalDate}</p>}</Card>}
 
       <section aria-label="Itinerary timeline">
         <ol className="relative flex flex-col">

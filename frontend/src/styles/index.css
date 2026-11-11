@@ -1,11 +1,12 @@
 @import 'tailwindcss';
 @import 'maplibre-gl/dist/maplibre-gl.css';
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /* ORBIX design tokens: warm ivory canvas, graphite type, mineral teal, antique gold. Dark theme swaps the same names. */
 :root {
   --canvas: #ffffff; --surface: #ffffff; --surface-2: #f6f8f8; --ink: #20282b; --ink-2: #677479; --line: #e4e8e8;
-  --teal: #176b68; --teal-soft: #e0eeec; --sage: #90a9a0; --gold: #bc9b67; --gold-soft: #f3ecdf;
-  --good: #1f7a54; --risk: #b07a1d; --risk-soft: #f6ecd6; --bad: #a14a35; --bad-soft: #f4e2dc; --blue: #4d7ea8; --lilac: #7b6aa8;
+  --on-teal: #ffffff; --teal: #176b68; --teal-soft: #e0eeec; --sage: #90a9a0; --gold: #bc9b67; --gold-soft: #f3ecdf;
+  --good: #1f7a54; --risk: #855c16; --risk-soft: #f6ecd6; --bad: #a14a35; --bad-soft: #f4e2dc; --blue: #4d7ea8; --lilac: #7b6aa8;
   --font-ui: 'Barlow', system-ui, sans-serif; --font-display: 'Barlow Semi Condensed', 'Barlow', system-ui, sans-serif;
   --safe-b: env(safe-area-inset-bottom, 0px); --safe-t: env(safe-area-inset-top, 0px);
   --logo-ring: #0e3b3c;
@@ -13,7 +14,7 @@
 }
 :root[data-theme='dark'] {
   --canvas: #12181a; --surface: #1a2225; --surface-2: #162023; --ink: #eceee9; --ink-2: #9aa7ab; --line: #2b3639;
-  --teal: #4fb0a8; --teal-soft: #19302f; --sage: #6f8b82; --gold: #cfb07a; --gold-soft: #2b2619;
+  --on-teal: #102422; --teal: #4fb0a8; --teal-soft: #19302f; --sage: #6f8b82; --gold: #cfb07a; --gold-soft: #2b2619;
   --good: #58bf8e; --risk: #d9a64a; --risk-soft: #302714; --bad: #d9826b; --bad-soft: #33201a; --blue: #7fa7ca; --lilac: #a897d6;
   --logo-ring: #7fc1bc;
   color-scheme: dark;

@@ -1,3 +1,4 @@
+import { ReturnCorridors } from './ReturnCorridors';
 import { useState } from 'react';
 import { Copy, Pencil, Plus, Star, Trash2, GitCompareArrows } from 'lucide-react';
 import { Button, Card, Chip, Empty } from '@/components/ui/primitives';
@@ -27,6 +28,8 @@ export default function ScenariosPage() {
         {!viewOnly && <Button variant="primary" onClick={() => st().newScenario()}><Plus size={16} aria-hidden />New</Button>}
       </div>
 
+      <ReturnCorridors />
+
       {scenarios.map((sc, i) => {
         const ends = leaves(sc);
         const focusSummary = summaryOf(sc.id, sc.focusId);
@@ -42,7 +45,8 @@ export default function ScenariosPage() {
               {sc.id === activeId ? <Chip tone="teal">Open</Chip> : <Button size="sm" onClick={() => st().switchScenario(sc.id)}>Open</Button>}
             </div>
             <p className="mt-1 text-sm text-ink-2">{label(sc, sc.focusId)}</p>
-            <p className="num mt-1 text-sm">{focusSummary ? <>Estimated total <b>{m(focusSummary.total)}</b> · {plural(focusSummary.visited.length - 1, 'destination', 'destinations')}{focusSummary.complete ? ' · complete' : ''}</> : 'Calculating…'}</p>
+            {sc.research && <p className="mt-2 text-sm text-risk">Research scenario — incomplete. {sc.research.note}</p>}
+            <p className="num mt-1 text-sm">{sc.research && !focusSummary?.legs ? 'Total unknown — transport not yet quoted' : focusSummary ? <>{focusSummary.complete ? 'Estimated total' : 'Priced portion'} <b>{m(focusSummary.total)}</b> · {plural(focusSummary.visited.length - 1, 'destination', 'destinations')}{focusSummary.complete ? ' · complete' : ' · total incomplete'}</> : 'Calculating…'}</p>
             {ends.length > 1 && (
               <ul className="mt-2 flex flex-col gap-1.5 border-t border-line pt-2" aria-label="Branch ends">
                 {ends.map((n) => { const s = summaryOf(sc.id, n.id); const pinnedNow = compare.some((p) => p.sid === sc.id && p.nid === n.id); return (

@@ -49,6 +49,7 @@ export function removeNode(sc: Scenario, nid: string): Scenario {
 
 export function duplicateScenario(sc: Scenario, name = `${sc.name} (copy)`): Scenario {
   const copy = makeScenario(name);
+  if (sc.research) copy.research = { ...sc.research };
   const map: Record<string, string> = {};
   const clone = (id: string, parent: string | null): TreeNode => {
     const o = sc.nodes[id]!;
@@ -66,6 +67,7 @@ export function duplicateScenario(sc: Scenario, name = `${sc.name} (copy)`): Sce
 /** Linear scenario holding exactly the legs from the root to `nid` (a branch promoted to its own plan). */
 export function branchToScenario(sc: Scenario, nid: string, name: string): Scenario {
   const copy = makeScenario(name);
+  if (sc.research) copy.research = { ...sc.research };
   let parent = copy.nodes[copy.rootId]!;
   for (const n of pathNodes(sc, nid).filter((x) => x.leg)) {
     const c: TreeNode = { id: uid(), parent: parent.id, children: [], leg: n.leg, collapsed: false, note: n.note };

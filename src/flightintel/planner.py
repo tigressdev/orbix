@@ -14,6 +14,17 @@ class Job:
     priority: int
 
 
+def merge_jobs(jobs):
+    """One job per (origin, destination, date). A route in several stages keeps its HIGHEST priority
+    (the old de-duplication compared stage and priority too, so the same search could be queued twice)."""
+    best = {}
+    for j in jobs:
+        k = (j.origin, j.destination, j.date)
+        if k not in best or j.priority > best[k].priority:
+            best[k] = j
+    return list(best.values())
+
+
 def _groups(codes, ap):
     """PEK+PKX -> 'PEK,PKX': Google Flights/SerpApi accept several airports of a city in ONE search."""
     by = {}
@@ -35,8 +46,7 @@ def expand(cfg):
             for o, dst in pairs:
                 jobs.append(Job(o, dst, d.isoformat(), st["id"], st.get("priority", 1)))
             d += timedelta(days=1)
-    # de-duplicate (a route can appear in several stages)
-    return list(dict.fromkeys(jobs))
+    return merge_jobs(jobs)
 
 
 def last_searched(conn, provider):

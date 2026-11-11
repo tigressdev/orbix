@@ -93,7 +93,11 @@
         "min": 36,
         "max": 60
       },
-      "_note_7pm2": "Pequim e Xangai: janela de 7 +-2 dias (5 a 9 noites)."
+      "_note_7pm2": "Pequim e Xangai: janela de 7 +-2 dias (5 a 9 noites).",
+      "TEL_AVIV": {
+        "min": 48,
+        "max": 120
+      }
     },
     "self_transfer_short_layover_hours": 24,
     "self_transfer_risk_penalty_brl": 400,
@@ -120,7 +124,43 @@
       "BEIJING",
       "MOSCOW"
     ],
-    "_required_sequence_note": "Ordem obrigatoria: Pequim antes de Moscou (depois, volta a Madri). A Russia e a volta, nao a ida."
+    "_required_sequence_note": "Ordem obrigatoria: Pequim antes de Moscou (depois, volta a Madri). A Russia e a volta, nao a ida.",
+    "research_only_cities": {
+      "TEL_AVIV": "Safety restricted — research only. FCDO advisory retrieved 2026-11-11: regional restrictions and disruption risk. Current safety, entry and transfers require traveller-specific verification."
+    },
+    "_research_only_note": "Cities that can be quoted and compared but never recommended or opened as a bookable plan. Remove an entry only after reading and dating the official advice.",
+    "preferred_home_arrival_by": "2027-03-24",
+    "_preferred_home_arrival_note": "Preferred buffer: be in Madrid the day before CA897. The hard limit (must_be_at_madrid_before_hours_of_departure) is unchanged; later arrivals are flagged as fragile, not blocked.",
+    "return_corridors": [
+      {
+        "chain": [
+          "MOSCOW",
+          "ISTANBUL",
+          "MADRID"
+        ]
+      },
+      {
+        "chain": [
+          "MOSCOW",
+          "BELGRADE",
+          "MADRID"
+        ]
+      },
+      {
+        "chain": [
+          "MOSCOW",
+          "MADRID"
+        ]
+      },
+      {
+        "chain": [
+          "MOSCOW",
+          "TEL_AVIV",
+          "MADRID"
+        ],
+        "label": "Moscow → Tel Aviv (Jerusalem) → Madrid"
+      }
+    ]
   },
   "costs_brl": {
     "hotel_night": {
@@ -508,6 +548,105 @@
         "end": "2027-03-19"
       },
       "_note": "Cidades do interior -> Moscou."
+    },
+    {
+      "id": "moscow_to_tlv",
+      "priority": 3,
+      "from": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "to": [
+        "TLV"
+      ],
+      "dates": {
+        "start": "2027-03-17",
+        "end": "2027-03-22"
+      },
+      "_note": "PESQUISA apenas (cidade com restricao de seguranca): cotar para comparar o corredor Moscou -> Tel Aviv/Jerusalem -> Madri."
+    },
+    {
+      "id": "tlv_to_madrid",
+      "priority": 3,
+      "from": [
+        "TLV"
+      ],
+      "to": [
+        "MAD"
+      ],
+      "dates": {
+        "start": "2027-03-19",
+        "end": "2027-03-24"
+      },
+      "_note": "PESQUISA apenas. Jerusalem e a visita; TLV e o aeroporto."
+    },
+    {
+      "id": "moscow_to_madrid_direct",
+      "priority": 3,
+      "from": [
+        "SVO",
+        "VKO",
+        "DME"
+      ],
+      "to": [
+        "MAD"
+      ],
+      "dates": {
+        "start": "2027-03-18",
+        "end": "2027-03-24"
+      },
+      "_note": "Base de comparacao dos corredores de volta."
+    },
+    {
+      "id": "beijing_to_chengdu_feb",
+      "priority": 4,
+      "from": [
+        "PEK",
+        "PKX"
+      ],
+      "to": [
+        "CTU",
+        "TFU"
+      ],
+      "dates": {
+        "start": "2027-02-19",
+        "end": "2027-02-26"
+      },
+      "_note": "Sacred Atlas: Monte Emei / Qingcheng via Chengdu dentro da estadia maxima em Pequim."
+    },
+    {
+      "id": "beijing_to_xian_feb",
+      "priority": 3,
+      "from": [
+        "PEK",
+        "PKX"
+      ],
+      "to": [
+        "XIY"
+      ],
+      "dates": {
+        "start": "2027-02-19",
+        "end": "2027-02-24"
+      },
+      "_note": "Sacred Atlas: Xi an."
+    },
+    {
+      "id": "chengdu_to_shanghai",
+      "priority": 4,
+      "from": [
+        "CTU",
+        "TFU"
+      ],
+      "to": [
+        "PVG",
+        "SHA"
+      ],
+      "dates": {
+        "start": "2027-02-22",
+        "end": "2027-03-02"
+      },
+      "_note": "Sacred Atlas: saida de Chengdu para Xangai."
     }
   ],
   "calendar": {
