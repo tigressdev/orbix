@@ -16,7 +16,7 @@ export function BudgetBar({ compact = false }: { compact?: boolean }) {
         onClick={() => setOpen(true)} aria-haspopup="dialog" aria-label={`Journey budget: ${m(b.spent)} of ${m(b.budget)}. Open details`}
         className={`group w-full rounded-2xl border border-line bg-surface text-left shadow-sm ${compact ? 'px-4 py-2.5' : 'p-4'}`}
       >
-        <div className="flex items-center justify-between gap-3">
+        <div className={`flex gap-2 ${compact ? 'items-center justify-between' : 'flex-col items-start'}`}>
           <div className="min-w-0">
             <p className="eyebrow">Journey budget</p>
             {b.summary ? (

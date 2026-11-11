@@ -126,7 +126,7 @@
     ],
     "_required_sequence_note": "Ordem obrigatoria: Pequim antes de Moscou (depois, volta a Madri). A Russia e a volta, nao a ida.",
     "research_only_cities": {
-      "TEL_AVIV": "Safety restricted — research only until current government travel advice is verified."
+      "TEL_AVIV": "Safety restricted — research only. FCDO advisory retrieved 2026-11-11: regional restrictions and disruption risk. Current safety, entry and transfers require traveller-specific verification."
     },
     "_research_only_note": "Cities that can be quoted and compared but never recommended or opened as a bookable plan. Remove an entry only after reading and dating the official advice.",
     "preferred_home_arrival_by": "2027-03-24",

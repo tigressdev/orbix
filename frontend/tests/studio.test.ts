@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { activeScenario, useStudio } from '@/stores/studio';
-import { pathKeys } from '@/lib/tree';
+import { pathKeys, scenarioFromLegs, duplicateScenario } from '@/lib/tree';
 import type { Leg, Meta, PersistedState } from '@/types';
 
 const meta = { fx: { latest_day: 'd', latest: { BRL: 5, RUB: 80 }, days: {} }, default_budget: 3000 } as unknown as Meta;
@@ -9,6 +9,19 @@ const leg: Leg = { key: 'MAD>PEK@x', origin: 'MAD', destination: 'PEK', dep_loca
 beforeEach(() => { localStorage.clear(); useStudio.setState({ ready: false, viewOnly: false }); });
 
 describe('canonical itinerary store', () => {
+  it('preserves research metadata and never replaces the active scenario when adding an unpriced alternative', () => {
+    useStudio.getState().hydrate('helen', meta, null);
+    const before = useStudio.getState().scenarios[0]!;
+    const alt = scenarioFromLegs('What-if', []);
+    alt.research = { arrivalDate: '2027-02-13', note: 'Transport requires quotations' };
+    expect(useStudio.getState().addScenario(alt, 'Research')).toBe(true);
+    expect(useStudio.getState().activeId).toBe(before.id);
+    expect(useStudio.getState().scenarios[0]).toBe(before);
+    expect(duplicateScenario(alt).research).toEqual(alt.research);
+    useStudio.setState({ viewOnly: true });
+    expect(useStudio.getState().addScenario(scenarioFromLegs('Blocked', []), 'Blocked')).toBe(false);
+    expect(useStudio.getState().scenarios).toHaveLength(2);
+  });
   it('starts with one empty scenario and the default budget in USD', () => {
     useStudio.getState().hydrate('helen', meta, null);
     const s = useStudio.getState();

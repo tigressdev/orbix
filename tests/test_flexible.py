@@ -156,6 +156,19 @@ class Corridors(unittest.TestCase):
         self.assertEqual(res["baseline_total"], ist["best"]["total"])  # the baseline is the cheapest SAFE corridor
         self.assertEqual(ist["delta_vs_best_safe"], 0)
 
+    def test_custom_stay_is_enforced_by_combinations_not_only_search_windows(self):
+        result = flexible.corridor(empty_db(), self.ex, CFG, ["MOSCOW", "TEL_AVIV", "MADRID"],
+                                   "2027-03-20", 0, stay_hours={"TEL_AVIV": {"min": 72, "max": 96}})
+        self.assertIsNone(result["best"])
+        shorter = flexible.corridor(empty_db(), self.ex, CFG, ["MOSCOW", "TEL_AVIV", "MADRID"],
+                                    "2027-03-20", 0, stay_hours={"TEL_AVIV": {"min": 12, "max": 24}})
+        self.assertEqual(shorter["best"]["flights"], 220)
+        self.assertFalse(shorter["recommendable"])
+
+    def test_elapsed_duration_uses_utc_across_different_local_timezones(self):
+        result = flexible.corridor(empty_db(), self.ex, CFG, ["MOSCOW", "TEL_AVIV", "MADRID"], "2027-03-20", 0)
+        self.assertEqual(result["best"]["duration_hours"], 61.0)
+
     def test_every_complete_option_reaches_madrid_before_the_deadline(self):
         late = leg("IST", "MAD", "2027-03-25 15:00", "2027-03-25 19:00", 10)
         ex = explorer(self.ist1, self.ist2, late)

@@ -65,7 +65,7 @@ def coverage(conn, ex, cfg, o_city, d_city, dates, preferred=None):
     return out
 
 
-def _combos(ex, chain, windows):
+def _combos(ex, chain, windows, stay_hours=None):
     """Every chronologically valid chain of observed legs: each onward flight leaves after the minimum stay and before the maximum."""
     home_city = ex.home_city
     found = []
@@ -82,7 +82,7 @@ def _combos(ex, chain, windows):
                 continue
             if path:
                 gap = (l.dep_utc - path[-1].arr_utc).total_seconds() / 3600
-                r = ex._rule(o)
+                r = (stay_hours or {}).get(o, ex._rule(o))
                 if gap < r["min"] or gap > r["max"]:
                     continue
             if d == home_city and l.arr_utc > ex.latest_arr:
@@ -120,6 +120,7 @@ def _price(ex, cfg, path):
     from .explore import leg_dict
     return {"legs": [leg_dict(l) for l in path], "flights": flights, "hotel": hotel, "bags": bags, "transfers": transfers,
             "total": flights + hotel + bags + transfers, "nights": nights, "nights_total": sum(nights.values()),
+            "duration_hours": round((last.arr_utc - path[0].dep_utc).total_seconds() / 3600, 1),
             "depart_local": path[0].dep_local, "arrive_local": last.arr_local, "slack_hours_to_return": None if slack is None else round(slack),
             "fragile_return": fragile, "flags": flags,
             "observed_at": min((l.observed_at or "") for l in path)}
@@ -151,7 +152,7 @@ def corridor(conn, ex, cfg, chain, preferred, flex=2, hard_min=None, hard_max=No
         legs.append({**w, "from_name": ex.meta(w["from"])["name"], "to_name": ex.meta(w["to"])["name"], "days": days,
                      "observed": sum(1 for d in days if d["status"] == "observed"),
                      "needs_quote": sum(1 for d in days if d["status"] in ("missing", "stale"))})
-    options = sorted((_price(ex, cfg, p) for p in _combos(ex, chain, wins)), key=lambda o: o["total"])
+    options = sorted((_price(ex, cfg, p) for p in _combos(ex, chain, wins, stay_hours)), key=lambda o: o["total"])
     front = pareto(options)
     for o in options:
         o["pareto"] = any(o is p for p in front)

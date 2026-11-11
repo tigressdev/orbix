@@ -1,3 +1,5 @@
+import { Photo } from './Photo';
+import { STORIES } from './data/experiences';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Check, GitBranchPlus, GitCompareArrows, Loader2, Mountain, Route } from 'lucide-react';
@@ -29,6 +31,7 @@ export function SiteSheet({ siteId, onClose, initialTab = 'about' }: { siteId: s
     <Sheet open={!!site} onOpenChange={(o) => { if (!o) onClose(); }} title={site.name}
       description={`${site.country} · ${site.region}${site.originalName ? ` · ${site.originalName}` : ''}`}>
       <div className="flex flex-col gap-4" data-testid="site-sheet">
+        <Photo id={site.id} width={800} className="h-56 rounded-2xl" label={site.name} />
         <div className="flex flex-wrap items-center gap-1.5">
           <FeasBadge s={f.status} />
           {site.traditions.map((t) => <Chip key={t}>{TRADITION_LABEL[t]}</Chip>)}
@@ -48,8 +51,26 @@ export function SiteSheet({ siteId, onClose, initialTab = 'about' }: { siteId: s
 function About({ id }: { id: string }) {
   const s = siteById(id)!;
   const f = siteFeasibility(s);
+  const story = STORIES[id];
   return (
     <div className="flex flex-col gap-5">
+      <Section title="Why this place matters"><p>{story?.summary ?? s.significance}</p></Section>
+      <Section title="Places to experience">
+        <div className="grid gap-3 sm:grid-cols-2">{(story?.experiences ?? []).map((e) => <Card key={e.title} className="text-sm"><h3 className="font-semibold">{e.title}</h3><p className="mt-1 text-ink-2">{e.text}</p><p className="mt-2 text-xs text-teal">{e.hours ?? 'Duration varies'} · {e.verified ? 'Verified' : 'Local schedule unconfirmed'}</p></Card>)}</div>
+        <details className="mt-3"><summary className="min-h-10 cursor-pointer font-semibold">All landmarks</summary><ul>{s.places.map((p) => <li key={p.name} className="py-2"><b>{p.name}</b> {p.originalName}<p className="text-sm text-ink-2">{p.note}</p></li>)}</ul></details>
+      </Section>
+      <Section title="Living traditions">{(story?.living ?? []).map((l) => <div key={l.title} className="mb-3"><h3 className="font-semibold">{l.title}</h3><p className="text-sm text-ink-2">{l.text}</p></div>)}</Section>
+      <details className="rounded-xl border border-line p-3"><summary className="min-h-10 cursor-pointer font-semibold">Relevant cultural events</summary><SiteCalendar id={id} /></details>
+      <details className="rounded-xl border border-line p-3"><summary className="min-h-10 cursor-pointer font-semibold">Historical deep dive</summary>
+        <div className="flex flex-col gap-4 pt-3">
+          <Section title="Historical origins">{s.why.origins}</Section>
+          <Section title="Associated traditions">{s.why.traditions}</Section>
+          <Section title="Major ideas">{s.why.ideas}</Section>
+          <Section title="Architecture and landscapes">{s.why.architecture}</Section>
+          <Section title="Living religious practices">{s.why.practice}</Section>
+          <Section title="Cultural significance">{s.why.significance}</Section>
+        </div>
+      </details>
       <Card className="flex flex-col gap-1 bg-surface-2 text-sm">
         <p className="font-semibold">Access status</p>
         <ul className="list-disc pl-5 text-ink-2">{f.reasons.map((r) => <li key={r}>{r}</li>)}</ul>
@@ -61,16 +82,6 @@ function About({ id }: { id: string }) {
           </div>
         )}
       </Card>
-      <h2 className="display text-2xl font-semibold">Why this place matters</h2>
-      <Section title="Historical origins">{s.why.origins}</Section>
-      <Section title="Associated traditions">{s.why.traditions}</Section>
-      <Section title="Major ideas">{s.why.ideas}</Section>
-      <Section title="Architecture and landscapes">{s.why.architecture}</Section>
-      <Section title="Living religious practices">{s.why.practice}</Section>
-      <Section title="Cultural significance">{s.why.significance}</Section>
-      <Section title="Places">
-        <ul className="flex flex-col gap-1.5">{s.places.map((p) => <li key={p.name}><b>{p.name}</b>{p.originalName && <span className="text-ink-2"> · {p.originalName}</span>}{p.note && <span className="block text-sm text-ink-2">{p.note}</span>}</li>)}</ul>
-      </Section>
       <Section title="Practical visit considerations">
         <p>{s.why.practical}</p>
         <ul className="mt-1 flex flex-col gap-1 text-sm">{s.visitRequirements.map((r) => <li key={r.text}>{r.text}<CertTag c={r.certainty} /></li>)}</ul>

@@ -27,9 +27,10 @@ export function BudgetSheet({ open, onOpenChange }: { open: boolean; onOpenChang
       {!s ? <p className="text-sm text-ink-2">Calculating this branch…</p> : (
         <div className="flex flex-col gap-4">
           <Card>
-            <p className="eyebrow">Total on this branch</p>
+            <p className="eyebrow">{s.complete ? 'Total on this branch' : 'Priced portion of this branch'}</p>
             <p className="num display mt-1 text-4xl font-bold">{m(b.spent)}</p>
             <p className={`mt-1 text-sm font-semibold ${b.over ? 'text-bad' : 'text-teal'}`}>{b.over ? `${m(-b.remaining)} over budget` : `${m(b.remaining)} left of ${m(b.budget)}`}</p>
+            {!s.complete && <p className="mt-2 text-sm text-risk">Journey incomplete. Unquoted transport and other unresolved costs are not included; the complete journey total is unknown.</p>}
           </Card>
 
           <Card className="divide-y divide-line !py-1">

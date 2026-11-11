@@ -1,3 +1,4 @@
+import { RouteDateSearch } from '@/components/shared/RouteDateSearch';
 import { useMemo, useState } from 'react';
 import { Area, AreaChart, ResponsiveContainer, YAxis } from 'recharts';
 import { ArrowDown, ArrowRight, ArrowUp, Eye, Minus } from 'lucide-react';
@@ -46,6 +47,7 @@ export default function PulsePage() {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-4">
       <div><p className="eyebrow">Price Pulse</p><h1 className="display text-4xl font-semibold leading-tight">Where prices are moving</h1></div>
+      <RouteDateSearch />
       <Card className="grid grid-cols-3 gap-2 text-center">
         <div><p className="num display text-3xl font-bold text-bad">{s.rising}</p><p className="text-xs text-ink-2">rising</p></div>
         <div><p className="num display text-3xl font-bold text-good">{s.falling}</p><p className="text-xs text-ink-2">falling</p></div>

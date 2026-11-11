@@ -76,7 +76,7 @@ export default function CalendarMode({ onSite }: { onSite: (id: string, tab?: st
         <div className="hscroll" role="group" aria-label="Arrival date">
           {QUICK.map((d) => (
             <button key={d} aria-pressed={(whatIf || branch.arrive) === d} onClick={() => setWhatIf(d)} data-testid={`quick-${d}`}
-              className={clsx('flex min-h-14 min-w-16 shrink-0 flex-col items-center justify-center rounded-xl border px-3', (whatIf || branch.arrive) === d ? 'border-teal bg-teal text-white' : 'border-line bg-surface text-ink')}>
+              className={clsx('flex min-h-14 min-w-16 shrink-0 flex-col items-center justify-center rounded-xl border px-3', (whatIf || branch.arrive) === d ? 'border-teal bg-teal text-[var(--on-teal)]' : 'border-line bg-surface text-ink')}>
               <span className="text-[11px] font-semibold uppercase tracking-wider opacity-80">{new Date(d + 'T12:00Z').toLocaleDateString('en-GB', { weekday: 'short', timeZone: 'UTC' })}</span>
               <span className="display text-xl font-semibold leading-none">{Number(d.slice(8))}</span><span className="text-[11px] opacity-80">Feb</span>
             </button>
@@ -91,9 +91,10 @@ export default function CalendarMode({ onSite }: { onSite: (id: string, tab?: st
         {msg && (
           <div role="status" data-testid="arrival-message" className={clsx('rounded-xl p-3 text-[15px]', msg.tone === 'risk' ? 'bg-risk-soft text-risk' : msg.tone === 'gold' ? 'bg-gold-soft text-ink' : 'bg-teal-soft text-ink')}>
             <p className="font-semibold">{msg.lines[0]}</p><p className="mt-0.5 text-sm">{msg.lines[1]}</p>
+            <p className="mt-1 text-sm">Already passed: {EVENTS.filter((e) => w.arrive && e.dateEnd < w.arrive).map((e) => `${e.name}${e.verifiedEventStatus === 'tentative-date' ? ' (tentative date)' : ''}`).join(', ') || 'none of the catalogued observances'}.</p>
           </div>
         )}
-        {whatIf && <ApplyWhatIf date={whatIf} />}
+        {whatIf && <ApplyWhatIf key={whatIf} date={whatIf} />}
       </Card>
 
       <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter observances">
@@ -127,12 +128,16 @@ function ApplyWhatIf({ date }: { date: string }) {
   const q = useQuery({ queryKey: ['options', params, []], queryFn: () => fetchOptions([], params), staleTime: 60_000 });
   const opt = q.data?.groups.find((g) => g.city === 'BEIJING')?.options.filter((o) => o.ok && o.arr_local.slice(0, 10) === date).sort((a, b) => a.price - b.price)[0];
   if (q.isLoading) return <p className="text-sm text-ink-2">Looking for observed flights landing in Beijing on {fmt(date)}…</p>;
-  if (!opt) return <p className="text-sm text-ink-2" data-testid="apply-none"><Plane size={14} className="mr-1 inline" aria-hidden />No observed direct Madrid → Beijing flight lands on {fmt(date)}. Arrivals through a European stopover are built in Journey.</p>;
+  if (q.error) return <p role="alert" className="text-sm text-risk">Could not check observed arrivals. <button className="min-h-11 underline" onClick={() => q.refetch()}>Retry</button></p>;
   if (done) return <p className="text-sm font-semibold text-teal" role="status">Saved as a new scenario. Your active journey is unchanged.</p>;
-  const apply = () => { if (useStudio.getState().addScenario(scenarioFromLegs(`What-if · Beijing ${fmt(date)}`, [opt]), `Created a what-if scenario arriving in Beijing on ${fmt(date)}`)) setDone(true); };
+  const apply = () => {
+    const alternative = scenarioFromLegs(`What-if · Beijing ${fmt(date)} · incomplete`, opt ? [opt] : []);
+    alternative.research = { arrivalDate: date, note: opt ? 'Observed Beijing arrival only. Onward China transport, Moscow and the return to Madrid still need compatible quotations.' : `No observed Madrid → Beijing flight arriving ${date}. Search direct or connecting flights; onward transport, Moscow and Madrid return remain unplanned.` };
+    if (useStudio.getState().addScenario(alternative, `Created a what-if scenario arriving in Beijing on ${fmt(date)}`)) setDone(true);
+  };
   return (
     <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-line p-3 text-sm">
-      <span><Plane size={14} className="mr-1 inline text-teal" aria-hidden />Observed: {opt.airlines}, lands {opt.arr_local.slice(11)} · <b className="num">{m(opt.price)}</b></span>
+      <span><Plane size={14} className="mr-1 inline text-teal" aria-hidden />{opt ? <>Observed: {opt.airlines}, lands {opt.arr_local.slice(11)} · <b className="num">{m(opt.price)}</b>. Onward journey incomplete.</> : <span data-testid="apply-none">No observed Madrid → Beijing flight lands on {fmt(date)}. Save an incomplete research scenario; no flight or fare will be invented.</span>}</span>
       <Button size="sm" variant="primary" disabled={viewOnly} onClick={apply} data-testid="apply-whatif"><GitBranchPlus size={15} aria-hidden />Apply to new scenario</Button>
     </div>
   );
@@ -166,11 +171,11 @@ function Timeline({ w, stays, events, sel, onSel, onSite, whatIf }: { w: Window;
           <div className="relative flex h-6 text-xs font-semibold text-ink-2">{months.map((mo) => <div key={mo.label} className="sticky left-0 border-l border-line pl-2 pt-1" style={{ width: mo.len * DAY_W }}><span className="sticky left-2">{mo.label}</span></div>)}</div>
           <div className="relative flex h-7">
             {Array.from({ length: DAYS }, (_, i) => { const d = iso(i), wd = new Date(d + 'T12:00Z').getUTCDay(); return (
-              <div key={d} className={clsx('grid shrink-0 place-items-center text-[12px] font-medium', (wd === 0 || wd === 6) ? 'text-ink' : 'text-ink-2', wd === 1 && 'border-l border-line', w.arrive === d && 'rounded-md bg-teal font-bold !text-white')} style={{ width: DAY_W }}>{Number(d.slice(8))}</div>
+              <div key={d} className={clsx('grid shrink-0 place-items-center text-[12px] font-medium', (wd === 0 || wd === 6) ? 'text-ink' : 'text-ink-2', wd === 1 && 'border-l border-line', w.arrive === d && 'rounded-md bg-teal font-bold !text-[var(--on-teal)]')} style={{ width: DAY_W }}>{Number(d.slice(8))}</div>
             ); })}
           </div>
 
-          <Lane title="Travel" rows={1}>
+          <Lane title="Travel" rows={2}>
             {stays.map((s) => { const len = Math.max(1, (s.depart ? dayIx(s.depart) : Math.min(DAYS - 1, dayIx(s.arrive) + 5)) - dayIx(s.arrive)); return (
               <div key={s.city + s.arrive} className={clsx('absolute flex h-6 items-center overflow-hidden rounded-md px-2 text-[12px] font-semibold text-ink', s.assumed ? 'border border-dashed border-teal bg-surface' : 'bg-teal-soft')}
                 style={{ left: x(s.arrive) + DAY_W / 2, width: len * DAY_W }} title={`${meta.cities[s.city]?.name}: ${fmt(s.arrive)}${s.depart ? ` to ${fmt(s.depart)}` : ''}${s.assumed ? ' (assumed)' : ''}`}>
@@ -178,7 +183,7 @@ function Timeline({ w, stays, events, sel, onSel, onSite, whatIf }: { w: Window;
               </div>
             ); })}
             {fixed.map((f) => (
-              <div key={f.label + f.d} className="absolute flex h-6 items-center gap-1 whitespace-nowrap text-[12px] font-semibold text-ink" style={{ left: x(f.d) + 4 }}>
+              <div key={f.label + f.d} className="absolute flex h-6 items-center gap-1 whitespace-nowrap text-[12px] font-semibold text-ink" style={{ left: x(f.d) + 4, top: ROW }}>
                 <span className={clsx('size-2.5 rounded-full', f.tone === 'gold' ? 'bg-gold' : 'bg-ink')} />{f.label}
               </div>
             ))}
