@@ -1,0 +1,11 @@
+#!currency=USD
+# Selected Google Flights offers, observed 2026-11-11, BR market, economy, one way, one adult.
+@SIN MOSCOW 2027-03-15
+SIN>SVO 00:25 14:35 +0 463 1 19h10 China Eastern ~ PVG:3h40
+SIN>DME 02:30 14:35 +0 473 1 17h05 Emirates ~ DXB:2h35
+SIN>SVO 20:00 08:00 +1 495 1 17h Gulf Air ~ BAH:2h10
+SIN>SVO 03:15 14:45 +0 498 1 16h30 Qatar Airways ~ DOH:2h10
+@SIN MOSCOW 2027-03-16
+SIN>SVO 00:25 14:35 +0 463 1 19h10 China Eastern ~ PVG:3h40
+SIN>DME 02:30 14:35 +0 473 1 17h05 Emirates ~ DXB:2h35
+SIN>VKO 10:25 23:35 +0 582 1 18h10 Turkish Airlines ~ IST:2h15
