@@ -4,13 +4,15 @@
 It does NOT scrape or call Google. Prices are read by a person or an agent in a real browser (see docs/CODEX_FARE_COLLECTION.md);
 this script does the deterministic parts around that step:
 
-  queue   which route-dates still need a quote (missing or stale), highest priority first, with the Google Flights URL of each
+  queue   which searches are still needed, ranked by how much they help (adaptive scheduler), with the Google Flights URL of each;
+          impossible dates are skipped, neighbouring dates of observed fares are added as opportunities
   parse   turn Google Flights result labels (the aria-label text of each flight card) into lines of the import format
   check   validate a quote file before importing it (format, dates, prices, protected day, unknown airports, duplicates)
-  status  how much of the planned grid has a fresh observed quote
+  status  raw, feasible-date and opportunity coverage
 
   python tools/fare_collector.py queue --limit 20
-  python tools/fare_collector.py queue --flex 2 --corridors --format csv
+  python tools/fare_collector.py queue --flex 2 --kind required --format csv
+  python tools/fare_collector.py queue --context branch.json --limit 30
   python tools/fare_collector.py parse labels.txt --dest-city MADRID --date 2027-03-21 --keep 10 >> data/quotes/browser_quotes_2026-11-12_usd_a.txt
   python tools/fare_collector.py check data/quotes/browser_quotes_2026-11-12_usd_a.txt
   python trip.py import data/quotes/browser_quotes_2026-11-12_usd_a.txt
@@ -56,17 +58,22 @@ EXTRA_AIRPORTS = {
 # --------------------------------------------------------------------------------------------------------------------------------
 # queue: what to quote next
 # --------------------------------------------------------------------------------------------------------------------------------
+from flightintel import discovery, scheduler  # noqa: E402
+
+REQUESTS = ROOT / "data/queue/requests.jsonl"
+
+
 def city_names():
     return {k: v["name"] for k, v in load_cities().items()}
 
 
-def gf_url(names, o_city, d_city, day):
-    q = urllib.parse.quote(f"Flights from {names.get(o_city, o_city.title())} to {names.get(d_city, d_city.title())} on {day} one way")
-    return f"https://www.google.com/travel/flights?q={q}&curr=USD&hl=en&gl=br"
+def feasible_dates(cfg, jobs=None):
+    """Kept for callers of the previous version: see flightintel.discovery.feasible_dates."""
+    return discovery.feasible_dates(cfg, jobs)
 
 
 def covered(conn, cfg, max_age_days):
-    """{(origin_city, dest_city, date): newest searched_at} for quotes still fresh enough to be used by the engine."""
+    """({(origin_city, dest_city, date): newest searched_at} for quotes fresh enough to be used, the same for quotes of any age)."""
     ap = cfg["airports"]
     cutoff = (datetime.now(timezone.utc) - timedelta(days=max_age_days)).isoformat()
     out = {}
@@ -79,80 +86,201 @@ def covered(conn, cfg, max_age_days):
     return {k: t for k, t in out.items() if t >= cutoff}, out
 
 
-def build_queue(cfg, conn, flex=2, corridors=False, limit=None, min_priority=1, include_stale=True):
-    """Every planned (origin city, destination city, date) lacking a fresh quote, ordered by priority, then date.
+def load_requests(path=REQUESTS):
+    """Searches the traveller asked for in the app ("Request quotes"), one JSON object per line. Missing file = no requests."""
+    p = Path(path)
+    if not p.exists():
+        return []
+    out = []
+    for line in p.read_text(encoding="utf-8").splitlines():
+        try:
+            r = json.loads(line)
+            if r.get("origin_city") and r.get("dest_city") and re.match(r"^\d{4}-\d{2}-\d{2}$", r.get("date", "")):
+                out.append(r)
+        except ValueError:
+            continue
+    return out
 
-    Sources: the stages of config/trip.json (the planner grid) and, with --corridors, the flexible windows of the configured
-    return corridors (date +-flex around the preferred departure, propagated through stays and the Madrid deadline).
+
+def load_contexts(path):
+    """Branch contexts to prioritise: [{"city": "SHANGHAI", "arrive": "2027-03-05 10:00", "visited": ["BEIJING"], "russia_first": false}]."""
+    if not path:
+        return []
+    d = json.loads(Path(path).read_text(encoding="utf-8"))
+    return d if isinstance(d, list) else [d]
+
+
+def build_queue(cfg, conn, flex=2, corridors=True, limit=None, contexts=(), requests=(), include_stale=True, only_feasible=True,
+                opportunity=True, stats=None):
+    """Ranked search jobs. Sources, all deduplicated per (origin city, destination city, date):
+
+    grid         planned stage dates that can belong to a valid itinerary (impossible dates are skipped unless only_feasible=False)
+    opportunity  dates within +-flex of an observed fare on a useful route, inside that route's feasible range, even outside the
+                 static stage dates: a neighbouring day may be cheaper or better timed
+    flex:<chain> the +-flex windows of the configured return corridors, propagated through stays and the Madrid deadline
+    context      useful departure dates from the current city of a branch being explored (see load_contexts / the app)
+    request      searches the traveller explicitly asked for in the app
     """
-    ap, names = cfg["airports"], city_names()
+    ap, c = cfg["airports"], cfg["constraints"]
+    names = load_cities()
+    nm = {k: v["name"] for k, v in names.items()}
+    graph = discovery.plan_graph(cfg)
+    useful = discovery.feasible_dates(cfg, graph=graph)
     fresh, any_time = covered(conn, cfg, cfg["search"]["max_offer_age_days"])
-    protected = set(cfg["constraints"].get("no_travel_dates", []))
-    research = cfg["constraints"].get("research_only_cities") or {}
-    rows = {}
-
-    def add(o_codes, d_codes, day, prio, src):
-        o_city, d_city = ap[o_codes.split(",")[0]]["city"], ap[d_codes.split(",")[0]]["city"]
-        if day in protected or o_city == d_city:
-            return
-        k = (o_city, d_city, day)
-        status = "fresh" if k in fresh else ("stale" if k in any_time else "missing")
-        if status == "fresh" or (status == "stale" and not include_stale) or prio < min_priority:
-            return
-        r = rows.get(k)
-        if r is None or prio > r["priority"]:
-            rows[k] = {"priority": prio, "origin_city": o_city, "dest_city": d_city, "date": day, "status": status, "source": src,
-                       "origin_airports": o_codes, "dest_airports": d_codes, "research_only": bool(research.get(o_city) or research.get(d_city)),
-                       "last_quoted": any_time.get(k, "")[:10], "url": gf_url(names, o_city, d_city, day)}
-
+    research = c.get("research_only_cities") or {}
+    required = set(c["required_cities"])
+    home_city = graph["home_city"]
+    fresh_edge = defaultdict(set)
+    for (o, d, day) in fresh:
+        fresh_edge[(o, d)].add(day)
+    requested = {(r["origin_city"], r["dest_city"], r["date"]) for r in requests}
+    prio = defaultdict(lambda: 3)
     for j in planner.expand(cfg):
-        add(j.origin, j.destination, j.date, j.priority, j.stage)
+        e = (ap[j.origin.split(',')[0]]['city'], ap[j.destination.split(',')[0]]['city'])
+        prio[e] = max(prio[e] if e in prio else 0, j.priority)
+    st = {"pruned": defaultdict(int), "raw": [0, 0], "feasible": [0, 0], "opportunity": [0, 0]}
+    jobs = []
+
+    def make(o, d, day, src, context_hit=False):
+        k = (o, d, day)
+        if k in fresh:
+            return
+        status = "stale" if k in any_time else "missing"
+        if status == "stale" and not include_stale:
+            return
+        near = discovery._neighbour(sorted(fresh_edge.get((o, d), ())), day, flex) if fresh_edge.get((o, d)) else False
+        jobs.append(scheduler.job(cfg, o, d, day, status, sources=[src], completes=d in required or d == home_city,
+                                  edge_fresh_days=len(fresh_edge.get((o, d), ())), near_observed=near, context_hit=context_hit,
+                                  requested=k in requested, research_only=bool(research.get(o) or research.get(d)),
+                                  interest=names.get(d, {}).get("interest", 3), last_quoted=any_time.get(k, ""), names=nm,
+                                  origin_interest=names.get(o, {}).get("interest", 3), priority=prio[(o, d)]))
+
+    protected = set(c.get("no_travel_dates", []))
+    for j in planner.expand(cfg):
+        o, d = ap[j.origin.split(",")[0]]["city"], ap[j.destination.split(",")[0]]["city"]
+        if o == d or j.date in protected:
+            continue
+        k = (o, d, j.date)
+        st["raw"][0] += 1
+        st["raw"][1] += k in fresh
+        if k not in useful:
+            st["pruned"][(o, d)] += 1
+            if only_feasible:
+                continue
+        else:
+            st["feasible"][0] += 1
+            st["feasible"][1] += k in fresh
+        make(o, d, j.date, j.stage)
+
+    if opportunity:
+        seen = set()
+        for (u, v), days in fresh_edge.items():
+            if (u, v) not in graph["edges"]:
+                continue
+            lo, hi = graph["ed"].get(u, discovery.INF), graph["la"].get(v, -discovery.INF)
+            for f in days:
+                for delta in range(-flex, flex + 1):
+                    o = discovery._ord(f) + delta
+                    day = discovery._iso(o)
+                    if (u, v, day) in seen or o in graph["protected"] or o < lo or o > hi or not graph["lands_ok"](v, o):
+                        continue
+                    seen.add((u, v, day))
+                    st["opportunity"][0] += 1
+                    st["opportunity"][1] += (u, v, day) in fresh
+                    make(u, v, day, "opportunity")
+
     if corridors:
         from flightintel import flexible
         from flightintel.explore import Explorer
         from flightintel.itineraries import load_legs, merge_legs, manual_legs
         legs = merge_legs(load_legs(conn, cfg, ("serpapi", "browser", "manual"), keep=40, currency="USD"), manual_legs(cfg))
         ex = Explorer(cfg, legs)
-        pref = cfg["constraints"].get("flex_preferred_dates") or {"MOSCOW": "2027-03-20"}
+        pref = c.get("flex_preferred_dates") or {"MOSCOW": "2027-03-20"}
         for ch in flexible.default_return_corridors(cfg):
             res = flexible.corridor(conn, ex, cfg, ch["chain"], pref.get(ch["chain"][0], "2027-03-20"), flex)
-            for job in flexible.jobs(cfg, res, priority=4, stage="flex"):
-                add(job.origin, job.destination, job.date, job.priority, "flex:" + ">".join(ch["chain"]))
-    out = sorted(rows.values(), key=lambda r: (-r["priority"], r["date"], r["origin_city"], r["dest_city"]))
-    return out[:limit] if limit else out
+            for leg in res["legs"]:
+                for dd in leg["days"]:
+                    if dd["status"] in ("missing", "stale"):
+                        make(leg["from"], leg["to"], dd["date"], "flex:" + ">".join(ch["chain"]))
+
+    for ctx in contexts:
+        here = ctx["city"]
+        arrive = datetime.fromisoformat(ctx["arrive"].replace(" ", "T"))
+        visited = set(ctx.get("visited", [])) | {home_city, here}
+        remaining = required - visited
+        dests = {v for (u, v) in graph["edges"] if u == here} | remaining | ({home_city} if not remaining else set())
+        for dest in sorted(dests - (visited - {home_city})):
+            dates, _ = discovery.departure_window(cfg, graph, here, arrive, visited, dest, russia_first=bool(ctx.get("russia_first")))
+            for day in dates:
+                make(here, dest, day, "context", context_hit=True)
+
+    for r in requests:
+        make(r["origin_city"], r["dest_city"], r["date"], "request")
+
+    if stats is not None:
+        stats.update({"pruned": dict(st["pruned"]), "raw": st["raw"], "feasible": st["feasible"], "opportunity": st["opportunity"]})
+    return scheduler.rank(jobs, cfg, limit)
+
+
+def _pct(a):
+    return f"{a[1]}/{a[0]} ({a[1] * 100 // max(a[0], 1)}%)"
 
 
 def cmd_queue(a, cfg):
     conn = sqlite3.connect(f"file:{a.db}?mode=ro", uri=True)
     conn.row_factory = sqlite3.Row
-    q = build_queue(cfg, conn, a.flex, a.corridors, a.limit, a.min_priority, not a.missing_only)
+    stats = {}
+    q = build_queue(cfg, conn, a.flex, not a.no_corridors, a.limit, load_contexts(a.context), load_requests(a.requests),
+                    not a.missing_only, not a.all_dates, not a.no_opportunity, stats)
     if a.route:
         want = {x.upper() for x in a.route}
         q = [r for r in q if r["origin_city"] in want or r["dest_city"] in want]
+    if a.kind:
+        q = [r for r in q if r["kind"] == a.kind]
     if a.format == "json":
         print(json.dumps(q, indent=2, ensure_ascii=False))
     elif a.format == "csv":
-        w = csv.DictWriter(sys.stdout, fieldnames=list(q[0].keys()) if q else ["empty"]); w.writeheader(); w.writerows(q)
+        cols = ["score", "kind", "origin_city", "dest_city", "date", "status", "sources", "research_only", "exploration", "last_quoted", "url"]
+        w = csv.DictWriter(sys.stdout, fieldnames=cols, extrasaction="ignore")
+        w.writeheader()
+        w.writerows({**r, "sources": "|".join(r["sources"])} for r in q)
     else:
         for r in q:
-            flag = " [RESEARCH ONLY]" if r["research_only"] else ""
-            print(f"p{r['priority']} {r['date']} {r['origin_city']}>{r['dest_city']:<12} {r['status']:<7}{flag}\n     {r['url']}")
-        print(f"\n{len(q)} route-dates to quote. After reading a page: parse -> check -> python trip.py import <file>")
+            tags = [r["kind"]] + (["RESEARCH ONLY"] if r["research_only"] else []) + (["exploration"] if r["exploration"] else []) \
+                + (["requested"] if r["requested"] else [])
+            print(f"{r['score']:.2f} {r['date']} {r['origin_city']}>{r['dest_city']:<12} {r['status']:<7} [{', '.join(tags)}] "
+                  f"via {'+'.join(r['sources'])}\n     {r['url']}")
+        print(f"\n{len(q)} searches queued (requests to search, not prices). Coverage: raw {_pct(stats['raw'])}, "
+              f"feasible {_pct(stats['feasible'])}, opportunity {_pct(stats['opportunity'])}. "
+              f"{sum(stats['pruned'].values())} planned dates skipped as impossible.")
 
 
 def cmd_status(a, cfg):
     conn = sqlite3.connect(f"file:{a.db}?mode=ro", uri=True)
     conn.row_factory = sqlite3.Row
     ap = cfg["airports"]
+    stats = {}
+    build_queue(cfg, conn, a.flex, False, None, (), (), True, True, True, stats)
     fresh, any_time = covered(conn, cfg, cfg["search"]["max_offer_age_days"])
-    by = defaultdict(lambda: [0, 0, 0])
+    useful = discovery.feasible_dates(cfg)
+    print(f"raw grid coverage        {_pct(stats['raw'])}   every planned stage date (technical diagnosis)")
+    print(f"feasible-date coverage   {_pct(stats['feasible'])}   planned dates that can belong to a valid itinerary (main KPI)")
+    print(f"opportunity coverage     {_pct(stats['opportunity'])}   +-{a.flex} days around observed fares on useful routes")
+    print(f"skipped as impossible    {sum(stats['pruned'].values())} planned dates\n")
+    by = defaultdict(lambda: [0, 0, 0, 0])
     for j in planner.expand(cfg):
         k = (ap[j.origin.split(",")[0]]["city"], ap[j.destination.split(",")[0]]["city"], j.date)
-        r = by[(k[0], k[1])]; r[0] += 1; r[1] += k in fresh; r[2] += k in any_time and k not in fresh
-    tot, ok = sum(v[0] for v in by.values()), sum(v[1] for v in by.values())
-    print(f"grid {tot} route-dates, fresh {ok} ({ok * 100 // max(tot, 1)}%), stale {sum(v[2] for v in by.values())}")
-    for (o, d), (n, f, s) in sorted(by.items(), key=lambda kv: kv[1][1] / kv[1][0]):
-        print(f"  {o:>10}>{d:<10} {f:>3}/{n:<3}{'  stale ' + str(s) if s else ''}")
+        r = by[(k[0], k[1])]
+        r[0] += 1
+        if k in useful:
+            r[1] += 1
+            r[2] += k in fresh
+            r[3] += k in any_time and k not in fresh
+    for (o, d), (n, uu, ff, ss) in sorted(by.items(), key=lambda kv: (kv[1][2] / kv[1][1]) if kv[1][1] else 2):
+        if uu:
+            print(f"  {o:>10}>{d:<10} useful {ff:>3}/{uu:<3} (planned {n}){'  stale ' + str(ss) if ss else ''}")
+        else:
+            print(f"  {o:>10}>{d:<10} no usable date under the rules (planned {n})")
 
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -308,17 +436,24 @@ def main():
     cfg = load_config()
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
-    q = sub.add_parser("queue", help="route-dates still without a fresh quote, with Google Flights URLs")
+    q = sub.add_parser("queue", help="ranked searches still needed (requests to search, never prices), with Google Flights URLs")
     q.add_argument("--db", default=str(DB))
-    q.add_argument("--flex", type=int, default=2, help="+- days around preferred dates for return corridors (default 2)")
-    q.add_argument("--corridors", action="store_true", help="also add the flexible windows of the configured return corridors")
+    q.add_argument("--flex", type=int, default=2, help="+- days for opportunity searches and return corridors (default 2)")
+    q.add_argument("--no-corridors", action="store_true", help="leave out the configured return corridors")
+    q.add_argument("--no-opportunity", action="store_true", help="leave out dates next to observed fares")
+    q.add_argument("--context", help="JSON file with branch contexts to prioritise: [{city, arrive, visited, russia_first}]")
+    q.add_argument("--requests", default=str(REQUESTS), help="JSON-lines file of searches requested in the app (default data/queue/requests.jsonl)")
     q.add_argument("--limit", type=int)
-    q.add_argument("--min-priority", type=int, default=1)
+    q.add_argument("--kind", choices=["required", "valuable"], help="only gaps that block a route (required) or improvements (valuable)")
+    q.add_argument("--all-dates", action="store_true", help="also list planned dates that no valid itinerary can use")
     q.add_argument("--missing-only", action="store_true", help="skip stale quotes (only dates never quoted)")
     q.add_argument("--route", nargs="*", help="only routes touching these city ids, e.g. MOSCOW TEL_AVIV")
     q.add_argument("--format", choices=["text", "json", "csv"], default="text")
     q.set_defaults(fn=cmd_queue)
-    s = sub.add_parser("status", help="coverage of the planned grid"); s.add_argument("--db", default=str(DB)); s.set_defaults(fn=cmd_status)
+    s = sub.add_parser("status", help="raw, feasible and opportunity coverage")
+    s.add_argument("--db", default=str(DB))
+    s.add_argument("--flex", type=int, default=2)
+    s.set_defaults(fn=cmd_status)
     pa = sub.add_parser("parse", help="Google Flights card labels (one per paragraph) -> import block")
     pa.add_argument("file", help="text file with the labels, or - for stdin")
     pa.add_argument("--dest-city", required=True, help="destination city id as in config/cities.json, e.g. MADRID")

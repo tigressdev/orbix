@@ -26,6 +26,10 @@ Aniversário (14/mar) protegido por padrão; Rússia obrigatória (`required_cit
 Sacred Atlas (`/more/sacred`, `frontend/src/features/sacred-atlas/`): catálogo editorial versionado + motor de alternativas que só usa
 `/api/options` e `/api/evaluate`; nunca sobrescreve o cenário ativo (cria um novo). Ver docs/SACRED_ATLAS.md.
 
+Descoberta de rotas (2.2): `src/flightintel/discovery.py` (datas viáveis por propagação, candidatos com estado observed/stale/missing/
+temporally_blocked/research_only/confirmed) e `scheduler.py` (prioridade P=0,35U+0,25V+0,20O+0,10R+0,10F). Fila: `python tools/fare_collector.py queue`;
+pedidos do app em `data/queue/requests.jsonl` (local, fora do git). Destino sem tarifa observada nunca é reservável. Coleta pelo Codex: docs/CODEX_FARE_COLLECTION.md.
+
 ## Login e deploy
 Dois usuários (helen = owner, demetrio): hashes PBKDF2 em `config/users.local.json` (git-ignored) ou env `FI_USERS`; nunca gravar senhas em texto.
 Cada um escreve só no próprio estado; o outro apenas lê (servidor impõe). Deploy no Vercel: ver docs/DEPLOY_VERCEL.md. Cotações = `data/quotes/*.txt` (memória);
