@@ -1,0 +1,64 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, NATIVAS EM USD, 1 adulto, so ida) em 2026-11-11. Formato rico. Terceiro dia de coleta: mesmas rotas/datas dos dias anteriores para o Price Pulse comparar.
+@SHA MOSCOW 2027-03-15
+PVG>SVO 22:05 21:15 +1 377 1 28h10 China Southern ~ WUH:17h ~ bag:carry=yes
+PVG>SVO 22:30 21:15 +1 386 2 27h45 China Southern ~ CAN:12h15,WUH:1h50 ~ bag:carry=yes
+SHA>SVO 08:55 17:40 +0 387 1 13h45 Air China ~ PEK:3h ~ bag:carry=yes
+PVG>SVO 09:30 17:40 +0 387 1 13h10 Air China ~ PEK:2h20 ~ bag:carry=yes
+SHA>SVO 21:30 15:05 +1 387 1 22h35 Air China ~ PEK:11h35 ~ bag:carry=yes
+PVG>SVO 18:20 08:00 +1 475 1 18h40 Qatar Airways ~ DOH:1h55 ~ bag:carry=yes
+PVG>SVO 23:35 12:35 +1 475 1 18h Qatar Airways ~ DOH:1h15 ~ bag:carry=yes
+SHA>SVO 08:30 18:05 +0 484 1 14h35 Hainan ~ PEK:3h35 ~ bag:carry=yes
+PVG>SVO 08:10 16:40 +0 551 1 13h30 China Southern ~ PKX:2h25 ~ bag:carry=yes
+PVG>VKO 23:00 14:00 +1 581 1 20h Emirates, flydubai ~ DXB:2h50 ~ bag:carry=yes
+PVG>DME 06:15 20:00 +0 584 1 18h45 Emirates ~ DXB:1h55 ~ bag:carry=yes
+
+@SZX MOSCOW 2027-03-15
+SZX>SVO 07:20 15:30 +0 370 1 13h10 China Eastern ~ PKX:1h30 ~ bag:carry=yes
+SZX>SVO 19:10 14:35 +1 370 1 24h25 China Eastern ~ PVG:12h ~ bag:carry=yes
+SZX>SVO 21:35 14:35 +1 370 1 22h China Eastern ~ bag:carry=yes
+SZX>SVO 22:00 15:30 +1 370 1 22h30 China Eastern ~ PKX:10h55 ~ bag:carry=yes
+SZX>SVO 08:15 17:40 +0 391 1 14h25 Air China ~ PEK:2h35 ~ bag:carry=yes
+SZX>SVO 21:00 15:05 +1 391 1 23h05 Air China ~ PEK:11h20 ~ bag:carry=yes
+SZX>SVO 07:00 17:40 +0 395 1 15h40 Shenzhen, Air China ~ PEK:4h10 ~ bag:carry=yes
+SZX>SVO 13:15 19:00 +0 473 0 10h45 China Southern ~ bag:carry=yes
+SZX>SVO 09:20 18:05 +0 484 1 13h45 Hainan ~ PEK:2h05 ~ bag:carry=yes
+SZX>SVO 07:30 16:40 +0 494 1 14h10 China Southern ~ PKX:2h20 ~ bag:carry=yes
+SZX>VKO 00:45 06:50 +1 506 1 35h05 Emirates, flydubai ~ DXB:19h15 ~ bag:carry=yes
+
+@VKO ISTANBUL 2027-03-19
+VKO>SAW 03:10 07:25 +0 127 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 02:50 07:15 +0 140 0 4h25 AJet ~ bag:carry=no
+VKO>SAW 17:25 21:40 +0 176 0 4h15 Pegasus ~ bag:carry=no
+VKO>IST 14:00 18:00 +0 281 0 4h Turkish Airlines ~ bag:carry=no
+VKO>IST 00:35 04:50 +0 281 0 4h15 Turkish Airlines ~ bag:carry=no
+VKO>IST 02:05 06:15 +0 281 0 4h10 Turkish Airlines ~ bag:carry=no
+VKO>IST 02:40 06:55 +0 281 0 4h15 Turkish Airlines ~ bag:carry=no
+VKO>IST 06:20 10:30 +0 281 0 4h10 Turkish Airlines ~ bag:carry=no
+VKO>IST 07:55 12:00 +0 281 0 4h05 Turkish Airlines ~ bag:carry=no
+VKO>IST 20:15 00:15 +1 281 0 4h Turkish Airlines ~ bag:carry=no
+SVO>IST 04:00 15:55 +0 335 1 11h55 Air Serbia ~ BEG:6h50 ~ bag:carry=yes
+DME>IST 13:05 21:25 +0 489 1 8h20 Azerbaijan Airlines ~ GYD:1h20 ~ bag:carry=yes
+
+@MAD BEIJING 2027-02-12
+MAD>PEK 13:20 05:45 +2 566 1 33h25 Lufthansa, Air China ~ FRA:21h25 ~ bag:carry=yes
+MAD>PEK 13:20 11:45 +1 696 1 15h25 Lufthansa, Air China ~ FRA:3h25 ~ bag:carry=yes
+MAD>PKX 13:20 12:45 +1 696 1 16h25 Lufthansa, Air China ~ FRA:4h25 ~ bag:carry=yes
+MAD>PKX 15:20 14:45 +1 725 1 16h25 Qatar Airways ~ DOH:2h20 ~ bag:carry=yes
+MAD>PKX 17:55 15:30 +1 850 1 14h35 British Airways, China Southern ~ LHR:2h20 ~ bag:carry=yes
+MAD>PEK 10:50 09:55 +1 875 1 16h05 KLM ~ AMS:2h30 ~ bag:carry=yes
+MAD>PEK 11:05 10:25 +1 893 1 16h20 Sichuan Airlines ~ TFU:2h ~ bag:carry=yes
+MAD>PEK 14:35 14:45 +1 926 1 17h10 Emirates ~ DXB:2h55 ~ bag:carry=yes
+MAD>PEK 00:40 18:45 +0 979 0 11h05 Air China ~ bag:carry=yes
+MAD>PEK 08:35 05:45 +1 1138 1 14h10 Lufthansa, Air China ~ FRA:2h10 ~ bag:carry=yes
+MAD>PEK 12:20 06:20 +1 1164 0 11h Air China ~ bag:carry=yes
+
+@SAW MADRID 2027-03-23
+SAW>MAD 09:15 11:40 +0 104 0 4h25 Pegasus ~ bag:carry=no
+SAW>MAD 11:30 14:00 +0 104 0 4h30 Pegasus ~ bag:carry=no
+IST>MAD 18:00 23:35 +0 124 1 7h35 KLM ~ AMS:1h30 ~ bag:carry=yes
+IST>MAD 19:20 08:05 +1 165 1 14h45 Vueling ~ BCN:9h40 ~ bag:carry=no
+IST>MAD 16:45 19:00 +0 223 0 4h15 Air Europa ~ bag:carry=yes
+IST>MAD 14:20 16:55 +0 226 0 4h35 Turkish Airlines ~ bag:carry=no
+IST>MAD 07:55 10:25 +0 226 0 4h30 Turkish Airlines ~ bag:carry=no
+IST>MAD 10:35 13:15 +0 226 0 4h40 Turkish Airlines ~ bag:carry=no
