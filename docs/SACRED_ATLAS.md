@@ -4,7 +4,11 @@
 then tests whether they fit the real itinerary. Route: `/more/sacred` (desktop sidebar → **Sacred Atlas**; phones → **More → Sacred Atlas**,
 so the five-item bottom bar stays as it is).
 
-## Architecture (frontend only, no backend change)
+## Architecture
+
+ORBIX 2.1 adds licensed photography, progressive destination disclosure, `TemplateTools`, cultural opportunity indicators and the shared
+`FlexibleDateSelector`. Coverage and return comparisons call the existing Python flexible-date endpoints; no frontend optimization engine
+was introduced. See [HANDOFF.md](HANDOFF.md) for recovery status and validation limits.
 
 ```text
 frontend/src/features/sacred-atlas/
@@ -41,10 +45,10 @@ Shared-state changes are additive and optional, so existing saved workspaces sta
 ## Data provenance and limits
 
 - Historical content cites UNESCO listings and scholarly works; practical claims carry a certainty tag (fact / estimate / unverified).
-- Festival dates come from the traveller's research brief (2026-11-11). Losar and Chötrul Düchen are marked *tentative*; confirm the 2027
-  State Council holiday notice. No local ceremony is listed as confirmed.
-- Jerusalem: travel advice is **not** fetched automatically; `advisory.lastVerified` is `null`, so it stays research-only. To clear it,
-  read the official advice, then set `lastVerified` and `summary` in `data/sites.ts`.
+- The national holiday period was verified on 2026-11-11 against the State Council's 2027 notice (5–13 February); the precise source is in `data/events.ts`.
+  Losar and Chötrul Düchen remain tentative and distinct from Chinese observances. No local ceremony is listed as confirmed.
+- Jerusalem: FCDO advice was retrieved and dated 2026-11-11 in `data/sites.ts`. The advisory has geographic distinctions, while ORBIX's
+  conservative corridor classification remains **safety restricted — research only**. Retrieval alone does not validate entry or travel advisability.
 - With the fares observed on 2026-11-11, Beijing → Chengdu / Xi'an exist only on 1 March, beyond the 9-night Beijing maximum for a
   13 Feb arrival. Quotes for Beijing → Chengdu (≈20–26 Feb) and Chengdu → Shanghai are what the Mount Emei branch needs.
 

@@ -1,5 +1,13 @@
 # China 2027 — otimizador de rotas e tarifas
 
+## ORBIX 2.1 — integração em desenvolvimento
+
+O frontend React/Vite fica em `frontend/`: `npm run dev`, `npm run typecheck`, `npm test`, `npm run build`.
+Sacred Atlas integra fotografia, experiências culturais, cenários independentes e o seletor compartilhado de datas flexíveis.
+A comparação de retornos usa os endpoints Python `/api/flex/coverage` e `/api/flex/corridors`; preços ausentes continuam desconhecidos.
+Estado da recuperação, fontes, validações executadas e pendências de ambiente: [docs/HANDOFF.md](docs/HANDOFF.md).
+Esta branch não foi publicada em produção; a validação integrada ainda precisa ser concluída.
+
 Monitora voos só-ida e monta itinerários completos **MAD → (parada opcional) → Pequim → Moscou → hub → MAD**,
 ranqueados por custo total (voos + hotel + bagagem + penalidade de risco).
 
