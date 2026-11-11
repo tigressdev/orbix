@@ -175,6 +175,8 @@ def build_trips(legs_by_origin, cfg, limit_per_signature=1):
             if not rule["min"] <= gap_h <= rule["max"]:
                 continue
             dest_city = city_of(leg.destination, ap)
+            if dest_city in (c.get("research_only_cities") or {}):
+                continue                                         # research-only places never enter recommended trips
             back = (city_of(path[-1].origin, ap) == dest_city
                     and dest_city in (c.get("round_trip_spurs") or {}).get(city, []))      # round trip: Shanghai -> Singapore -> Shanghai
             if dest_city in visited and leg.destination != home and not back:
@@ -193,6 +195,8 @@ def build_trips(legs_by_origin, cfg, limit_per_signature=1):
 
     for first in legs_by_origin.get(home, ()):
         if first.dep_utc < earliest_dep or first.dep_utc > latest_arr or travels_on_blocked_day(first):
+            continue
+        if city_of(first.destination, ap) in (c.get("research_only_cities") or {}):
             continue
         dfs([first], {city_of(home, ap), city_of(first.destination, ap)})
 

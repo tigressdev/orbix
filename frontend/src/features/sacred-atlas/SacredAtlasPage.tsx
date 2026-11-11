@@ -60,7 +60,7 @@ export default function SacredAtlasPage() {
 
       {mode === 'geography' && <Geography selected={site} onSelect={(id) => openSite(id)} />}
       {mode === 'traditions' && <TraditionsMode onSite={openSite} />}
-      {mode === 'calendar' && <CalendarMode />}
+      {mode === 'calendar' && <CalendarMode onSite={openSite} />}
       {mode === 'journeys' && <JourneysMode onSite={openSite} />}
 
       <SiteSheet siteId={site} initialTab={tab} onClose={() => set('site', null, { tab: null })} />

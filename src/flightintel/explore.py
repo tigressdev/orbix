@@ -151,6 +151,13 @@ class Explorer:
         t = path[-1].arr_utc if path else self.arrive
         done = bool(path) and here == self.home and self.required <= set(visited)
         total = flights + hotel + bags + transfers
+        pref = self.c.get("preferred_home_arrival_by")
+        fragile = bool(path and here == self.home and pref and to_local(t, here, self.ap).strftime("%Y-%m-%d") > pref)
+        if fragile:
+            flags.append("Lands in Madrid on the day of the flight home: it meets the minimum buffer but is fragile on separate tickets")
+        ro = self.c.get("research_only_cities") or {}
+        restricted = [c for c in dict.fromkeys(visited) if c in ro]
+        flags += [f"{self.meta(c)['name']}: {ro[c]}" for c in restricted]
         return {"flights": flights, "hotel": hotel, "hotel_full": hotel_full, "hotel_shared_nights": shared_nights, "hotel_saved": hotel_full - hotel, "bags": bags, "transfers": transfers, "risk": risk,
                 "total": total, "adjusted": total + risk, "nights": nights, "flags": flags,
                 "here": here, "city": city_of(here, self.ap),
@@ -158,7 +165,8 @@ class Explorer:
                 "days_since_start": round((t - self.arrive).total_seconds() / 86400, 1),
                 "slack_hours_to_return": round((self.latest_arr - t).total_seconds() / 3600),
                 "visited": visited, "complete": done,
-                "missing_required": sorted(self.required - set(visited)), "legs": len(path)}
+                "missing_required": sorted(self.required - set(visited)), "legs": len(path),
+                "fragile_return": fragile, "research_only": restricted}
 
     def metrics(self, path):
         """Decision metrics for comparing branches (all derived from the chosen legs and config)."""
@@ -238,6 +246,9 @@ class Explorer:
                 why.append("Flies on your protected birthday")
             if len(path) >= self.c["max_legs"]:
                 why.append("Segment limit reached")
+            research = (self.c.get("research_only_cities") or {}).get(dest_city)
+            if research:
+                why.append(research)            # priced for comparison, never offered as a bookable next step
             nights = self._nights(t, cand.dep_utc, here_airport)
             extra_hotel = nights * self._hotel(city)
             transfer = 0 if cand.destination == self.home else self._transfer()

@@ -175,5 +175,14 @@
     "priority": true,
     "region": "Russia",
     "code": "SVO"
+  },
+  "TEL_AVIV": {
+    "name": "Tel Aviv",
+    "country": "Israel",
+    "tag": "Gateway to Jerusalem · research only",
+    "interest": 8,
+    "region": "Asia",
+    "code": "TLV",
+    "access": "safety_restricted"
   }
 }

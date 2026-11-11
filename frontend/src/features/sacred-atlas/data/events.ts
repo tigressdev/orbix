@@ -57,3 +57,12 @@ export const EVENTS: CulturalEvent[] = [
 
 /** Gregorian window the timeline emphasises. */
 export const FESTIVAL_WINDOW = { start: '2027-02-06', end: '2027-02-20' };
+
+/** What a visitor might encounter, and what stays unverified. Types of experience only: no venue or programme is confirmed for 2027. */
+export const EVENT_GUIDE: Record<string, { visitors: string; unverified: string }> = {
+  'cny-2027': { visitors: 'Families gather at home, so cities are quieter than usual; temples are crowded with people making the first offerings of the year, and temple fairs open in parks.', unverified: 'Which fairs and temples run public programmes in 2027, their dates, tickets and hours.' },
+  'losar-2027': { visitors: 'Household rites, new prayer flags, and gatherings at monasteries and stupas in Tibetan communities.', unverified: 'The date under each Tibetan calendar tradition, and whether foreign visitors can be in Tibet at that time.' },
+  'spring-holiday-2027': { visitors: 'A national week off: major sights and transport are at their busiest, while many small shops and restaurants close for several days.', unverified: 'The official 2027 notice, museum closing days and adjusted working days.' },
+  'lantern-2027': { visitors: 'Lantern displays in gardens and old streets, riddles written on lanterns, and bowls of sweet rice dumplings (tangyuan / yuanxiao).', unverified: 'Which cities and venues stage displays in 2027, on which evenings, and whether tickets are needed.' },
+  'chotrul-2027': { visitors: 'Butter-lamp offerings and prayers closing the Mönlam period; in the past, large butter sculptures were displayed in Lhasa.', unverified: 'The 2027 date under the Tibetan calendar, public programmes, and access for foreign visitors.' },
+};

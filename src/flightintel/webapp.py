@@ -137,6 +137,39 @@ class App:
             out.append({"stale": False, "summary": ex.summary(path), "metrics": ex.metrics(path)})
         return {"results": out}
 
+    # -- flexible route intelligence ---------------------------------------------------------
+    def flex_coverage(self, body):
+        """Quote coverage for one leg over a flexible window: {from, to, preferred, flex, hard_min?, hard_max?}."""
+        from . import flexible
+        from .date_windows import DateWindow, span
+        conn = self.conn()
+        ex = self.explorer(conn, body.get("params"), keep=40)
+        o, d = body["from"], body["to"]
+        if not flexible.airports_of(self.cfg, o) or not flexible.airports_of(self.cfg, d):
+            raise ValueError("unknown city")
+        flex = max(0, min(int(body.get("flex", 2)), 7))
+        win = DateWindow(body["preferred"], flex, flex, body.get("hard_min"), body.get("hard_max"))
+        lo, hi = win.bounds()
+        days = flexible.coverage(conn, ex, self.cfg, o, d, span(lo, hi), body["preferred"])      # protected dates stay visible, marked as such
+        return {"from": o, "to": d, "from_name": ex.meta(o)["name"], "to_name": ex.meta(d)["name"], "preferred": body["preferred"], "flex": flex,
+                "days": days, "research_only": flexible.research_only(self.cfg).get(d) or flexible.research_only(self.cfg).get(o)}
+
+    def flex_corridors(self, body):
+        """Compare corridors between the same ends: {corridors?: [{chain, label?}], preferred, flex}. Defaults to the configured return corridors."""
+        from . import flexible
+        conn = self.conn()
+        ex = self.explorer(conn, body.get("params"), keep=40)
+        cors = body.get("corridors") or flexible.default_return_corridors(self.cfg)
+        known = {a["city"] for a in self.cfg["airports"].values()}
+        cors = [c for c in cors[:8] if 2 <= len(c.get("chain", [])) <= 5 and all(x in known for x in c["chain"])]
+        if not cors:
+            raise ValueError("no valid corridor")
+        flex = max(0, min(int(body.get("flex", 2)), 7))
+        out = flexible.compare(conn, ex, self.cfg, cors, body["preferred"], flex, body.get("hard_min"), body.get("hard_max"))
+        out["collection"] = "manual" if not hosted() else "read_only"
+        out["jobs"] = sum(len(flexible.jobs(self.cfg, c)) for c in out["corridors"])
+        return out
+
     def _stamp(self):
         """Identifies the quote set an analysis was computed from: number of searches and the latest one."""
         row = self.conn().execute("SELECT COUNT(*), MAX(searched_at) FROM searches WHERE ok=1").fetchone()
@@ -293,7 +326,8 @@ def dispatch(app, method, path, headers, body=b"", allowed_hosts=None, static=Tr
             return _json(404, {"error": "not found"})
         if method in ("POST", "PUT"):
             data = json.loads(body or b"{}")
-            routes = {("POST", "/api/options"): app.options, ("POST", "/api/evaluate"): app.evaluate, ("POST", "/api/manual"): app.add_manual}
+            routes = {("POST", "/api/options"): app.options, ("POST", "/api/evaluate"): app.evaluate, ("POST", "/api/manual"): app.add_manual,
+                      ("POST", "/api/flex/coverage"): app.flex_coverage, ("POST", "/api/flex/corridors"): app.flex_corridors}
             if (method, path) == ("PUT", "/api/state"):
                 return _json(200, app.put_state(user, data))
             fn = routes.get((method, path))

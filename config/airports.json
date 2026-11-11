@@ -5,188 +5,223 @@
     "utc_offset": 1,
     "lat": 40.472,
     "lon": -3.563,
-    "name": "Adolfo Suárez Madrid–Barajas"
+    "name": "Adolfo Suárez Madrid–Barajas",
+    "tz": "Europe/Madrid"
   },
   "BUD": {
     "city": "BUDAPEST",
     "utc_offset": 1,
     "lat": 47.439,
     "lon": 19.262,
-    "name": "Budapest Ferenc Liszt"
+    "name": "Budapest Ferenc Liszt",
+    "tz": "Europe/Budapest"
   },
   "VIE": {
     "city": "VIENNA",
     "utc_offset": 1,
     "lat": 48.11,
     "lon": 16.57,
-    "name": "Vienna International"
+    "name": "Vienna International",
+    "tz": "Europe/Vienna"
   },
   "ZRH": {
     "city": "ZURICH",
     "utc_offset": 1,
     "lat": 47.458,
     "lon": 8.548,
-    "name": "Zurich Airport"
+    "name": "Zurich Airport",
+    "tz": "Europe/Zurich"
   },
   "GVA": {
     "city": "GENEVA",
     "utc_offset": 1,
     "lat": 46.238,
     "lon": 6.109,
-    "name": "Geneva Airport"
+    "name": "Geneva Airport",
+    "tz": "Europe/Zurich"
   },
   "WAW": {
     "city": "WARSAW",
     "utc_offset": 1,
     "lat": 52.166,
     "lon": 20.967,
-    "name": "Warsaw Chopin"
+    "name": "Warsaw Chopin",
+    "tz": "Europe/Warsaw"
   },
   "BEG": {
     "city": "BELGRADE",
     "utc_offset": 1,
     "lat": 44.818,
     "lon": 20.309,
-    "name": "Belgrade Nikola Tesla"
+    "name": "Belgrade Nikola Tesla",
+    "tz": "Europe/Belgrade"
   },
   "IST": {
     "city": "ISTANBUL",
     "utc_offset": 3,
     "lat": 41.275,
     "lon": 28.752,
-    "name": "Istanbul Airport"
+    "name": "Istanbul Airport",
+    "tz": "Europe/Istanbul"
   },
   "PEK": {
     "city": "BEIJING",
     "utc_offset": 8,
     "lat": 40.08,
     "lon": 116.585,
-    "name": "Beijing Capital"
+    "name": "Beijing Capital",
+    "tz": "Asia/Shanghai"
   },
   "PKX": {
     "city": "BEIJING",
     "utc_offset": 8,
     "lat": 39.509,
     "lon": 116.411,
-    "name": "Beijing Daxing"
+    "name": "Beijing Daxing",
+    "tz": "Asia/Shanghai"
   },
   "SVO": {
     "city": "MOSCOW",
     "utc_offset": 3,
     "lat": 55.973,
     "lon": 37.415,
-    "name": "Moscow Sheremetyevo"
+    "name": "Moscow Sheremetyevo",
+    "tz": "Europe/Moscow"
   },
   "VKO": {
     "city": "MOSCOW",
     "utc_offset": 3,
     "lat": 55.592,
     "lon": 37.262,
-    "name": "Moscow Vnukovo"
+    "name": "Moscow Vnukovo",
+    "tz": "Europe/Moscow"
   },
   "DME": {
     "city": "MOSCOW",
     "utc_offset": 3,
     "lat": 55.409,
     "lon": 37.906,
-    "name": "Moscow Domodedovo"
+    "name": "Moscow Domodedovo",
+    "tz": "Europe/Moscow"
   },
   "GRU": {
     "city": "SAO_PAULO",
     "utc_offset": -3,
     "lat": -23.435,
     "lon": -46.473,
-    "name": "São Paulo–Guarulhos"
+    "name": "São Paulo–Guarulhos",
+    "tz": "America/Sao_Paulo"
   },
   "PVG": {
     "city": "SHANGHAI",
     "utc_offset": 8,
     "lat": 31.144,
     "lon": 121.808,
-    "name": "Shanghai Pudong"
+    "name": "Shanghai Pudong",
+    "tz": "Asia/Shanghai"
   },
   "SZX": {
     "city": "SHENZHEN",
     "utc_offset": 8,
     "lat": 22.639,
     "lon": 113.811,
-    "name": "Shenzhen Bao'an"
+    "name": "Shenzhen Bao'an",
+    "tz": "Asia/Shanghai"
   },
   "WUH": {
     "city": "WUHAN",
     "utc_offset": 8,
     "lat": 30.784,
     "lon": 114.208,
-    "name": "Wuhan Tianhe"
+    "name": "Wuhan Tianhe",
+    "tz": "Asia/Shanghai"
   },
   "CTU": {
     "city": "CHENGDU",
     "utc_offset": 8,
     "lat": 30.578,
     "lon": 103.947,
-    "name": "Chengdu Shuangliu"
+    "name": "Chengdu Shuangliu",
+    "tz": "Asia/Shanghai"
   },
   "DLU": {
     "city": "DALI",
     "utc_offset": 8,
     "lat": 25.649,
     "lon": 100.319,
-    "name": "Dali"
+    "name": "Dali",
+    "tz": "Asia/Shanghai"
   },
   "XIY": {
     "city": "XIAN",
     "utc_offset": 8,
     "lat": 34.447,
     "lon": 108.752,
-    "name": "Xi'an Xianyang"
+    "name": "Xi'an Xianyang",
+    "tz": "Asia/Shanghai"
   },
   "PRG": {
     "city": "PRAGUE",
     "utc_offset": 1,
     "lat": 50.101,
     "lon": 14.26,
-    "name": "Prague Václav Havel"
+    "name": "Prague Václav Havel",
+    "tz": "Europe/Prague"
   },
   "ZAG": {
     "city": "ZAGREB",
     "utc_offset": 1,
     "lat": 45.743,
     "lon": 16.069,
-    "name": "Zagreb Franjo Tuđman"
+    "name": "Zagreb Franjo Tuđman",
+    "tz": "Europe/Zagreb"
   },
   "KRK": {
     "city": "KRAKOW",
     "utc_offset": 1,
     "lat": 50.078,
     "lon": 19.785,
-    "name": "Kraków John Paul II"
+    "name": "Kraków John Paul II",
+    "tz": "Europe/Warsaw"
   },
   "SAW": {
     "city": "ISTANBUL",
     "utc_offset": 3,
     "lat": 40.898,
     "lon": 29.309,
-    "name": "Istanbul Sabiha Gökçen"
+    "name": "Istanbul Sabiha Gökçen",
+    "tz": "Europe/Istanbul"
   },
   "SIN": {
     "city": "SINGAPORE",
     "utc_offset": 8,
     "lat": 1.359,
     "lon": 103.989,
-    "name": "Singapore Changi"
+    "name": "Singapore Changi",
+    "tz": "Asia/Singapore"
   },
   "SHA": {
     "city": "SHANGHAI",
     "utc_offset": 8,
     "lat": 31.198,
     "lon": 121.336,
-    "name": "Shanghai Hongqiao"
+    "name": "Shanghai Hongqiao",
+    "tz": "Asia/Shanghai"
   },
   "TFU": {
     "city": "CHENGDU",
     "utc_offset": 8,
     "lat": 30.319,
     "lon": 104.441,
-    "name": "Chengdu Tianfu"
+    "name": "Chengdu Tianfu",
+    "tz": "Asia/Shanghai"
+  },
+  "TLV": {
+    "city": "TEL_AVIV",
+    "utc_offset": 2,
+    "lat": 32.011,
+    "lon": 34.887,
+    "name": "Tel Aviv Ben Gurion",
+    "tz": "Asia/Jerusalem"
   }
 }
