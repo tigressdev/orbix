@@ -15,7 +15,7 @@ function extract(blockDest, dateISO) {
     'Xianyang': 'XIY', 'Dali': 'DLU', 'Istanbul Airport': 'IST', 'Sabiha': 'SAW', 'Havel': 'PRG', 'Zurich': 'ZRH', 'Vienna': 'VIE', 'Zagreb': 'ZAG',
     'Krak': 'KRK', 'Nikola Tesla': 'BEG', 'Geneva': 'GVA', 'Chopin': 'WAW', 'Heathrow': 'LHR', 'Frankfurt': 'FRA', 'Munich': 'MUC', 'Brussels': 'BRU',
     'Chongqing': 'CKG', 'Abu Dhabi': 'AUH', 'Dubai': 'DXB', 'Hamad': 'DOH', 'Casablanca': 'CMN', 'Hong Kong': 'HKG', 'Urumqi': 'URC', 'mqi': 'URC',
-    'Heydar': 'GYD', 'Suvarnabhumi': 'BKK', 'Incheon': 'ICN', 'Taoyuan': 'TPE', 'Amsterdam': 'AMS', 'Charles de Gaulle': 'CDG', 'Kuala Lumpur': 'KUL' };
+    'Heydar': 'GYD', 'Suvarnabhumi': 'BKK', 'Incheon': 'ICN', 'Taoyuan': 'TPE', 'Amsterdam': 'AMS', 'Charles de Gaulle': 'CDG', 'Kuala Lumpur': 'KUL', 'Ben Gurion': 'TLV', 'Belgrade': 'BEG', 'Esenbo': 'ESB', 'Henri Coand': 'OTP', 'Adnan Menderes': 'ADB', 'Athens International': 'ATH' };
   const MON = { January: 0, February: 1, March: 2, April: 3, May: 4, June: 5, July: 6, August: 7, September: 8, October: 9, November: 10, December: 11 };
   const code = (name) => { for (const k in AP) if (name.includes(k)) return AP[k]; return '?' + name.replace(/[^A-Za-z]+/g, '_').slice(0, 12); };   // '?x' = add it to AP
   const to24 = (t) => { const m = t.match(/(\d+):(\d+) ([AP]M)/); return String((+m[1]) % 12 + (m[3] === 'PM' ? 12 : 0)).padStart(2, '0') + ':' + m[2]; };
