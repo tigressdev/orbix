@@ -167,7 +167,10 @@ def cmd_flex(a, cfg):
     from .explore import Explorer
     conn = connect(db_path(a.demo))
     legs = merge_legs(load_legs(conn, cfg, ("fixture",) if a.demo else ("serpapi", "browser", "manual"), keep=40, currency="USD"), manual_legs(cfg))
-    ex = Explorer(cfg, legs)
+    cc = cfg.get("costs_currency", cfg["search"]["currency"])          # cost estimates are written in BRL; flights here are USD
+    _, rates = fx.latest(fx.table(conn))
+    scale = 1.0 if cc == "USD" or not rates.get(cc) else 1.0 / rates[cc]
+    ex = Explorer(cfg, legs, None, scale)
     chains = [{"chain": [x.upper() for x in a.chain]}] if a.chain else flexible.default_return_corridors(cfg)
     res = flexible.compare(conn, ex, cfg, chains, a.date, a.flex)
     for c in res["corridors"]:

@@ -199,7 +199,10 @@
     "alert_drop_percent": 12,
     "gl": "br",
     "max_leg_duration_hours": 30,
-    "max_stops": 2
+    "max_stops": 2,
+    "beam_per_state": 4,
+    "max_states_per_layer": 200000,
+    "_beam_note": "Itinerary search keeps the N cheapest partial itineraries per (city sequence, arrival day) and prices complete ones as found. Raise beam_per_state toward exhaustive search (slower); max_states_per_layer is a memory guard."
   },
   "stages": [
     {
