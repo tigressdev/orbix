@@ -1,0 +1,30 @@
+#!currency=USD
+# Google Flights observed 2026-11-11. BR market, economy, one adult, one way. Selected offers after results returned.
+# Source URLs and collection limitations: reports/ORBIX_FARE_COLLECTION_2026-11-11.md
+@TFU MOSCOW 2027-03-12
+TFU>SVO 08:00 15:30 +0 369 1 12h30 China Eastern ~ PKX:1h25
+TFU>SVO 08:10 18:50 +0 394 1 15h40 China Southern ~ URC:5h40
+@WUH MOSCOW 2027-03-12
+WUH>SVO 07:50 15:05 +0 394 1 12h15 Air China ~ PEK:1h40
+WUH>SVO 11:10 18:50 +0 506 1 12h40 China Southern ~ URC:1h40
+@GVA BEIJING 2027-02-13
+GVA>PEK 09:05 09:55 +1 874 1 17h50 KLM ~ AMS:4h55
+GVA>PEK 18:15 16:55 +1 945 1 15h40 Air France ~ CDG:3h10
+@WAW BEIJING 2027-02-14
+WAW>PEK 09:25 05:05 +1 651 1 12h40 LOT and Hainan ~ BER:2h10
+WAW>PKX 10:30 08:45 +1 709 1 15h15 Etihad ~ AUH:2h10
+@PKX SHANGHAI 2027-02-19
+PKX>PVG 21:20 23:30 +0 146 0 2h10 Juneyao Airlines
+PKX>PVG 11:55 14:10 +0 177 0 2h15 XiamenAir
+@PKX SHANGHAI 2027-02-20
+PKX>PVG 21:20 23:30 +0 146 0 2h10 Juneyao Airlines
+PKX>SHA 14:00 16:05 +0 177 0 2h05 XiamenAir
+@PKX SHANGHAI 2027-02-22
+PKX>PVG 21:20 23:30 +0 146 0 2h10 XiamenAir
+PKX>PVG 21:20 23:30 +0 146 0 2h10 Juneyao Airlines
+@PVG MOSCOW 2027-03-12
+PVG>SVO 18:20 08:00 +1 376 1 18h40 Qatar Airways ~ DOH:1h55
+PVG>SVO 09:30 17:40 +0 387 1 13h10 Air China ~ PEK:2h35
+@BEG BEIJING 2027-02-13
+BEG>PEK 11:00 04:00 +1 498 0 10h Hainan
+BEG>PEK 18:05 16:55 +1 721 1 15h50 Air Serbia and Air France ~ CDG:1h55

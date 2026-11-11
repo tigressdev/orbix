@@ -30,6 +30,7 @@
     "home_airport": "MAD",
     "required_cities": [
       "BEIJING",
+      "SHANGHAI",
       "MOSCOW"
     ],
     "first_china_city": "BEIJING",
@@ -46,11 +47,11 @@
         "max": 48
       },
       "BEIJING": {
-        "min": 120,
+        "min": 96,
         "max": 216
       },
       "MOSCOW": {
-        "min": 48,
+        "min": 96,
         "max": 168
       },
       "SHANGHAI": {
@@ -122,6 +123,7 @@
     "_arrival_windows_note": "Chegada em Moscou entre 12 e 16/mar (preferencia da Helen).",
     "required_sequence": [
       "BEIJING",
+      "SHANGHAI",
       "MOSCOW"
     ],
     "_required_sequence_note": "Ordem obrigatoria: Pequim antes de Moscou (depois, volta a Madri). A Russia e a volta, nao a ida.",
