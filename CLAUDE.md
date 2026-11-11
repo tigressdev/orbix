@@ -23,6 +23,9 @@ so Pequim e Moscou sao obrigatorias (`required_cities`).
 no servidor por caminho (`Explorer.summary/metrics`), nunca somados no cliente. Não inventar preços, companhias ou bagagem: dado ausente = "unknown".
 Aniversário (14/mar) protegido por padrão; Rússia obrigatória (`required_cities`). Edite `config/cities.json` para textos/notas de interesse.
 
+Sacred Atlas (`/more/sacred`, `frontend/src/features/sacred-atlas/`): catálogo editorial versionado + motor de alternativas que só usa
+`/api/options` e `/api/evaluate`; nunca sobrescreve o cenário ativo (cria um novo). Ver docs/SACRED_ATLAS.md.
+
 ## Login e deploy
 Dois usuários (helen = owner, demetrio): hashes PBKDF2 em `config/users.local.json` (git-ignored) ou env `FI_USERS`; nunca gravar senhas em texto.
 Cada um escreve só no próprio estado; o outro apenas lê (servidor impõe). Deploy no Vercel: ver docs/DEPLOY_VERCEL.md. Cotações = `data/quotes/*.txt` (memória);

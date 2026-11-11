@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, GitBranch, Lightbulb, SlidersHorizontal } from 'lucide-react';
+import { ChevronRight, GitBranch, Landmark, Lightbulb, SlidersHorizontal } from 'lucide-react';
 import { Card } from '@/components/ui/primitives';
 import { UserSwitchList } from './UserSwitchList';
 
 const ITEMS = [
+  { to: '/more/sacred', icon: Landmark, title: 'Sacred Atlas', note: 'Where civilizations seek meaning: places, traditions, festivals' },
   { to: '/more/scenarios', icon: GitBranch, title: 'Scenarios & compare', note: 'Branches, duplicates and side-by-side budgets' },
   { to: '/more/insights', icon: Lightbulb, title: 'Insights', note: 'Why a route is worth it' },
   { to: '/more/preferences', icon: SlidersHorizontal, title: 'Preferences', note: 'Budget, lodging, birthday, purchased ticket' },

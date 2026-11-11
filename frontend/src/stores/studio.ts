@@ -33,6 +33,8 @@ interface Studio {
   switchScenario(id: string): void;
   togglePin(sid: string, nid: string): boolean;
   openTrip(name: string, legs: Leg[]): void;
+  /** Adds a ready-made scenario (e.g. a Sacred Atlas alternative) WITHOUT touching or switching away from the active one. */
+  addScenario(sc: Scenario, text: string): boolean;
   reset(): void;
 }
 
@@ -165,6 +167,11 @@ export const useStudio = create<Studio>((set, get) => {
     },
     openTrip(name, legs) {
       mutate((s) => { const sc = scenarioFromLegs(name, legs); return { scenarios: [...s.scenarios, sc], activeId: sc.id, history: log(s, `Opened “${name}” as a scenario`) }; });
+    },
+    addScenario(sc, text) {
+      if (get().viewOnly) return false;
+      mutate((s) => ({ scenarios: [...s.scenarios, sc], history: log(s, text) }));
+      return true;
     },
     reset() {
       mutate(() => { const sc = makeScenario('Exploration 1'); return { scenarios: [sc], activeId: sc.id, compare: [], history: [], hotel: {}, undo: null }; });

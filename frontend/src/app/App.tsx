@@ -16,6 +16,7 @@ const MorePage = lazy(() => import('@/features/preferences/MorePage'));
 const ScenariosPage = lazy(() => import('@/features/compare/ScenariosPage'));
 const InsightsPage = lazy(() => import('@/features/insights/InsightsPage'));
 const PreferencesPage = lazy(() => import('@/features/preferences/PreferencesPage'));
+const SacredAtlasPage = lazy(() => import('@/features/sacred-atlas/SacredAtlasPage'));
 
 const Loading = () => <div className="mx-auto flex max-w-3xl flex-col gap-3 p-4"><Skeleton className="h-12 w-2/3" /><Skeleton className="h-40" /><Skeleton className="h-40" /></div>;
 
@@ -52,6 +53,7 @@ export default function App() {
             <Route path="more/scenarios" element={<ScenariosPage />} />
             <Route path="more/insights" element={<InsightsPage />} />
             <Route path="more/preferences" element={<PreferencesPage />} />
+            <Route path="more/sacred" element={<SacredAtlasPage />} />
             <Route path="*" element={<JourneyPage />} />
           </Route>
         </Routes>

@@ -1,3 +1,5 @@
+import type { SacredJourneyAlternative } from '@/features/sacred-atlas/types';
+import type { SacredPrefs } from '@/features/sacred-atlas/engine/preferences';
 // Shapes of the existing Python API (src/flightintel/webapp.py). The backend stays authoritative: nothing here recomputes costs.
 export type Currency = 'USD' | 'BRL' | 'RUB';
 export type LodgingTier = 'hostel' | 'budget' | 'mid';
@@ -44,10 +46,11 @@ export interface OptionsResult { summary: Summary; groups: DestinationGroup[] }
 export type EvalResult = { stale: true } | { stale?: false; summary: Summary; metrics: Metrics };
 
 export interface TreeNode { id: string; parent: string | null; children: string[]; leg: Leg | null; collapsed: boolean; note: string; warn?: string[] }
-export interface Scenario { id: string; name: string; saved: boolean; createdAt: number; rootId: string; focusId: string; nodes: Record<string, TreeNode> }
+export interface Scenario { id: string; name: string; saved: boolean; createdAt: number; rootId: string; focusId: string; nodes: Record<string, TreeNode>; sacred?: SacredJourneyAlternative }
 export interface Prefs {
   budget: number; budgetCurrency: Currency; currency: Currency; lodging: LodgingTier; includePurchased: boolean; protectBirthday: boolean; russiaFirst?: boolean;
   ranking: 'cheapest' | 'fastest' | 'best' | 'interesting' | 'lowest_total'; strict: boolean; theme: 'light' | 'dark';
+  sacred?: SacredPrefs;
 }
 export interface PersistedState { v: 1; prefs: Prefs; scenarios: Scenario[]; activeId: string; compare: { sid: string; nid: string }[]; history: { t: number; text: string }[]; hotel: Record<string, number> }
 export interface StateResponse { state: PersistedState | null; backend: string; user: string; read_only: boolean }
