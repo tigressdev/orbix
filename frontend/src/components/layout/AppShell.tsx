@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { ChartNoAxesCombined, Compass, Globe2, GitBranch, Lightbulb, Route, SlidersHorizontal, Moon, Sun, LogOut } from 'lucide-react';
+import { ChartNoAxesCombined, Compass, Globe2, GitBranch, Landmark, Lightbulb, Route, SlidersHorizontal, Moon, Sun, LogOut } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useQueryClient } from '@tanstack/react-query';
 import { useStudio } from '@/stores/studio';
@@ -20,6 +20,7 @@ const MOBILE_NAV = [
 ];
 const DESKTOP_NAV = [
   { to: '/', label: 'Journey', icon: Route, end: true }, { to: '/explore', label: 'Explore', icon: Compass }, { to: '/atlas', label: 'Atlas', icon: Globe2 },
+  { to: '/more/sacred', label: 'Sacred Atlas', icon: Landmark },
   { to: '/more/scenarios', label: 'Scenarios', icon: GitBranch }, { to: '/pulse', label: 'Price Pulse', icon: ChartNoAxesCombined },
   { to: '/more/insights', label: 'Insights', icon: Lightbulb }, { to: '/more/preferences', label: 'Preferences', icon: SlidersHorizontal },
 ];
