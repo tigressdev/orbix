@@ -226,6 +226,11 @@ def _pct(a):
     return f"{a[1]}/{a[0]} ({a[1] * 100 // max(a[0], 1)}%)"
 
 
+def filter_kind(q, kind):
+    """--kind narrows the list, but searches the traveller requested in the app are never filtered out."""
+    return [r for r in q if r["kind"] == kind or r["requested"]] if kind else q
+
+
 def cmd_queue(a, cfg):
     conn = sqlite3.connect(f"file:{a.db}?mode=ro", uri=True)
     conn.row_factory = sqlite3.Row
@@ -235,8 +240,7 @@ def cmd_queue(a, cfg):
     if a.route:
         want = {x.upper() for x in a.route}
         q = [r for r in q if r["origin_city"] in want or r["dest_city"] in want]
-    if a.kind:
-        q = [r for r in q if r["kind"] == a.kind]
+    q = filter_kind(q, a.kind)
     if a.format == "json":
         print(json.dumps(q, indent=2, ensure_ascii=False))
     elif a.format == "csv":
@@ -444,7 +448,7 @@ def main():
     q.add_argument("--context", help="JSON file with branch contexts to prioritise: [{city, arrive, visited, russia_first}]")
     q.add_argument("--requests", default=str(REQUESTS), help="JSON-lines file of searches requested in the app (default data/queue/requests.jsonl)")
     q.add_argument("--limit", type=int)
-    q.add_argument("--kind", choices=["required", "valuable"], help="only gaps that block a route (required) or improvements (valuable)")
+    q.add_argument("--kind", choices=["required", "valuable"], help="only gaps that block a route (required) or improvements (valuable); requested searches are always kept")
     q.add_argument("--all-dates", action="store_true", help="also list planned dates that no valid itinerary can use")
     q.add_argument("--missing-only", action="store_true", help="skip stale quotes (only dates never quoted)")
     q.add_argument("--route", nargs="*", help="only routes touching these city ids, e.g. MOSCOW TEL_AVIV")

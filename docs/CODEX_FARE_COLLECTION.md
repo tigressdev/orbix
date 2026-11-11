@@ -50,14 +50,14 @@ flexible-date corridor comparison (+-2 days) can price complete journeys. Prices
 ## Step 0. Orient (2 minutes, no repo-wide audit)
     git status -sb
     python tools/fare_collector.py status
-    python tools/fare_collector.py queue --kind required --limit 40
     python tools/fare_collector.py queue --limit 60
+    python tools/fare_collector.py queue --kind required --limit 40
 `status` prints three coverages: raw (every planned stage date, diagnosis only), FEASIBLE (dates that can belong to a valid itinerary: the main
 KPI) and OPPORTUNITY (+-2 days around observed fares). `queue` is already filtered and ranked by the adaptive scheduler
 (P = 0.35 urgency + 0.25 scenario relevance + 0.20 opportunity + 0.10 personal relevance + 0.10 freshness; weights in config search.priority_weights):
 - dates that no valid itinerary can use are NOT listed (Moscow arrival window 12-16 Mar, protected 14 Mar, stay rules, Madrid deadline);
 - `required` = a gap that blocks comparing or completing a route (the route has no fresh quote); `valuable` = could improve a working route;
-- `requested` = the traveller asked for it in the app (data/queue/requests.jsonl): do these first;
+- `requested` = the traveller asked for it in the app (data/queue/requests.jsonl): do these FIRST. They are listed even with --kind;
 - `exploration` = a few slots for routes never quoted, rotated daily;
 - sources tell why a search is listed: a stage id (planned grid), `opportunity`, `flex:<corridor>`, `context`, `request`.
 "stale" = quoted before but older than max_offer_age_days (7), so the engine ignores it: quote it again. Each row is a REQUEST to search, never a price.
@@ -88,7 +88,7 @@ For each queue row (start from the top; stop when the budget below is spent):
        #!currency=USD
        # Cotacoes OBSERVADAS no Google Flights (mercado BR, USD, 1 adulto, so ida) em YYYY-MM-DD. <what this batch covers>
 
-Batch size and pacing: do at most 60 searches per session, one page at a time, with a pause between pages. Do not open many tabs in parallel.
+Batch size and pacing: work down the queue and do as many searches as the session allows, up to 60; one search is not a batch. Do at most 60 searches per session, one page at a time, with a pause between pages. Do not open many tabs in parallel.
 
 ## Priorities (use `queue`, which already sorts them; this list is only orientation)
 1. Return: Beijing/Shanghai/Shenzhen -> Moscow (12-16 Mar window); Moscow -> Istanbul -> Madrid; Moscow -> Belgrade -> Madrid; Moscow -> Madrid

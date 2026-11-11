@@ -172,6 +172,14 @@ class Queue(unittest.TestCase):
         self.assertTrue(j["requested"])
         self.assertGreater(len(j["sources"]), 1)                                       # grid + request merged, searched once
 
+    def test_kind_filter_never_hides_requested_searches(self):
+        reqs = [{"origin_city": "SINGAPORE", "dest_city": "MOSCOW", "date": "2027-03-15"}]
+        q = fc.build_queue(CFG, db([("SIN", "SVO", "2027-03-17 10:00", "2099-01-01T00:00:00+00:00")]), corridors=False, requests=reqs)
+        req = [j for j in q if j["requested"]]
+        self.assertTrue(req)
+        self.assertEqual(req[0]["kind"], "valuable")                                   # the route has fares on other days
+        self.assertIn(req[0], fc.filter_kind(q, "required"))
+
     def test_opportunity_dates_around_observed_fares(self):
         conn = db([("PEK", "TFU", "2027-02-20 08:30", "2099-01-01T00:00:00+00:00")])   # fresh quote on 20 Feb
         q = fc.build_queue(CFG, conn, flex=2, corridors=False)
