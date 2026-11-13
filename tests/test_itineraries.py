@@ -12,6 +12,11 @@ from flightintel.itineraries import Leg, build_trips, manual_legs, merge_legs  #
 CFG = load_config()
 CFG["constraints"].pop("arrival_windows", None)      # the fixtures arrive in Moscow in February; the real window is tested separately
 CFG["constraints"].pop("required_sequence", None)
+# The fixtures model the original rule set (Beijing and Moscow required, Moscow >= 48 h, Beijing >= 120 h); pin it so
+# config/trip.json can change the real trip without breaking these engine tests.
+CFG["constraints"]["required_cities"] = ["BEIJING", "MOSCOW"]
+CFG["constraints"]["stay_rules_hours"] = {**CFG["constraints"]["stay_rules_hours"],
+                                         "BEIJING": {"min": 120, "max": 216}, "MOSCOW": {"min": 48, "max": 168}}
 AP = CFG["airports"]
 
 

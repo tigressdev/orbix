@@ -8,7 +8,8 @@ O que é automático e o que não é:
 
 | Passo | Quem faz |
 |---|---|
-| Descobrir quais rota/datas ainda não têm cotação (`queue`) | script |
+| Descobrir quais rota/datas ainda não têm cotação **e podem servir a um roteiro válido**, ordenadas por quanto ajudam (`queue`) | script |
+| Pedidos feitos no app ("Request quotes" no Add next) | app grava em `data/queue/requests.jsonl` (só local) |
 | Abrir a página do Google Flights e esperar "N results returned" | navegador (agente) |
 | Ler o texto de cada voo da página | navegador (agente) |
 | Converter o texto em linhas de importação (`parse`) | script |
@@ -49,10 +50,20 @@ flexible-date corridor comparison (+-2 days) can price complete journeys. Prices
 ## Step 0. Orient (2 minutes, no repo-wide audit)
     git status -sb
     python tools/fare_collector.py status
-    python tools/fare_collector.py queue --corridors --flex 2 --limit 40
-`status` shows coverage of the planned grid; `queue` lists the route-dates that need a quote, highest priority first, with the exact Google Flights
-URL of each. "stale" = quoted before but older than max_offer_age_days (7), so the engine ignores it: quote it again. Quotes taken on 9 Nov expire on
-16 Nov, so priority is the highest-priority rows first.
+    python tools/fare_collector.py queue --limit 60
+    python tools/fare_collector.py queue --kind required --limit 40
+`status` prints three coverages: raw (every planned stage date, diagnosis only), FEASIBLE (dates that can belong to a valid itinerary: the main
+KPI) and OPPORTUNITY (+-2 days around observed fares). `queue` is already filtered and ranked by the adaptive scheduler
+(P = 0.35 urgency + 0.25 scenario relevance + 0.20 opportunity + 0.10 personal relevance + 0.10 freshness; weights in config search.priority_weights):
+- dates that no valid itinerary can use are NOT listed (Moscow arrival window 12-16 Mar, protected 14 Mar, stay rules, Madrid deadline);
+- `required` = a gap that blocks comparing or completing a route (the route has no fresh quote); `valuable` = could improve a working route;
+- `requested` = the traveller asked for it in the app (data/queue/requests.jsonl): do these FIRST. They are listed even with --kind;
+- `exploration` = a few slots for routes never quoted, rotated daily;
+- sources tell why a search is listed: a stage id (planned grid), `opportunity`, `flex:<corridor>`, `context`, `request`.
+"stale" = quoted before but older than max_offer_age_days (7), so the engine ignores it: quote it again. Each row is a REQUEST to search, never a price.
+To focus on the branch being planned, write its end state to a file and pass it:
+    [{"city": "SINGAPORE", "arrive": "2027-03-13 12:10", "visited": ["BEIJING", "SHANGHAI", "SHENZHEN"]}]
+    python tools/fare_collector.py queue --context branch.json --limit 30
 
 ## Step 1. Collect, one search at a time
 For each queue row (start from the top; stop when the budget below is spent):
@@ -77,9 +88,9 @@ For each queue row (start from the top; stop when the budget below is spent):
        #!currency=USD
        # Cotacoes OBSERVADAS no Google Flights (mercado BR, USD, 1 adulto, so ida) em YYYY-MM-DD. <what this batch covers>
 
-Batch size and pacing: do at most 60 searches per session, one page at a time, with a pause between pages. Do not open many tabs in parallel.
+Batch size and pacing: work down the queue and do as many searches as the session allows, up to 60; one search is not a batch. Do at most 60 searches per session, one page at a time, with a pause between pages. Do not open many tabs in parallel.
 
-## Priorities (use `queue`, which already sorts them)
+## Priorities (use `queue`, which already sorts them; this list is only orientation)
 1. Return: Beijing/Shanghai/Shenzhen -> Moscow (12-16 Mar window); Moscow -> Istanbul -> Madrid; Moscow -> Belgrade -> Madrid; Moscow -> Madrid
    (18-24 Mar); Moscow -> Tel Aviv -> Madrid (research only).
 2. China: Beijing -> Chengdu and Beijing -> Xi'an (19-26 Feb), Chengdu -> Shanghai (22 Feb - 2 Mar), Beijing -> Shanghai, Shanghai -> Shenzhen.
@@ -120,7 +131,8 @@ Production only updates after a human merges the PR.
 
 ## Final report (be concise and factual)
 - Route-dates quoted this session, and route-dates attempted but with no results.
-- Coverage before/after (`status`), and what is still missing, in priority order.
+- Coverage before/after from `status`: raw, feasible and opportunity, separately. Never merge them into one number.
+- Which `requested` and `required` jobs were collected, and which are still open.
 - For each return corridor (Moscow>Istanbul>Madrid, Moscow>Belgrade>Madrid, Moscow>Madrid, Moscow>Tel Aviv>Madrid [research only]) the cheapest
   complete observed option from `python trip.py flex --date 2027-03-20 --flex 2`, quoting the numbers printed, not remembered ones.
 - Anything that looked odd (outlier prices, airports added to the map, pages that needed retries).
@@ -136,3 +148,11 @@ Production only updates after a human merges the PR.
 - **Revisar antes de aprovar o PR:** abra o arquivo `.txt` do dia e compare alguns preços com o Google Flights; o `check` valida formato, não verdade.
 - **Teste rápido do coletor** (sem navegador): `python tools/fare_collector.py status` e `python tools/fare_collector.py queue --limit 10`.
 - **Limite conhecido:** o texto do card não informa bagagem despachada; `bag:carry=no/yes` só indica restrição de bagagem de mão.
+
+## O que mudou na 2.2 (para revisar o trabalho do Codex)
+
+- A fila não lista mais datas impossíveis. Ex.: Pequim → Moscou só aparece de 10 a 16 mar (exceto 14), porque Moscou só pode receber você de 12 a 16 mar.
+- Aparecem também datas vizinhas (±2) de tarifas já observadas, para achar opções melhores (`opportunity`).
+- O app passou a listar destinos sem tarifa no "Add next" (seção *Worth quoting from…*), com as datas úteis e o botão *Request quotes*.
+  No app local o pedido vai para `data/queue/requests.jsonl`; no app online (somente leitura) fica no navegador, com *Copy for collector*.
+- Nada disso cria preço: um destino sem tarifa observada nunca pode ser adicionado ao roteiro.

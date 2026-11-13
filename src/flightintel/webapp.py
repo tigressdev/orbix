@@ -2,6 +2,7 @@
 import hmac
 import json
 import mimetypes
+import re
 import os
 import threading
 from datetime import timedelta
@@ -170,6 +171,63 @@ class App:
         out["jobs"] = sum(len(flexible.jobs(self.cfg, c)) for c in out["corridors"])
         return out
 
+    # -- route discovery and quote requests --------------------------------------------------------------------------------------
+    REQUESTS = ROOT / "data/queue/requests.jsonl"
+
+    def _requests(self):
+        p = self.REQUESTS
+        if not p.exists():
+            return []
+        out = []
+        for line in p.read_text(encoding="utf-8").splitlines():
+            try:
+                out.append(json.loads(line))
+            except ValueError:
+                continue
+        return out
+
+    def discover(self, body):
+        """Next-destination candidates from a branch, quoted or not: {path: [leg keys], params, flex?, preferred?, city?}."""
+        from . import discovery
+        conn = self.conn()
+        ex = self.explorer(conn, body.get("params"), keep=40)
+        try:
+            path = ex.resolve(body.get("path", []))
+        except KeyError as e:
+            raise ValueError(f"unknown leg {e}; the data changed, reload the page")
+        flex = max(0, min(int(body.get("flex", 2)), 7))
+        out = discovery.discover(conn, ex, self.cfg, path, flex, body.get("preferred"), self._requests(), body.get("city"))
+        out["requests_writable"] = not hosted()
+        return out
+
+    def quote_requests(self, body=None):
+        """GET: searches requested so far. POST {jobs: [{origin_city, dest_city, date}], context?}: record them for the collector.
+
+        Only a request to search is stored (no price). The hosted deployment is read-only: the app then keeps the request in the browser
+        and offers to copy it for the collector (docs/CODEX_FARE_COLLECTION.md)."""
+        if body is None:
+            return {"requests": self._requests(), "writable": not hosted()}
+        if hosted():
+            raise PermissionError("This deployment is read-only: the request is kept in your browser. Copy it for the collector.")
+        cities = {a["city"] for a in self.cfg["airports"].values()}
+        have = {(r.get("origin_city"), r.get("dest_city"), r.get("date")) for r in self._requests()}
+        new = []
+        for j in (body.get("jobs") or [])[:200]:
+            o, d, day = j.get("origin_city"), j.get("dest_city"), str(j.get("date", ""))
+            if o not in cities or d not in cities or o == d or not re.match(r"^2027-\d{2}-\d{2}$", day):
+                raise ValueError(f"invalid request {j!r}")
+            if (o, d, day) in have:
+                continue
+            have.add((o, d, day))
+            new.append({"origin_city": o, "dest_city": d, "date": day, "requested_at": now_utc().isoformat(timespec="seconds"),
+                        "context": (body.get("context") or {}).get("label", "")[:120]})
+        if new:
+            self.REQUESTS.parent.mkdir(parents=True, exist_ok=True)
+            with self.REQUESTS.open("a", encoding="utf-8") as f:
+                for r in new:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        return {"saved": len(new), "file": "data/queue/requests.jsonl", "total": len(have)}
+
     def _stamp(self):
         """Identifies the quote set an analysis was computed from: number of searches and the latest one."""
         row = self.conn().execute("SELECT COUNT(*), MAX(searched_at) FROM searches WHERE ok=1").fetchone()
@@ -314,6 +372,8 @@ def dispatch(app, method, path, headers, body=b"", allowed_hosts=None, static=Tr
                 return _json(200, app.analysis())
             if path == "/api/state":
                 return _json(200, app.get_state(user, (query.get("user") or [None])[0]))
+            if path == "/api/quote-requests":
+                return _json(200, app.quote_requests())
             if path == "/api/trends":
                 return _json(200, app.trends())
             if static and (path == "/" or path.startswith("/assets/")):
@@ -327,7 +387,8 @@ def dispatch(app, method, path, headers, body=b"", allowed_hosts=None, static=Tr
         if method in ("POST", "PUT"):
             data = json.loads(body or b"{}")
             routes = {("POST", "/api/options"): app.options, ("POST", "/api/evaluate"): app.evaluate, ("POST", "/api/manual"): app.add_manual,
-                      ("POST", "/api/flex/coverage"): app.flex_coverage, ("POST", "/api/flex/corridors"): app.flex_corridors}
+                      ("POST", "/api/flex/coverage"): app.flex_coverage, ("POST", "/api/flex/corridors"): app.flex_corridors,
+                      ("POST", "/api/discover"): app.discover, ("POST", "/api/quote-requests"): app.quote_requests}
             if (method, path) == ("PUT", "/api/state"):
                 return _json(200, app.put_state(user, data))
             fn = routes.get((method, path))

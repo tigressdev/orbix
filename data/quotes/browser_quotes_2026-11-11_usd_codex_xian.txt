@@ -1,0 +1,7 @@
+#!currency=USD
+# Google Flights, 2026-11-11, BR market, economy, 1 adult, one way. Selected observed offers.
+@XIY MOSCOW 2027-03-10
+XIY>SVO 08:00 15:30 +0 369 1 12h30 China Eastern ~ PKX:1h55
+XIY>SVO 21:00 13:00 +1 389 1 21h China Southern ~ CAN:7h45
+XIY>SVO 08:20 17:40 +0 397 1 14h20 Air China ~ PEK:3h35
+XIY>SVO 10:00 18:05 +0 429 1 13h05 Hainan ~ PEK:2h05

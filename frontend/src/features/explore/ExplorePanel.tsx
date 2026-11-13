@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react';
 import { ArrowLeft, ChevronRight, Lock } from 'lucide-react';
 import { Card, Chip, Empty, ErrorNote, Skeleton } from '@/components/ui/primitives';
 import { FlightCard } from './FlightCard';
+import { CandidateCard } from './CandidateCard';
+import { useDiscover } from '@/services/api/discover';
 import { useBudget, useMetaOrThrow, useMoney, useNextOptions } from '@/hooks/useStudioData';
 import { useStudio } from '@/stores/studio';
 import { plural, range, dur, stops } from '@/lib/format';
@@ -34,6 +36,9 @@ export function ExplorePanel({ parentNodeId, initialCity, onAdded }: { parentNod
   const [mode, setMode] = useState<Rank>('cheapest');
   const [city, setCity] = useState<string | null>(initialCity ?? null);
   const [date, setDate] = useState('all');
+  const [flex, setFlex] = useState(2);
+  const [unquoted, setUnquoted] = useState(true);
+  const disc = useDiscover(parentNodeId, flex, unquoted);
 
   const groups = useMemo(() => {
     let g = q.data?.groups ?? [];
@@ -105,6 +110,27 @@ export function ExplorePanel({ parentNodeId, initialCity, onAdded }: { parentNod
         );
       })}
       {!groups.length && <Empty title="Nothing matches" >Turn off the filter to see every observed option.</Empty>}
+      <section className="mt-2 flex flex-col gap-3" aria-label="Destinations without observed fares" data-testid="unquoted-destinations">
+        <div className="flex flex-wrap items-end justify-between gap-3 border-t border-line pt-3">
+          <div><p className="eyebrow">Discover</p><p className="display text-xl font-semibold">Worth quoting from {disc.data?.here_name ?? 'here'}</p>
+            <p className="text-xs text-ink-2">Destinations that fit your dates and rules but have no valid observed fare yet. Explore them, request quotes; add only once a fare is observed.</p></div>
+          <label className="flex flex-col gap-1 text-xs font-semibold">Search flexibility
+            <select className="min-h-11 rounded-lg border border-line bg-surface px-3 text-sm text-ink" value={flex} onChange={(e) => setFlex(Number(e.target.value))}>
+              <option value={0}>Exact date</option><option value={1}>±1 day</option><option value={2}>±2 days</option><option value={3}>±3 days</option>
+            </select></label>
+        </div>
+        <label className="flex min-h-11 items-center justify-between gap-3 text-sm"><span>Show destinations without fares</span>
+          <input type="checkbox" className="size-6 accent-[var(--teal)]" checked={unquoted} onChange={(e) => setUnquoted(e.target.checked)} /></label>
+        {unquoted && disc.isLoading && <Skeleton className="h-28" />}
+        {unquoted && disc.error && <ErrorNote error={disc.error} onRetry={() => disc.refetch()} />}
+        {unquoted && disc.data && (() => {
+          const shown = new Set(groups.filter((g) => g.any_ok).map((g) => g.city));
+          const list = disc.data.candidates.filter((c) => c.state !== 'observed' || !shown.has(c.city));
+          if (!list.length) return <p className="text-sm text-ink-2">Every relevant destination from here already has an observed fare above.</p>;
+          return list.map((c) => <CandidateCard key={c.city} c={c} viewOnly={viewOnly} label={`From ${disc.data!.here_name} (${disc.data!.arrive_local})`}
+            onSeeFlights={groups.some((g) => g.city === c.city) ? (x) => setCity(x) : undefined} />);
+        })()}
+      </section>
     </div>
   );
 }

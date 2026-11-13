@@ -54,5 +54,19 @@
   "per_usd": 82.5486,
   "rate_date": "2026-11-11",
   "source": "Central Bank of Russia"
+ },
+ {
+  "day": "2026-11-13",
+  "currency": "BRL",
+  "per_usd": 5.6169,
+  "rate_date": "2026-11-12",
+  "source": "Frankfurter (ECB reference rates)"
+ },
+ {
+  "day": "2026-11-13",
+  "currency": "RUB",
+  "per_usd": 82.9803,
+  "rate_date": "2026-11-13",
+  "source": "Central Bank of Russia"
  }
 ]
