@@ -223,5 +223,109 @@
     "lon": 34.887,
     "name": "Tel Aviv Ben Gurion",
     "tz": "Asia/Jerusalem"
+  },
+  "BCN": {
+    "city": "BARCELONA",
+    "utc_offset": 1,
+    "lat": 41.297,
+    "lon": 2.078,
+    "name": "Barcelona-El Prat Josep Tarradellas",
+    "tz": "Europe/Madrid"
+  },
+  "MXP": {
+    "city": "MILAN",
+    "utc_offset": 1,
+    "lat": 45.63,
+    "lon": 8.723,
+    "name": "Milan Malpensa",
+    "tz": "Europe/Rome"
+  },
+  "LIN": {
+    "city": "MILAN",
+    "utc_offset": 1,
+    "lat": 45.445,
+    "lon": 9.277,
+    "name": "Milan Linate",
+    "tz": "Europe/Rome"
+  },
+  "BGY": {
+    "city": "MILAN",
+    "utc_offset": 1,
+    "lat": 45.669,
+    "lon": 9.704,
+    "name": "Milan Bergamo Orio al Serio",
+    "tz": "Europe/Rome"
+  },
+  "BRU": {
+    "city": "BRUSSELS",
+    "utc_offset": 1,
+    "lat": 50.901,
+    "lon": 4.484,
+    "name": "Brussels Airport",
+    "tz": "Europe/Brussels"
+  },
+  "BER": {
+    "city": "BERLIN",
+    "utc_offset": 1,
+    "lat": 52.362,
+    "lon": 13.501,
+    "name": "Berlin Brandenburg",
+    "tz": "Europe/Berlin"
+  },
+  "GYD": {
+    "city": "BAKU",
+    "utc_offset": 4,
+    "lat": 40.467,
+    "lon": 50.047,
+    "name": "Baku Heydar Aliyev",
+    "tz": "Asia/Baku"
+  },
+  "ATH": {
+    "city": "ATHENS",
+    "utc_offset": 2,
+    "lat": 37.936,
+    "lon": 23.944,
+    "name": "Athens International",
+    "tz": "Europe/Athens"
+  },
+  "CAN": {
+    "city": "GUANGZHOU",
+    "utc_offset": 8,
+    "lat": 23.392,
+    "lon": 113.299,
+    "name": "Guangzhou Baiyun",
+    "tz": "Asia/Shanghai"
+  },
+  "HGH": {
+    "city": "HANGZHOU",
+    "utc_offset": 8,
+    "lat": 30.229,
+    "lon": 120.434,
+    "name": "Hangzhou Xiaoshan",
+    "tz": "Asia/Shanghai"
+  },
+  "HRB": {
+    "city": "HARBIN",
+    "utc_offset": 8,
+    "lat": 45.623,
+    "lon": 126.25,
+    "name": "Harbin Taiping",
+    "tz": "Asia/Shanghai"
+  },
+  "HKG": {
+    "city": "HONG_KONG",
+    "utc_offset": 8,
+    "lat": 22.308,
+    "lon": 113.918,
+    "name": "Hong Kong International",
+    "tz": "Asia/Hong_Kong"
+  },
+  "CMN": {
+    "city": "CASABLANCA",
+    "utc_offset": 1,
+    "lat": 33.367,
+    "lon": -7.59,
+    "name": "Casablanca Mohammed V",
+    "tz": "Africa/Casablanca"
   }
 }

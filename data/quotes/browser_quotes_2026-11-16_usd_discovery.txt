@@ -1,0 +1,328 @@
+#!currency=USD
+# Cotacoes OBSERVADAS no Google Flights (mercado BR, USD, 1 adulto, so ida) em 2026-11-16. Descoberta: lacunas da fila + corredores e hubs novos; ate 5 mais baratas + melhor sem escalas + mais rapida por busca.
+@MAD GENEVA 2027-02-12
+MAD>GVA 20:35 22:30 +0 37 0 1h55 easyJet ~ bag:carry=no
+MAD>GVA 20:20 22:20 +0 108 0 2h Iberia ~ bag:carry=yes
+MAD>GVA 19:30 08:15 +1 118 1 12h45 Vueling ~ BCN:9h50 ~ bag:carry=no
+MAD>GVA 16:10 18:10 +0 119 0 2h Air Europa ~ bag:carry=yes
+MAD>GVA 08:00 10:00 +0 137 0 2h Air Europa ~ bag:carry=yes
+@MAD BELGRADE 2027-02-12
+MAD>BEG 20:30 11:55 +1 139 1 15h25 KLM ~ AMS:10h35 ~ bag:carry=no
+MAD>BEG 15:30 16:35 +1 166 1 25h05 LOT ~ WAW:19h50 ~ bag:carry=yes
+MAD>BEG 19:30 08:50 +1 174 1 13h20 SWISS ~ ZRH:9h15 ~ bag:carry=yes
+MAD>BEG 13:40 05:00 +1 177 1 15h20 TAROM, Air Serbia ~ OTP:10h ~ bag:carry=yes
+MAD>BEG 17:15 23:50 +0 190 1 6h35 Lufthansa ~ FRA:2h15 ~ bag:carry=yes
+MAD>BEG 05:55 11:05 +0 440 1 5h10 ITA, Air Serbia ~ FCO:1h10 ~ bag:carry=yes
+@MAD WARSAW 2027-02-12
+MAD>WAW 20:45 00:15 +1 59 0 3h30 Ryanair ~ bag:carry=no
+MAD>WAW 19:15 22:50 +0 100 0 3h35 Wizz Air ~ bag:carry=no
+MAD>WAW 07:40 17:05 +0 149 1 9h25 Tap Air Portugal ~ LIS:3h55 ~ bag:carry=yes
+MAD>WAW 15:30 19:05 +0 173 0 3h35 LOT ~ bag:carry=yes
+MAD>WAW 10:20 17:05 +0 173 1 6h45 Tap Air Portugal ~ LIS:1h15 ~ bag:carry=yes
+@MAD ISTANBUL 2027-02-12
+MAD>SAW 14:55 21:10 +0 126 0 4h15 Pegasus ~ bag:carry=no
+MAD>SAW 12:40 18:50 +0 127 0 4h10 Pegasus ~ bag:carry=no
+MAD>IST 13:40 10:50 +1 129 1 19h10 TAROM ~ OTP:14h05 ~ bag:carry=yes
+MAD>SAW 16:40 09:10 +1 130 1 14h30 AJet ~ ESB:8h45 ~ bag:carry=no
+MAD>IST 20:30 16:55 +1 138 1 18h25 KLM ~ AMS:12h30 ~ bag:carry=no
+MAD>IST 09:10 14:55 +0 368 0 3h45 Air Europa ~ bag:carry=yes
+@MAD BUDAPEST 2027-02-12
+MAD>BUD 20:00 23:15 +0 36 0 3h15 Wizz Air ~ bag:carry=no
+MAD>BUD 18:15 21:25 +0 75 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 06:25 23:05 +0 134 1 16h40 Brussels Airlines ~ BRU:12h20 ~ bag:carry=yes
+MAD>BUD 07:25 12:40 +0 171 1 5h15 Lufthansa City Airlines, Lufthansa ~ MUC:1h30 ~ bag:carry=yes
+MAD>BUD 07:20 10:30 +0 178 0 3h10 Iberia ~ bag:carry=yes
+@MAD VIENNA 2027-02-12
+MAD>VIE 19:55 22:55 +0 88 0 3h Iberia ~ bag:carry=yes
+MAD>VIE 15:30 08:35 +1 119 1 17h05 LOT ~ WAW:12h10 ~ bag:carry=yes
+MAD>VIE 12:30 19:45 +0 156 1 7h15 KM Malta Airlines ~ MLA:2h10 ~ bag:carry=yes
+MAD>VIE 17:00 22:50 +0 193 1 5h50 KLM ~ AMS:1h30 ~ bag:carry=no
+MAD>VIE 10:50 16:15 +0 204 1 5h25 KLM ~ AMS:1h10 ~ bag:carry=yes
+@MAD PRAGUE 2027-02-12
+MAD>PRG 18:20 21:20 +0 66 0 3h Ryanair ~ bag:carry=no
+MAD>PRG 19:30 10:00 +1 111 1 14h30 Vueling ~ BCN:10h40 ~ bag:carry=no
+MAD>PRG 15:30 12:10 +1 131 1 20h40 LOT ~ WAW:15h45 ~ bag:carry=yes
+MAD>PRG 13:55 16:50 +0 142 0 2h55 Smartwings ~ bag:carry=yes
+MAD>PRG 16:00 18:55 +0 191 0 2h55 Iberia ~ bag:carry=yes
+@VKO ISTANBUL 2027-03-17
+VKO>SAW 17:25 21:40 +0 129 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 02:50 07:15 +0 156 0 4h25 AJet ~ bag:carry=no
+VKO>SAW 04:10 13:30 +0 161 1 9h20 Pegasus ~ ADB:3h55 ~ bag:carry=no
+VKO>SAW 05:30 14:20 +0 164 1 8h50 AJet ~ ESB:3h10 ~ bag:carry=no
+VKO>SAW 06:00 10:25 +0 170 0 4h25 AJet ~ bag:carry=no
+VKO>IST 14:00 18:00 +0 289 0 4h Turkish Airlines ~ bag:carry=no
+@VKO ISTANBUL 2027-03-22
+VKO>SAW 17:25 21:40 +0 129 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 02:50 07:15 +0 156 0 4h25 AJet ~ bag:carry=no
+VKO>SAW 04:10 10:35 +0 161 1 6h25 Pegasus ~ ADB:1h ~ bag:carry=no
+VKO>SAW 05:30 14:30 +0 164 1 9h AJet ~ ESB:3h20 ~ bag:carry=no
+VKO>SAW 03:10 07:25 +0 164 0 4h15 Pegasus ~ bag:carry=no
+VKO>IST 14:00 18:00 +0 289 0 4h Turkish Airlines ~ bag:carry=no
+@VKO BELGRADE 2027-03-16
+VKO>BEG 09:20 14:45 +0 270 1 7h25 FLYONE Armenia ~ EVN:1h15 ~ bag:carry=yes
+SVO>BEG 04:00 05:15 +0 340 0 3h15 Air Serbia ~ bag:carry=yes
+SVO>BEG 20:55 22:10 +0 340 0 3h15 Air Serbia ~ bag:carry=yes
+SVO>BEG 11:25 12:40 +0 374 0 3h15 Air Serbia ~ bag:carry=yes
+VKO>BEG 14:00 19:30 +0 389 1 7h30 Turkish Airlines ~ IST:1h45 ~ bag:carry=yes
+@BCN BEIJING 2027-02-13
+BCN>PEK 10:45 00:10 +2 624 1 30h25 Azerbaijan Airlines ~ GYD:17h45 ~ bag:carry=yes
+BCN>PEK 11:20 09:55 +1 751 1 15h35 KLM ~ AMS:2h15 ~ bag:carry=yes
+BCN>PEK 06:30 05:10 +1 778 1 15h40 Turkish Airlines ~ IST:3h10 ~ bag:carry=yes
+BCN>PKX 21:50 08:45 +2 778 1 27h55 Etihad ~ AUH:14h15 ~ bag:carry=yes
+BCN>PEK 15:30 14:45 +1 909 1 16h15 Emirates ~ DXB:2h20 ~ bag:carry=yes
+BCN>PEK 11:30 05:30 +1 1373 0 11h Air China ~ bag:carry=yes
+@MXP BEIJING 2027-02-13
+MXP>PEK 10:45 00:10 +2 563 1 30h25 Azerbaijan Airlines ~ GYD:18h20 ~ bag:carry=yes
+MXP>PEK 12:00 10:40 +1 685 1 15h40 Air China ~ TFU:2h35 ~ bag:carry=yes
+MXP>PEK 17:15 12:25 +1 717 1 12h10 Air Dolomiti, Lufthansa ~ MUC:50m ~ bag:carry=yes
+LIN>PEK 09:45 12:25 +1 722 1 19h40 Lufthansa ~ MUC:8h30 ~ bag:carry=yes
+MXP>PKX 21:45 08:45 +2 729 1 28h Etihad ~ AUH:14h20 ~ bag:carry=yes
+MXP>PKX 19:15 12:15 +1 1012 0 10h Air China ~ bag:carry=yes
+@BRU BEIJING 2027-02-13
+BRU>PEK 11:55 11:20 +1 660 1 16h25 Hainan ~ CKG:3h50 ~ bag:carry=yes
+BRU>PEK 11:50 10:45 +2 687 1 39h55 Cathay Pacific ~ HKG:24h45 ~ bag:carry=yes
+BRU>PKX 11:55 14:25 +1 747 1 19h30 Hainan, Beijing Capital ~ CKG:7h ~ bag:carry=yes
+BRU>PEK 10:45 09:55 +1 769 1 16h10 KLM ~ AMS:4h20 ~ bag:carry=yes
+BRU>PEK 14:50 14:45 +1 817 1 16h55 Emirates ~ DXB:3h ~ bag:carry=yes
+BRU>PEK 12:00 04:45 +1 1025 0 9h45 Air China ~ bag:carry=yes
+BRU>PEK 12:20 04:40 +1 1126 0 9h20 Hainan ~ bag:carry=yes
+@BER BEIJING 2027-02-13
+BER>PEK 06:35 05:10 +1 632 1 15h35 Turkish Airlines ~ IST:3h35 ~ bag:carry=yes
+BER>PEK 14:35 05:10 +2 632 1 31h35 Turkish Airlines ~ IST:19h40 ~ bag:carry=yes
+BER>PKX 10:00 08:45 +2 650 1 39h45 Condor, Etihad ~ AUH:26h05 ~ bag:carry=yes
+BER>PEK 12:00 09:55 +1 755 1 14h55 KLM ~ AMS:2h30 ~ bag:carry=yes
+BER>PKX 17:40 12:45 +1 1147 1 12h05 Lufthansa City Airlines, Air China ~ FRA:1h25 ~ bag:carry=yes
+@GYD BEIJING 2027-02-14
+GYD>PEK 12:45 00:10 +1 290 0 7h25 Azerbaijan Airlines ~ bag:carry=yes
+GYD>PEK 16:55 04:55 +2 464 1 32h Air Astana ~ ALA:23h55 ~ bag:carry=yes
+GYD>PKX 15:10 14:45 +1 540 1 19h35 Qatar Airways ~ DOH:8h ~ bag:carry=yes
+GYD>PKX 22:45 12:50 +1 609 1 10h05 China Southern ~ URC:2h ~ bag:carry=yes
+GYD>PEK 22:00 16:15 +1 840 1 14h15 Turkish Airlines ~ IST:1h55 ~ bag:carry=yes
+@ATH BEIJING 2027-02-13
+ATH>PEK 10:10 05:10 +1 658 1 13h Turkish Airlines ~ IST:2h25 ~ bag:carry=yes
+ATH>PEK 21:50 05:10 +2 658 1 25h20 Turkish Airlines ~ IST:14h55 ~ bag:carry=yes
+ATH>PEK 14:25 17:10 +1 672 1 20h45 Ethiopian ~ ADD:5h05 ~ bag:carry=yes
+ATH>PKX 06:40 08:45 +1 685 1 20h05 Etihad ~ AUH:8h15 ~ bag:carry=yes
+ATH>PEK 12:55 12:25 +1 759 1 17h30 Lufthansa ~ MUC:4h45 ~ bag:carry=yes
+ATH>PEK 21:50 16:15 +1 1581 1 12h25 Turkish Airlines ~ IST:1h50 ~ bag:carry=yes
+@MAD BEIJING 2027-02-13
+MAD>PKX 17:20 15:30 +1 607 1 15h10 Iberia, China Southern ~ LHR:2h40 ~ bag:carry=yes
+MAD>PEK 06:25 04:45 +1 685 1 15h20 Brussels Airlines, Air China ~ BRU:3h10 ~ bag:carry=yes
+MAD>PEK 06:05 05:45 +1 690 1 16h40 Lufthansa, Air China ~ FRA:4h40 ~ bag:carry=yes
+MAD>PEK 10:50 09:55 +1 752 1 16h05 KLM ~ AMS:2h30 ~ bag:carry=yes
+MAD>PEK 07:25 12:25 +1 769 1 22h Lufthansa City Airlines, Lufthansa ~ MUC:9h20 ~ bag:carry=yes
+MAD>PEK 12:20 06:20 +1 1423 0 11h Air China ~ bag:carry=yes
+@IST BEIJING 2027-02-14
+IST>PEK 16:20 10:30 +1 423 1 13h10 MIAT ~ UBN:2h45 ~ bag:carry=yes
+IST>PEK 22:25 00:10 +3 533 1 44h45 Azerbaijan Airlines ~ GYD:34h30 ~ bag:carry=yes
+IST>PKX 20:10 14:45 +1 534 1 13h35 Qatar Airways ~ DOH:1h40 ~ bag:carry=yes
+IST>PEK 16:30 15:50 +1 538 1 18h20 THAI ~ BKK:4h50 ~ bag:carry=yes
+IST>PKX 16:15 17:05 +1 632 1 19h50 Saudia ~ RUH:6h40 ~ bag:carry=yes
+IST>PEK 15:15 05:10 +1 916 0 8h55 Turkish Airlines ~ bag:carry=yes
+@IST BEIJING 2027-02-15
+IST>PEK 22:10 00:35 +2 356 1 21h25 Royal Jordanian ~ AMM:9h55 ~ bag:carry=yes
+IST>PEK 22:25 00:10 +2 471 1 20h45 Azerbaijan Airlines ~ GYD:10h30 ~ bag:carry=yes
+IST>PKX 20:10 14:45 +1 476 1 13h35 Qatar Airways ~ DOH:1h40 ~ bag:carry=yes
+IST>PEK 16:30 15:50 +1 538 1 18h20 THAI ~ BKK:4h50 ~ bag:carry=yes
+IST>PEK 15:40 10:25 +1 630 1 13h45 Sichuan Airlines ~ TFU:2h40 ~ bag:carry=yes
+IST>PEK 15:15 05:10 +1 916 0 8h55 Turkish Airlines ~ bag:carry=yes
+@BUD BEIJING 2027-02-15
+BUD>PEK 20:05 06:25 +2 461 1 27h20 Turkish Airlines ~ IST:16h15 ~ bag:carry=yes
+BUD>PKX 19:55 22:05 +1 526 1 19h10 Shanghai Airlines, China Eastern ~ NGB:5h45 ~ bag:carry=yes
+BUD>PEK 17:10 12:25 +1 597 1 12h15 Lufthansa ~ MUC:50m ~ bag:carry=yes
+BUD>PEK 10:00 05:45 +1 603 1 12h45 Lufthansa, Air China ~ FRA:1h30 ~ bag:carry=yes
+BUD>PEK 14:25 11:45 +1 603 1 14h20 Lufthansa, Air China ~ FRA:3h05 ~ bag:carry=yes
+BUD>PEK 09:55 05:00 +1 1036 1 12h05 Lufthansa, Air China ~ MUC:1h20 ~ bag:carry=yes
+@CAN MOSCOW 2027-03-12
+CAN>SVO 00:55 08:00 +1 359 1 36h05 Qatar Airways ~ DOH:20h30 ~ bag:carry=yes
+CAN>SVO 22:00 15:30 +1 367 1 22h30 China Eastern ~ PKX:10h50 ~ bag:carry=yes
+CAN>SVO 16:15 20:35 +1 380 1 33h20 Air China ~ URC:20h50 ~ bag:carry=yes
+CAN>SVO 00:55 14:45 +0 386 1 18h50 Qatar Airways ~ DOH:3h15 ~ bag:carry=yes
+CAN>SVO 09:30 17:40 +0 390 1 13h10 Air China ~ PEK:1h35 ~ bag:carry=yes
+CAN>SVO 07:40 13:00 +0 773 0 10h20 China Southern ~ bag:carry=yes
+CAN>SVO 16:00 21:15 +0 781 0 10h15 China Southern ~ bag:carry=yes
+@CAN MOSCOW 2027-03-13
+CAN>SVO 00:55 08:00 +1 389 1 36h05 Qatar Airways ~ DOH:20h30 ~ bag:carry=yes
+CAN>SVO 20:45 17:40 +1 390 1 25h55 Air China ~ PEK:14h10 ~ bag:carry=yes
+CAN>SVO 00:55 14:55 +0 416 1 19h Qatar Airways ~ DOH:3h25 ~ bag:carry=yes
+CAN>SVO 08:00 16:40 +0 431 1 13h40 China Southern ~ PKX:2h ~ bag:carry=yes
+CAN>SVO 09:15 18:05 +0 484 1 13h50 Hainan ~ PEK:2h20 ~ bag:carry=yes
+CAN>SVO 07:40 13:00 +0 773 0 10h20 China Southern ~ bag:carry=yes
+CAN>SVO 16:00 21:15 +0 781 0 10h15 China Southern ~ bag:carry=yes
+@HGH MOSCOW 2027-03-13
+HGH>SVO 20:50 21:15 +1 355 1 29h25 China Southern ~ WUH:18h20 ~ bag:carry=yes
+HGH>SVO 09:05 16:40 +0 367 1 12h35 China Southern ~ PKX:1h35 ~ bag:carry=yes
+HGH>SVO 21:45 16:40 +1 367 1 23h55 China Southern ~ PKX:12h50 ~ bag:carry=yes
+HGH>SVO 21:00 17:40 +1 386 1 25h40 Air China ~ PEK:14h45 ~ bag:carry=yes
+HGH>DME 00:10 14:35 +0 419 1 19h25 Emirates ~ DXB:2h35 ~ bag:carry=yes
+@HRB MOSCOW 2027-03-13
+HRB>SVO 16:55 21:15 +1 364 1 33h20 China Southern ~ WUH:20h15 ~ bag:carry=yes
+HRB>SVO 19:30 21:15 +1 364 2 30h45 China Southern ~ CAN:13h10,WUH:1h50 ~ bag:carry=yes
+HRB>SVO 08:30 16:40 +0 367 1 13h10 China Southern ~ PKX:2h05 ~ bag:carry=yes
+HRB>SVO 22:15 16:40 +1 367 1 23h25 China Southern ~ PKX:12h35 ~ bag:carry=yes
+HRB>SVO 08:30 17:40 +0 394 1 14h10 Air China ~ PEK:3h35 ~ bag:carry=yes
+HRB>SVO 07:35 15:30 +0 495 1 12h55 China Eastern ~ PKX:2h05 ~ bag:carry=yes
+@HKG MOSCOW 2027-03-13
+HKG>SVO 19:45 07:45 +1 403 1 17h Etihad ~ AUH:2h25 ~ bag:carry=yes
+HKG>SVO 00:25 14:55 +0 437 1 19h30 Qatar Airways ~ DOH:4h ~ bag:carry=yes
+HKG>SVO 18:05 08:00 +1 437 1 18h55 Qatar Airways ~ DOH:3h25 ~ bag:carry=yes
+HKG>SVO 08:10 16:40 +0 498 1 13h30 China Southern ~ PKX:1h35 ~ bag:carry=yes
+HKG>VKO 18:05 14:00 +1 520 1 24h55 Emirates, flydubai ~ DXB:9h ~ bag:carry=yes
+@SZX MOSCOW 2027-03-12
+SZX>SVO 22:00 15:30 +1 367 1 22h30 China Eastern ~ PKX:10h55 ~ bag:carry=yes
+SZX>SVO 08:15 17:40 +0 390 1 14h25 Air China ~ PEK:2h35 ~ bag:carry=yes
+SZX>SVO 07:30 16:40 +0 467 1 14h10 China Southern ~ PKX:2h20 ~ bag:carry=yes
+SZX>SVO 09:15 18:50 +0 479 1 14h35 China Southern ~ URC:2h40 ~ bag:carry=yes
+SZX>SVO 09:20 18:05 +0 484 1 13h45 Hainan ~ PEK:2h05 ~ bag:carry=yes
+SZX>SVO 07:20 15:30 +0 495 1 13h10 China Eastern ~ PKX:1h30 ~ bag:carry=yes
+@SVO CASABLANCA 2027-03-18
+SVO>CMN 01:35 04:50 +0 204 0 6h15 Royal Air Maroc ~ bag:carry=yes
+SVO>CMN 08:20 11:35 +0 236 0 6h15 Royal Air Maroc ~ bag:carry=yes
+VKO>CMN 02:05 13:50 +0 541 1 14h45 Turkish Airlines ~ IST:5h30 ~ bag:carry=yes
+VKO>CMN 20:15 13:50 +1 541 1 20h35 Turkish Airlines ~ IST:11h30 ~ bag:carry=yes
+DME>CMN 15:45 12:35 +1 724 1 23h50 EgyptAir, Royal Air Maroc ~ CAI:12h20 ~ bag:carry=yes
+@SVO CASABLANCA 2027-03-20
+SVO>CMN 01:35 04:50 +0 261 0 6h15 Royal Air Maroc ~ bag:carry=yes
+SVO>CMN 08:20 11:35 +0 377 0 6h15 Royal Air Maroc ~ bag:carry=yes
+DME>CMN 15:45 12:35 +1 757 1 23h50 EgyptAir, Royal Air Maroc ~ CAI:12h20 ~ bag:carry=yes
+VKO>CMN 02:05 13:50 +0 878 1 14h45 Turkish Airlines ~ IST:5h30 ~ bag:carry=yes
+SVO>CMN 12:35 06:35 +1 909 1 21h Etihad ~ AUH:6h45 ~ bag:carry=yes
+@CMN MADRID 2027-03-19
+CMN>MAD 15:20 18:05 +0 76 0 1h45 Royal Air Maroc ~ bag:carry=yes
+CMN>MAD 09:15 12:00 +0 76 0 1h45 Royal Air Maroc ~ bag:carry=yes
+CMN>MAD 12:50 15:35 +0 90 0 1h45 Air Arabia Maroc ~ bag:carry=yes
+CMN>MAD 12:45 15:30 +0 101 0 1h45 Iberia ~ bag:carry=yes
+CMN>MAD 18:05 09:10 +1 159 1 14h05 Air France ~ CDG:8h40 ~ bag:carry=yes
+@CMN MADRID 2027-03-21
+CMN>MAD 12:45 15:30 +0 52 0 1h45 Iberia ~ bag:carry=yes
+CMN>MAD 09:15 12:00 +0 76 0 1h45 Royal Air Maroc ~ bag:carry=yes
+CMN>MAD 15:20 18:05 +0 76 0 1h45 Royal Air Maroc ~ bag:carry=yes
+CMN>MAD 19:20 22:05 +0 90 0 1h45 Air Arabia Maroc ~ bag:carry=yes
+@XIY SHANGHAI 2027-02-24
+XIY>SHA 09:30 11:45 +0 131 0 2h15 Spring ~ bag:carry=yes
+XIY>SHA 18:30 20:45 +0 131 0 2h15 Spring ~ bag:carry=yes
+XIY>SHA 21:30 23:40 +0 131 0 2h10 Spring ~ bag:carry=yes
+XIY>PVG 17:15 19:40 +0 209 0 2h25 Juneyao Airlines ~ bag:carry=yes
+XIY>SHA 11:25 13:40 +0 209 0 2h15 Juneyao Airlines ~ bag:carry=yes
+@XIY SHANGHAI 2027-02-26
+XIY>SHA 18:30 20:45 +0 114 0 2h15 Spring ~ bag:carry=yes
+XIY>SHA 21:30 23:40 +0 114 0 2h10 Spring ~ bag:carry=yes
+XIY>SHA 09:30 11:45 +0 131 0 2h15 Spring ~ bag:carry=yes
+XIY>PVG 17:15 19:40 +0 209 0 2h25 Juneyao Airlines ~ bag:carry=yes
+XIY>SHA 11:25 13:40 +0 209 0 2h15 Juneyao Airlines ~ bag:carry=yes
+@WUH SHANGHAI 2027-03-01
+WUH>PVG 08:00 09:40 +0 302 0 1h40 China Southern ~ bag:carry=yes
+WUH>PVG 15:40 17:40 +0 302 0 2h China Southern ~ bag:carry=yes
+WUH>PVG 19:00 20:45 +0 302 0 1h45 China Southern ~ bag:carry=yes
+WUH>PVG 12:50 20:25 +0 316 1 7h35 Korean Air ~ ICN:2h30 ~ bag:carry=yes
+WUH>SHA 21:40 23:10 +0 328 0 1h30 Shanghai Airlines ~ bag:carry=yes
+WUH>SHA 12:00 13:25 +0 427 0 1h25 China Eastern ~ bag:carry=yes
+@SZX SHANGHAI 2027-02-27
+SZX>SHA 07:35 09:45 +0 87 0 2h10 Spring ~ bag:carry=yes
+SZX>SHA 11:15 13:30 +0 105 0 2h15 Spring ~ bag:carry=yes
+SZX>SHA 14:40 17:00 +0 105 0 2h20 Spring ~ bag:carry=yes
+SZX>SHA 16:55 19:10 +0 105 0 2h15 Spring ~ bag:carry=yes
+SZX>SHA 20:55 23:10 +0 105 0 2h15 Spring ~ bag:carry=yes
+SZX>SHA 13:35 15:30 +0 288 0 1h55 China Eastern ~ bag:carry=yes
+@PEK DALI 2027-02-20
+PEK>DLU 06:25 10:40 +0 256 0 4h15 Air China ~ bag:carry=yes
+PEK>DLU 14:55 19:05 +0 256 0 4h10 Air China ~ bag:carry=yes
+PEK>DLU 20:15 08:15 +1 371 1 12h Sichuan Airlines ~ bag:carry=yes
+PEK>DLU 08:30 16:00 +0 389 1 7h30 Sichuan Airlines ~ TFU:3h20 ~ bag:carry=yes
+PKX>DLU 13:50 17:45 +0 419 0 3h55 China Eastern ~ bag:carry=yes
+PKX>DLU 07:10 10:50 +0 419 0 3h40 Beijing Capital ~ bag:carry=yes
+@DLU SHANGHAI 2027-02-25
+DLU>PVG 19:05 18:00 +1 236 2 22h55 China Eastern ~ KMG:16h45,LLF:1h ~ bag:carry=yes
+DLU>PVG 20:35 00:05 +1 239 0 3h30 Spring ~ bag:carry=yes
+DLU>SHA 13:45 16:55 +0 292 0 3h10 China Eastern ~ bag:carry=yes
+DLU>SHA 18:05 21:25 +0 292 0 3h20 China Eastern ~ bag:carry=yes
+DLU>PVG 19:20 22:35 +0 292 0 3h15 China Eastern ~ bag:carry=yes
+@PEK WUHAN 2027-02-27
+PEK>WUH 12:55 16:30 +1 232 1 27h35 Air China ~ LFQ:24h45 ~ bag:carry=yes
+PEK>WUH 10:55 13:10 +0 236 0 2h15 Air China ~ bag:carry=yes
+PEK>WUH 07:55 09:55 +0 236 0 2h Air China ~ bag:carry=yes
+PEK>WUH 12:50 15:05 +0 236 0 2h15 Air China ~ bag:carry=yes
+PEK>WUH 12:55 16:30 +0 236 1 3h35 Air China ~ LFQ:45m ~ bag:carry=yes
+@SHA XIAN 2027-03-06
+SHA>XIY 09:35 12:25 +0 98 0 2h50 Spring ~ bag:carry=yes
+SHA>XIY 14:35 17:25 +0 98 0 2h50 Spring ~ bag:carry=yes
+SHA>XIY 07:15 09:40 +0 98 0 2h25 Spring ~ bag:carry=yes
+SHA>XIY 19:55 22:45 +0 98 0 2h50 Spring ~ bag:carry=yes
+SHA>XIY 11:55 14:35 +0 139 0 2h40 Juneyao Airlines ~ bag:carry=yes
+@SHA CHENGDU 2027-03-06
+SHA>TFU 13:00 16:25 +0 116 0 3h25 Spring ~ bag:carry=yes
+SHA>TFU 07:45 10:55 +0 116 0 3h10 Spring ~ bag:carry=yes
+SHA>TFU 12:30 15:40 +0 188 0 3h10 China Eastern ~ bag:carry=yes
+SHA>TFU 17:00 20:25 +0 188 0 3h25 Shanghai Airlines ~ bag:carry=yes
+SHA>TFU 07:40 11:10 +0 188 0 3h30 China Eastern ~ bag:carry=yes
+@SHA GUANGZHOU 2027-03-10
+SHA>CAN 08:30 11:10 +0 68 0 2h40 Spring ~ bag:carry=yes
+SHA>CAN 12:50 15:30 +0 84 0 2h40 Spring ~ bag:carry=yes
+SHA>CAN 13:20 16:00 +0 84 0 2h40 Spring ~ bag:carry=yes
+SHA>CAN 14:15 16:55 +0 84 0 2h40 Spring ~ bag:carry=yes
+SHA>CAN 07:20 09:50 +0 84 0 2h30 Spring ~ bag:carry=yes
+SHA>CAN 12:35 14:55 +0 141 0 2h20 Air China ~ bag:carry=yes
+@VKO ISTANBUL 2027-03-16
+VKO>SAW 03:10 07:25 +0 124 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 17:25 21:40 +0 129 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 02:50 07:15 +0 156 0 4h25 AJet ~ bag:carry=no
+VKO>SAW 06:00 10:25 +0 156 0 4h25 AJet ~ bag:carry=no
+DME>IST 00:45 11:55 +0 188 1 11h10 Azerbaijan Airlines ~ GYD:4h20 ~ bag:carry=yes
+VKO>IST 14:00 18:00 +0 289 0 4h Turkish Airlines ~ bag:carry=no
+@VKO ISTANBUL 2027-03-23
+VKO>SAW 17:25 21:40 +0 129 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 03:10 07:25 +0 137 0 4h15 Pegasus ~ bag:carry=no
+VKO>SAW 02:50 07:15 +0 156 0 4h25 AJet ~ bag:carry=no
+VKO>SAW 06:00 10:25 +0 156 0 4h25 AJet ~ bag:carry=no
+VKO>IST 14:00 18:00 +0 289 0 4h Turkish Airlines ~ bag:carry=no
+@VKO BELGRADE 2027-03-23
+VKO>BEG 09:20 14:45 +0 270 1 7h25 FLYONE Armenia ~ EVN:1h15 ~ bag:carry=yes
+VKO>BEG 14:00 19:30 +0 389 1 7h30 Turkish Airlines ~ IST:1h45 ~ bag:carry=yes
+VKO>BEG 02:05 08:00 +0 389 1 7h55 Turkish Airlines ~ IST:1h55 ~ bag:carry=yes
+VKO>BEG 07:55 14:40 +0 389 1 8h45 Turkish Airlines ~ IST:2h55 ~ bag:carry=yes
+SVO>BEG 04:00 05:15 +0 421 0 3h15 Air Serbia ~ bag:carry=yes
+@MAD ISTANBUL 2027-02-13
+MAD>IST 17:45 15:55 +1 93 1 20h10 Air Serbia ~ BEG:15h05 ~ bag:carry=yes
+MAD>IST 12:25 22:45 +0 105 1 8h20 TAROM ~ OTP:2h40 ~ bag:carry=yes
+MAD>IST 17:00 16:55 +1 138 1 21h55 KLM ~ AMS:16h ~ bag:carry=no
+MAD>IST 06:05 16:55 +0 149 1 8h50 KLM ~ AMS:3h ~ bag:carry=yes
+MAD>IST 09:10 14:55 +0 165 0 3h45 Air Europa ~ bag:carry=yes
+@MAD BUDAPEST 2027-02-13
+MAD>BUD 20:10 23:20 +0 31 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 20:00 23:15 +0 34 0 3h15 Wizz Air ~ bag:carry=no
+MAD>BUD 10:05 13:15 +0 47 0 3h10 Ryanair ~ bag:carry=no
+MAD>BUD 17:45 14:40 +1 82 1 20h55 Air Serbia ~ BEG:16h30 ~ bag:carry=yes
+MAD>BUD 07:20 10:30 +0 108 0 3h10 Iberia ~ bag:carry=yes
+@GYD BEIJING 2027-02-15
+GYD>PKX 15:10 14:45 +1 540 1 19h35 Qatar Airways ~ DOH:8h ~ bag:carry=yes
+GYD>PEK 07:55 05:10 +1 696 1 17h15 Turkish Airlines ~ IST:5h05 ~ bag:carry=yes
+GYD>PEK 22:00 16:15 +1 696 1 14h15 Turkish Airlines ~ IST:1h55 ~ bag:carry=yes
+GYD>PEK 13:15 14:45 +1 718 1 21h30 flydubai, Emirates ~ DXB:10h05 ~ bag:carry=yes
+GYD>PEK 23:20 22:30 +1 965 1 19h10 flydubai, Emirates ~ DXB:7h05 ~ bag:carry=yes
+@MAD BAKU 2027-02-13
+MAD>GYD 12:40 02:50 +1 193 1 11h10 Pegasus ~ SAW:4h20 ~ bag:carry=no
+MAD>GYD 17:45 20:20 +1 247 1 23h35 Air Serbia ~ BEG:16h45 ~ bag:carry=yes
+MAD>GYD 15:30 06:15 +1 325 1 11h45 LOT ~ WAW:3h55 ~ bag:carry=yes
+MAD>GYD 17:15 00:55 +2 369 1 28h40 Lufthansa ~ FRA:21h25 ~ bag:carry=yes
+MAD>GYD 14:20 02:10 +1 467 1 8h50 Turkish Airlines ~ IST:1h40 ~ bag:carry=yes
+@CAN MOSCOW 2027-03-15
+CAN>SVO 00:55 08:00 +1 359 1 36h05 Qatar Airways ~ DOH:20h30 ~ bag:carry=yes
+CAN>SVO 07:25 15:30 +0 367 1 13h05 China Eastern ~ PKX:1h25 ~ bag:carry=yes
+CAN>SVO 16:15 20:35 +1 380 1 33h20 Air China ~ URC:20h50 ~ bag:carry=yes
+CAN>SVO 00:55 14:45 +0 386 1 18h50 Qatar Airways ~ DOH:3h15 ~ bag:carry=yes
+CAN>SVO 09:30 17:40 +0 390 1 13h10 Air China ~ PEK:1h35 ~ bag:carry=yes
+CAN>SVO 16:00 21:15 +0 451 0 10h15 China Southern ~ bag:carry=yes
+@SHA SHENZHEN 2027-03-09
+SHA>SZX 17:15 19:50 +0 87 0 2h35 Spring ~ bag:carry=yes
+SHA>SZX 21:30 00:20 +1 87 0 2h50 Spring ~ bag:carry=yes
+SHA>SZX 10:50 13:35 +0 105 0 2h45 Spring ~ bag:carry=yes
+SHA>SZX 13:05 15:50 +0 105 0 2h45 Spring ~ bag:carry=yes
+SHA>SZX 07:30 10:10 +0 105 0 2h40 Spring ~ bag:carry=yes
+SHA>SZX 08:15 10:35 +0 280 0 2h20 Juneyao Airlines ~ bag:carry=yes
+@MAD MILAN 2027-02-12
+MAD>MXP 13:00 15:15 +0 51 0 2h15 Wizz Air ~ bag:carry=no
+MAD>MXP 14:25 16:40 +0 52 0 2h15 Ryanair ~ bag:carry=no
+MAD>BGY 12:40 15:00 +0 61 0 2h20 Ryanair ~ bag:carry=no
+MAD>BGY 16:40 19:00 +0 62 0 2h20 Ryanair ~ bag:carry=no
+MAD>BGY 10:15 12:35 +0 63 0 2h20 Ryanair ~ bag:carry=no
+MAD>MXP 12:50 15:00 +0 97 0 2h10 Air Europa ~ bag:carry=yes
