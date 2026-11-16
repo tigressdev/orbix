@@ -184,5 +184,93 @@
     "region": "Asia",
     "code": "TLV",
     "access": "safety_restricted"
+  },
+  "BARCELONA": {
+    "name": "Barcelona",
+    "country": "Spain",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Europe",
+    "code": "BCN"
+  },
+  "MILAN": {
+    "name": "Milan",
+    "country": "Italy",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Europe",
+    "code": "MXP"
+  },
+  "BRUSSELS": {
+    "name": "Brussels",
+    "country": "Belgium",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Europe",
+    "code": "BRU"
+  },
+  "BERLIN": {
+    "name": "Berlin",
+    "country": "Germany",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Europe",
+    "code": "BER"
+  },
+  "BAKU": {
+    "name": "Baku",
+    "country": "Azerbaijan",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Asia",
+    "code": "GYD"
+  },
+  "ATHENS": {
+    "name": "Athens",
+    "country": "Greece",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Europe",
+    "code": "ATH"
+  },
+  "GUANGZHOU": {
+    "name": "Guangzhou",
+    "country": "China",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Asia",
+    "code": "CAN"
+  },
+  "HANGZHOU": {
+    "name": "Hangzhou",
+    "country": "China",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Asia",
+    "code": "HGH"
+  },
+  "HARBIN": {
+    "name": "Harbin",
+    "country": "China",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Asia",
+    "code": "HRB"
+  },
+  "HONG_KONG": {
+    "name": "Hong Kong",
+    "country": "China (SAR)",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Asia",
+    "code": "HKG"
+  },
+  "CASABLANCA": {
+    "name": "Casablanca",
+    "country": "Morocco",
+    "tag": "Fare discovery hub · research candidate",
+    "interest": 3,
+    "region": "Africa",
+    "code": "CMN"
   }
 }
